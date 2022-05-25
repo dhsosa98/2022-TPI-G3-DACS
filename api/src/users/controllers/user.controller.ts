@@ -14,9 +14,14 @@ import { UserService } from '../services/users.service';
 export class UserController {
   constructor(private userService: UserService) {}
 
-  @Get()
-  getUsers(user) {
-    return this.userService.findAll(user);
+  // @Get()
+  // getUsers(user) {
+  //   return this.userService.findAll(user);
+  // }
+
+  @Get('/:email')
+  getUserByEmail(@Param('email') email: string) {
+    return this.userService.findAuth(email);
   }
 
   @Get('/:id')

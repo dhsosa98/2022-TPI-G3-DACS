@@ -18,21 +18,21 @@ export class AuthService {
     return await this.usersService.create(user as CreateUserDto);
   }
 
-  async validateUser(email: string, password: string): Promise<User> {
-    const user = await this.usersService.findOne(email);
-    //const isValid = await bcrypt.compare(pass, user.password);
-    // if (user && isValid) {
-    //   const { password, ...result } = user;
-    //   return result;
-    // }
-    //return null;
-    return user;
+  async validateUser(email: string, pass: string): Promise<any> {
+    const user = await this.usersService.findAuth(email);
+    const isValid = await bcrypt.compare(pass, user.password);
+    if (user && isValid) {
+      const { password, ...result } = user;
+      return result;
+    }
+    return null;
   }
 
   async login(user: any) {
-    const payload = { email: user.email, sub: user.id };
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
+    // const payload = { email: user.email, uid: user.id, rol: user.rolId };
+    // return {
+    //   access_token: this.jwtService.sign(payload),
+    // };
+    return user;
   }
 }

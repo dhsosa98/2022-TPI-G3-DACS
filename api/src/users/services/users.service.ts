@@ -8,6 +8,7 @@ import { CreateUserDto } from '../dtos/createuser.dto';
 import { Role } from '../entitities/rols.entity';
 import { User } from '../entitities/users.entity';
 import { RoleService } from './role.service';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
@@ -28,13 +29,17 @@ export class UserService {
     return user;
   }
 
+  async findAuth(email: string): Promise<User | undefined> {
+    return this.userRepository.findOne({ where: { email }, include: [Role] });
+  }
+
   // BUSAR TODOS LOS USUARIOS NO ES NECESARIO PERO QUERIA PROBAR :)
   async findAll(options: any): Promise<User[]> {
     return await this.userRepository.findAll(options);
   }
 
   async create(user: CreateUserDto): Promise<any> {
-    let { roleId } = user;
+    let { roleId, password } = user;
     const roles = await this.roleService.findAll();
     const exist = await this.userRepository.findOne({
       where: { email: user.email },
@@ -50,7 +55,14 @@ export class UserService {
         throw new UnauthorizedException('Invalid role');
       }
     }
-    const newUser = await this.userRepository.create({ ...user, roleId });
+    const newUser = await this.userRepository.create({
+      ...user,
+      password: await bcrypt.hash(
+        password,
+        Number(process.env.HASH_SALT) || 10,
+      ),
+      roleId,
+    });
     await newUser.save();
     return newUser;
   }
