@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { GetPagination } from 'src/decorators/pagination.decorator';
 import { ShowDto, ShowOnUpdateDto } from '../dtos/Shows.dto';
 import { ShowsService } from '../services/Shows.service';
 
@@ -17,8 +18,8 @@ export class ShowsController {
   }
 
   @Get('/')
-  findAllShows() {
-    return this.showService.findAll();
+  findAllShows(@GetPagination() options: any) {
+    return this.showService.findAll(options);
   }
 
   @Get('/:showId')
