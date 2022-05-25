@@ -1,0 +1,28 @@
+#principal{
+	width: 900px;
+	height: 1000px;
+	border: 1px solid #000;
+	margin: auto;
+}
+
+.menu{
+	width: 550px;
+	height: 40px;
+	border: 1px solid #ccc;
+	float: right;
+	margin-top: 40px;
+	background: #009752;
+}
+
+
+.menu ul li{
+	list-style: none;
+	float: right;
+}
+
+.menu ul li a{
+	text-decoration: none;
+	padding: 5px 9px;
+	border: 0px solid #ccc;
+	color: #ffff;
+}

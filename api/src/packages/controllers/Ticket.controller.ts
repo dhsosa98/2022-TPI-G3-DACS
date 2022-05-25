@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { GetPagination } from 'src/decorators/pagination.decorator';
 import { TicketDto } from '../dtos/Tickets.dto';
 import { TicketService } from '../services/Ticket.service';
 
@@ -7,8 +8,8 @@ export class TicketsController {
   constructor(private ticketsService: TicketService) {}
 
   @Get()
-  getAllTickets() {
-    return this.ticketsService.findAll();
+  getAllTickets(@GetPagination() options: any) {
+    return this.ticketsService.findAll(options);
   }
 
   @Get('/:ticketId')

@@ -10,7 +10,11 @@ export class ShowsService {
   ) {}
 
   async findOne(id: number): Promise<Show> {
-    return await this.showRepository.findByPk(id);
+    const show = await this.showRepository.findByPk(id);
+    if (!show) {
+      throw new NotFoundException('Show not found');
+    }
+    return show;
   }
 
   async findAll(options?: any): Promise<Show[]> {
@@ -24,20 +28,14 @@ export class ShowsService {
   }
 
   async delete(id: number): Promise<Show> {
-    const show = await this.showRepository.findByPk(id);
-    if (!show) {
-      throw new NotFoundException('Show not found');
-    }
+    const show = await this.findOne(id);
     await show.destroy();
     return show;
   }
 
   async update(id: number, show: any): Promise<Show> {
     const showToUpdate = await this.findOne(id);
-    if (!showToUpdate) {
-      throw new NotFoundException('Show not found');
-    }
-
+  
     showToUpdate.name = show.name;
     showToUpdate.seat = show.seat;
     showToUpdate.dateShow = show.dateShow;

@@ -1,4 +1,5 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { Pagination } from 'src/shared/interfaces/pagination';
 import { HotelDto, HotelOnUpdateDto } from '../dtos/Hotel.dto';
 import { Hotel } from '../entitities/hotel.entity';
 
@@ -14,9 +15,13 @@ export class HotelService {
   }
 
   async findOne(id: number): Promise<Hotel> {
-    return await this.hotelRepository.findOne({
+    const hotel = await this.hotelRepository.findOne({
       where: { id },
     });
+    if (!hotel) {
+      throw new NotFoundException('Hotel not found');
+    }
+    return hotel;
   }
 
   async create(hotel: HotelDto): Promise<Hotel> {
@@ -26,20 +31,12 @@ export class HotelService {
   }
 
   async delete(id: number): Promise<Hotel> {
-    const hotel = await this.hotelRepository.findOne({
-      where: { id },
-    });
-    if (!hotel) {
-      throw new NotFoundException('Hotel not found');
-    }
+    const hotel = await this.findOne(id);
     await hotel.destroy();
     return hotel;
   }
   async update(id: number, hotel: any): Promise<Hotel> {
     const HotelOnUpdate = await this.findOne(id);
-    if (!HotelOnUpdate) {
-      throw new NotFoundException('Hotel does not exist');
-    }
     HotelOnUpdate.name = hotel.name;
     HotelOnUpdate.address = hotel.address;
     HotelOnUpdate.phone = hotel.phone;

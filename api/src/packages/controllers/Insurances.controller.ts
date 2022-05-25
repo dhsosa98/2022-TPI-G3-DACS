@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Post, Patch } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Patch,
+} from '@nestjs/common';
+import { GetPagination } from 'src/decorators/pagination.decorator';
 import { InsuranceOnUpdateDto } from '../dtos/InsuranceOnUpdate.dto';
 import { InsuranceDto } from '../dtos/Insurances.dto';
 import { InsuranceService } from '../services/Insurance.service';
@@ -18,8 +27,8 @@ export class InsurancesController {
   }
 
   @Get('/')
-  findAllInsurances() {
-    return this.insuranceService.findAll();
+  findAllInsurances(@GetPagination() options: any) {
+    return this.insuranceService.findAll(options);
   }
 
   @Get('/:insuranceId')
@@ -28,7 +37,10 @@ export class InsurancesController {
   }
 
   @Patch('/:id')
-  updateInsurance(@Body() insurance: InsuranceOnUpdateDto, @Param('id') id: number) {
+  updateInsurance(
+    @Body() insurance: InsuranceOnUpdateDto,
+    @Param('id') id: number,
+  ) {
     return this.insuranceService.update(id, insurance);
   }
 }

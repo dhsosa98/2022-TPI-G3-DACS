@@ -18,7 +18,11 @@ export class TicketService {
   ) {}
 
   async findOne(id: number): Promise<Ticket> {
-    return await this.ticketRepository.findOne({ where: { id } });
+    const ticket = await this.ticketRepository.findOne({ where: { id } });
+    if (!ticket) {
+      throw new NotFoundException('Ticket does not exist');
+    }
+    return ticket;
   }
 
   async findAll(options?: any): Promise<Ticket[]> {
@@ -29,10 +33,7 @@ export class TicketService {
   }
 
   async delete(id: number): Promise<Ticket> {
-    const ticket = await this.ticketRepository.findOne({ where: { id } });
-    if (!ticket) {
-      throw new NotFoundException('Ticket does not exist');
-    }
+    const ticket = await this.findOne(id);
     await this.ticketRepository.destroy({ where: { id } });
     return ticket;
   }

@@ -6,6 +6,7 @@ import {
   ForeignKey,
   HasOne,
   BelongsToMany,
+  BelongsTo,
 } from 'sequelize-typescript';
 import { Package } from 'src/packages/entitities/packages.entity';
 import { ReservedPackages } from 'src/packages/entitities/reservedPackages.entity';
@@ -36,6 +37,9 @@ export class User extends Model {
   @ForeignKey(() => Role)
   @Column
   roleId: number;
+
+  @BelongsTo(()=>Role)
+  role: Role;
 
   @BelongsToMany(() => Package, () => Sale)
   sales: Package[];
