@@ -4,7 +4,7 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { TicketDto } from '../dtos/Tickets.dto';
+import { TicketDto, TicketOnUpdateDto } from '../dtos/Tickets.dto';
 import { Ticket } from '../entitities/tickets.entity';
 import { TravelWay } from '../entitities/travelWays.entity';
 import { TravelWaysService } from './TravelWays.service';
@@ -50,5 +50,23 @@ export class TicketService {
     const newTicket = await this.ticketRepository.create({ ...ticket });
     await newTicket.save();
     return newTicket;
+  }
+
+  async update(ticketId: number, ticket: TicketOnUpdateDto) {
+    const { travelWayId } = ticket;
+    const ticketToUpdate = await this.findOne(ticketId);
+    const travelWays = await this.travelWaysService.findAll();
+    if (travelWayId) {
+      if (!travelWays.find((travelWay) => travelWay.id === travelWayId)) {
+        throw new UnauthorizedException('Invalid travel way');
+      }
+    }
+    ticketToUpdate.seat = ticket.seat;
+    ticketToUpdate.departureDate = ticket.departureDate;
+    ticketToUpdate.returnDate = ticket.returnDate;
+    ticketToUpdate.amount = ticket.amount;
+    ticketToUpdate.travelWayId = travelWayId;
+    await ticketToUpdate.save();
+    return ticketToUpdate;
   }
 }

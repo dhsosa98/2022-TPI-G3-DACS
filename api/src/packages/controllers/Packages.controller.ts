@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards, UseInterceptors } from '@nestjs/common';
+import { Public } from 'src/auth/decorators/public.decorator';
 import { Role } from 'src/auth/enums/role.enum';
-import { RolesGuard } from 'src/auth/guards/roles.guards';
+import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { Roles } from 'src/decorators/roles.decorator';
 import { PackageDto, PackageOnUpdateDto } from '../dtos/Package.dto';
 import { ValidatePackages } from '../interceptors/ValidatePackages.interceptor';
@@ -26,32 +27,34 @@ export class PackagesController {
   //   return this.packageService.createInsurance(insurance);
   // }
   @Get('/')
-  @Roles(Role.Admin)
+  @Public()
   getAllPackages() {
     return this.packageService.findAll();
   }
 
   @Get('/:id')
+  @Public()
   getPackageById(@Param('id') id: number) {
     return this.packageService.findOne(id);
   }
 
   @Post('/')
+  @Roles(Role.Admin)
   @UseInterceptors(ValidatePackages)
   createPackage(@Body() tourismPackage: PackageDto) {
     return this.packageService.create(tourismPackage);
   }
 
   @Delete('/:packageId')
+  @Roles(Role.Admin)
   deletePackageById(@Param('packageId') packageId: number) {
     return this.packageService.delete(packageId);
   }
 
   @Patch('/:id')
+  @Roles(Role.Admin)
   @UseInterceptors(ValidatePackages)
   updatePackage(@Body() pack: PackageOnUpdateDto, @Param('id') id: number) {
     return this.packageService.update(id, pack);
   }
-
 }
-

@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsDate, IsNumber } from 'class-validator';
+import { IsDate, IsNumber, IsOptional } from 'class-validator';
 
 export class TicketDto {
   @IsNumber()
@@ -16,6 +16,30 @@ export class TicketDto {
   @IsNumber()
   travelWayId: number;
 
+  @IsNumber()
+  amount: number;
+}
+
+export class TicketOnUpdateDto {
+  @IsOptional()
+  @IsNumber()
+  seat: number;
+
+  @IsOptional()
+  @IsDate()
+  @Type(() => Date)
+  departureDate: Date;
+
+  @IsOptional()
+  @IsDate()
+  @Type(() => Date)
+  returnDate: Date;
+
+  @IsOptional()
+  @IsNumber()
+  travelWayId: number;
+
+  @IsOptional()
   @IsNumber()
   amount: number;
 }
