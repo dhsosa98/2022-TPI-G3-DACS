@@ -34,7 +34,7 @@ export class UserService {
   }
 
   // BUSAR TODOS LOS USUARIOS NO ES NECESARIO PERO QUERIA PROBAR :)
-  async findAll(options: any): Promise<User[]> {
+  async findAll(options?: any): Promise<User[]> {
     return await this.userRepository.findAll(options);
   }
 

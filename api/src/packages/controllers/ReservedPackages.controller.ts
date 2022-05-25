@@ -25,16 +25,16 @@ export class ReservedPackagesController {
 
   @Post('/')
   createReserve(@Request() req: any, @Body() packagesByClient: any) {
-    return this.packageService.createReserve(req.userId, packagesByClient);
+    return this.packageService.createReserve(req.user.uid, packagesByClient);
   }
 
   @Delete('/:packageId')
   deleteReserve(@Request() req: any, @Param('packageId') packageId: number) {
-    return this.packageService.deleteReserve(req.userId, packageId);
+    return this.packageService.deleteReserve(req.user.uid, packageId);
   }
 
   @Get('/')
   getReserves(@Request() req: any) {
-    return this.packageService.findAllReserves(req.userId);
+    return this.packageService.findAllReserves(req.user.uid);
   }
 }

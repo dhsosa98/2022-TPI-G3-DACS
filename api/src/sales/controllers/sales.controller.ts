@@ -8,6 +8,6 @@ export class SalesController {
 
   @Post('/')
   createSales(@Request() req: any, @Body() packagesByClient: CreateSaleDto) {
-    return this.saleService.createSales(req.userId, packagesByClient);
+    return this.saleService.createSales(req.user.uid, packagesByClient);
   }
 }

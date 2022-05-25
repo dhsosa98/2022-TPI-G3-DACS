@@ -7,6 +7,8 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
+import { Role } from 'src/auth/enums/role.enum';
+import { Roles } from 'src/decorators/roles.decorator';
 import { CreateUserDto } from '../dtos/createuser.dto';
 import { UserService } from '../services/users.service';
 
@@ -14,27 +16,26 @@ import { UserService } from '../services/users.service';
 export class UserController {
   constructor(private userService: UserService) {}
 
-  // @Get()
-  // getUsers(user) {
-  //   return this.userService.findAll(user);
-  // }
-
-  @Get('/:email')
-  getUserByEmail(@Param('email') email: string) {
-    return this.userService.findAuth(email);
+  @Get()
+  @Roles(Role.Admin)
+  getUsers() {
+    return this.userService.findAll();
   }
 
   @Get('/:id')
+  @Roles(Role.Admin)
   getUser(@Param('id') id: number) {
     return this.userService.findOne(id);
   }
 
   @Post('/')
+  @Roles(Role.Admin)
   async createUser(@Body() user: CreateUserDto) {
     return this.userService.create(user);
   }
 
   @Delete('/:id')
+  @Roles(Role.Admin)
   deleteUser(@Param('id') id: number) {
     return this.userService.delete(id);
   }

@@ -9,7 +9,8 @@ import { ConfigModule } from '@nestjs/config';
 import { MarketingModule } from './marketing/Marketing.module';
 import { SaleModule } from './sales/sales.module';
 import { AuthModule } from './auth/modules/auth.module';
-import { RolesGuard } from './auth/guards/roles.guards';
+import { RolesGuard } from './auth/guards/roles.guard';
+import { JwtAuthGuard } from './auth/guards/auth.guard';
 
 @Module({
   imports: [
@@ -26,13 +27,16 @@ import { RolesGuard } from './auth/guards/roles.guards';
     AppService,
     {
       provide: 'APP_GUARD',
+      useClass: JwtAuthGuard,
+    },
+    {
+      provide: 'APP_GUARD',
       useClass: RolesGuard,
     },
   ],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes('*');
-  }
-}
-
+// implements NestModule {
+//   configure(consumer: MiddlewareConsumer) {
+//     consumer.apply(LoggerMiddleware).forRoutes('*');
+//   }
+export class AppModule {}
