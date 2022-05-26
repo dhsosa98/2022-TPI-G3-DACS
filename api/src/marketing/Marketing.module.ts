@@ -32,7 +32,7 @@ import { UsersModule } from 'src/users/users.module';
           from: 'Marketing Area <' + config.get('EMAIL_USER') + '>',
         },
         template: {
-          dir: join(__dirname, './templates'),
+          dir: join(__dirname, '../templates'),
           adapter: new HandlebarsAdapter(),
           options: {
             strict: true,
