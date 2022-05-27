@@ -90,4 +90,4 @@ _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios
 
 ## Despedida 🐺
 
-Este proyecto fue desarrollado entre todos los integrantes compartiendo nuestros conocimentos y aprendiendo a medida que el desarrollo fue evolucionando desde la primer Historia de Usuario hasta la ultima funcionalidad incluida. 💻
+Este proyecto fue desarrollado entre todos los integrantes compartiendo nuestros conocimientos y aprendiendo a medida que el desarrollo fue evolucionando desde la primer Historia de Usuario hasta la ultima funcionalidad incluida. 💻
