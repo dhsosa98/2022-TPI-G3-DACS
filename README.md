@@ -48,15 +48,20 @@ DB_NAME=Tourism_eCommerce
 
 _Finalizado este paso continuamos con la instalacion de la base de datos_
 
+*1er paso: Crear base de datos.*
+
 ```
-1er paso: Crear base de datos.
-    npx sequelize-cli db:create
+npx sequelize-cli db:create
+```
 
-2do paso: Crear tablas.
-    npx sequelize-cli db:migrate
+*2do paso: Crear tablas.*
+```
+npx sequelize-cli db:migrate
+```
 
-3er paso: Cargar datos.
-    npx sequelize-cli db:seed:all
+*3er paso: Carga de datos.*
+```
+npx sequelize-cli db:seed:all
 ```
 
 ## Construido con 🛠️
@@ -75,13 +80,6 @@ _Herramientas utilizadas para crear el proyecto_
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
-- acevedoariel.ea1@gmail.com
-  Acosta Gaston - gasteac@gmail.com
-- joaquin.ramirez170998@gmail.com
-  Ruiz Franco - ruizfranco2812@gmail.com
-  Sosa Diego - dhsosa98@gmail.com
-  Vilalta Tomas - tomasfedericovilalta@gmail.com
-
 * **Acevedo Ariel** - _Gestor de Datos, Desarrollador, Tester, Documentacion_ - [JustaDeathKnight](https://github.com/JustaDeathKnight)
 * **Acosta Gaston** - _Desarrollador, Tester, Documentación_ - [gasteac](https://github.com/gasteac)
 * **Ramirez Joaquin** - _Desarrollador, Tester, Documentación_ - [JoaquinRamirez98](https://github.com/JoaquinRamirez98)
@@ -89,7 +87,6 @@ _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios
 * **Sosa Diego** - _Trabajo Inicial, Gestor de Datos, Desarrollador, Tester, Documentación_ - [dhsosa98](https://github.com/dhsosa98)
 * **Vilalta Tomas** - _Desarrollador, Tester, Documentación_ - [TomasVilalta](https://github.com/TomasVilalta)
 
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/orgs/FRRe-DACS/teams/2022-g3/members) quíenes han participado en este proyecto.
 
 ## Despedida 🐺
 
