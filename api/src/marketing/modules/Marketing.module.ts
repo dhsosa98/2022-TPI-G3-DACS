@@ -1,14 +1,12 @@
 import { Module } from '@nestjs/common';
-import { MarketingService } from './services/MarketingService.service';
+import { MarketingService } from '../services/MarketingService.service';
 import { ScheduleModule } from '@nestjs/schedule';
 import { PackagesModule } from 'src/packages/modules/packages.module';
 import { ConfigService, ConfigModule } from '@nestjs/config';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { join } from 'path';
-import { SaleModule } from 'src/sales/sales.module';
-import { MarketingController } from './controllers/Marketing.controller';
-import { UsersModule } from 'src/users/users.module';
+import { UsersModule } from 'src/users/modules/users.module';
 
 @Module({
   imports: [
@@ -43,7 +41,7 @@ import { UsersModule } from 'src/users/users.module';
     }),
     ConfigModule.forRoot(),
   ],
-  controllers: [MarketingController],
+  controllers: [],
   providers: [MarketingService],
 })
 export class MarketingModule {}

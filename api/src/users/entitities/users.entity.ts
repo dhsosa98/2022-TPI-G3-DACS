@@ -11,7 +11,7 @@ import {
 import { Package } from 'src/packages/entitities/packages.entity';
 import { ReservedPackages } from 'src/packages/entitities/reservedPackages.entity';
 import { Sale } from 'src/sales/entitities/sale.entity';
-import { Role } from './rols.entity';
+import { Role } from './roles.entity';
 
 @Table({ tableName: 'Users', timestamps: false })
 export class User extends Model {

@@ -9,9 +9,9 @@ import {
 } from '@nestjs/common';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { Role } from 'src/auth/enums/role.enum';
-import { GetPagination } from 'src/decorators/pagination.decorator';
-import { Roles } from 'src/decorators/roles.decorator';
-import { Pagination } from 'src/shared/interfaces/pagination';
+import { CreateQueries } from 'src/decorators/queries.decorator';
+import { Roles } from 'src/auth/decorators/roles.decorator';
+import { Pagination } from 'src/shared/interfaces/queries';
 import { HotelDto, HotelOnUpdateDto } from '../dtos/Hotel.dto';
 import { HotelService } from '../services/Hotel.service';
 @Controller('hotels')
@@ -20,7 +20,7 @@ export class HotelController {
 
   @Get('/')
   @Public()
-  async findAllHotels(@GetPagination() options: Pagination) {
+  async findAllHotels(@CreateQueries() options: Pagination) {
     return await this.hotelService.findAll(options);
   }
 

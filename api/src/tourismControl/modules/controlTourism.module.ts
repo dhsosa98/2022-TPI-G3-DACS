@@ -1,6 +1,6 @@
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
-import { ControlTourismService } from './services/controlTourism.service';
+import { ControlTourismService } from '../services/controlTourism.service';
 
 @Module({
   imports: [

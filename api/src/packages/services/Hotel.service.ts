@@ -1,5 +1,5 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { Pagination } from 'src/shared/interfaces/pagination';
+import { Pagination } from 'src/shared/interfaces/queries';
 import { HotelDto, HotelOnUpdateDto } from '../dtos/Hotel.dto';
 import { Hotel } from '../entitities/hotel.entity';
 

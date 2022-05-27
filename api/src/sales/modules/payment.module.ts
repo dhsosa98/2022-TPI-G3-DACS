@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { PaymentService } from './services/payment.service';
-import { SalesService } from './services/sales.service';
+import { PaymentService } from '../services/payment.service';
+import { SalesService } from '../services/sales.service';
 
 @Module({
   imports: [],

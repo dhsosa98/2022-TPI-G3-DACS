@@ -2,9 +2,9 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards, UseInterc
 import { Public } from 'src/auth/decorators/public.decorator';
 import { Role } from 'src/auth/enums/role.enum';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
-import { Roles } from 'src/decorators/roles.decorator';
+import { Roles } from 'src/auth/decorators/roles.decorator';
 import { PackageDto, PackageOnUpdateDto } from '../dtos/Package.dto';
-import { ValidatePackages } from '../interceptors/ValidatePackages.interceptor';
+import { ValidatePackages } from '../interceptors/PackagesConstructor.interceptor';
 import { PackagesService } from '../services/Packages.service';
 import { ReservedPackagesService } from '../services/ReservedPackages.service';
 
