@@ -10,7 +10,7 @@ En la rama **Deployment** se encuentran las funcionalidades que fueron añadidas
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para poder inicial la aplicación y como instalarlas_
+_Que cosas necesitas para poder iniciar la aplicación y como instalarlas_
 
 ```
 - Node.js.
@@ -38,8 +38,8 @@ npm install
 _Por ultimo instalamos la base de datos, pero primero necesitamos un archivo llamado '.env' en la raiz del directorio .\api\ donde se declara lo necesario para poder comunicarnos con MySQL_
 
 ```
-DB_USER= user
-DB_PASSWORD= password
+DB_USER=<user>
+DB_PASSWORD=<password>
 DB_PORT=3306
 DB_DIALECT=mysql
 DB_HOST=localhost
