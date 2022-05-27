@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { Role } from 'src/auth/enums/role.enum';
-import { GetPagination } from 'src/decorators/pagination.decorator';
-import { Roles } from 'src/decorators/roles.decorator';
+import { CreateQueries } from 'src/decorators/queries.decorator';
+import { Roles } from 'src/auth/decorators/roles.decorator';
 import { ShowDto, ShowOnUpdateDto } from '../dtos/Shows.dto';
 import { ShowsService } from '../services/Shows.service';
 
@@ -32,7 +32,7 @@ export class ShowsController {
 
   @Get('/')
   @Public()
-  findAllShows(@GetPagination() options: any) {
+  findAllShows(@CreateQueries() options: any) {
     return this.showService.findAll(options);
   }
 

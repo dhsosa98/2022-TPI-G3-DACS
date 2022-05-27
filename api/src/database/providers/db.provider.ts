@@ -10,7 +10,7 @@ import { Show } from 'src/packages/entitities/shows.entity';
 import { Ticket } from 'src/packages/entitities/tickets.entity';
 import { TravelWay } from 'src/packages/entitities/travelWays.entity';
 import { Sale } from 'src/sales/entitities/sale.entity';
-import { Role } from 'src/users/entitities/rols.entity';
+import { Role } from 'src/users/entitities/roles.entity';
 import { User } from 'src/users/entitities/users.entity';
 
 export const DatabaseProviders = [

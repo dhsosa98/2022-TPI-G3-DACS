@@ -1,9 +1,9 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { Request } from 'express';
-import { Pagination } from '../shared/interfaces/pagination';
+import { Pagination } from '../shared/interfaces/queries';
 import { Op, Sequelize } from 'sequelize';
 
-export const GetPagination = createParamDecorator(
+export const CreateQueries = createParamDecorator(
   (data, ctx: ExecutionContext): Pagination => {
     const req: Request = ctx.switchToHttp().getRequest();
 

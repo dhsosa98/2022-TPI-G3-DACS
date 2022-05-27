@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { Role } from 'src/auth/enums/role.enum';
-import { Roles } from 'src/decorators/roles.decorator';
+import { Roles } from 'src/auth/decorators/roles.decorator';
 import { CreateUserDto } from '../dtos/createuser.dto';
 import { UserService } from '../services/users.service';
 

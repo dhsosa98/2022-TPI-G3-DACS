@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { Role } from 'src/auth/enums/role.enum';
-import { GetPagination } from 'src/decorators/pagination.decorator';
-import { Roles } from 'src/decorators/roles.decorator';
+import { CreateQueries } from 'src/decorators/queries.decorator';
+import { Roles } from 'src/auth/decorators/roles.decorator';
 import { InsuranceOnUpdateDto } from '../dtos/InsuranceOnUpdate.dto';
 import { InsuranceDto } from '../dtos/Insurances.dto';
 import { InsuranceService } from '../services/Insurance.service';
@@ -33,7 +33,7 @@ export class InsurancesController {
 
   @Get('/')
   @Public()
-  findAllInsurances(@GetPagination() options: any) {
+  findAllInsurances(@CreateQueries() options: any) {
     return this.insuranceService.findAll(options);
   }
 

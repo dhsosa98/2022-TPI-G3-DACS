@@ -1,19 +1,10 @@
-import {
-  Injectable,
-  Inject,
-  UnauthorizedException,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, Inject, NotFoundException } from '@nestjs/common';
 import { Hotel } from '../entitities/hotel.entity';
 import { Insurance } from '../entitities/insurances.entity';
 import { Package } from '../entitities/packages.entity';
 import { Show } from '../entitities/shows.entity';
 import { Ticket } from '../entitities/tickets.entity';
 import { TravelWay } from '../entitities/travelWays.entity';
-import { HotelService } from './Hotel.service';
-import { InsuranceService } from './Insurance.service';
-import { ShowsService } from './Shows.service';
-import { TicketService } from './Ticket.service';
 
 @Injectable()
 export class PackagesService {

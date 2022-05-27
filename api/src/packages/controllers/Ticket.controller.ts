@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { Role } from 'src/auth/enums/role.enum';
-import { GetPagination } from 'src/decorators/pagination.decorator';
-import { Roles } from 'src/decorators/roles.decorator';
+import { CreateQueries } from 'src/decorators/queries.decorator';
+import { Roles } from 'src/auth/decorators/roles.decorator';
 import { TicketDto, TicketOnUpdateDto } from '../dtos/Tickets.dto';
 import { TicketService } from '../services/Ticket.service';
 
@@ -29,7 +29,7 @@ export class TicketsController {
 
   @Get()
   @Public()
-  getAllTickets(@GetPagination() options: any) {
+  getAllTickets(@CreateQueries() options: any) {
     return this.ticketsService.findAll(options);
   }
 

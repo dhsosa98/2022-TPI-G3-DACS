@@ -5,7 +5,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { CreateUserDto } from '../dtos/createuser.dto';
-import { Role } from '../entitities/rols.entity';
+import { Role } from '../entitities/roles.entity';
 import { User } from '../entitities/users.entity';
 import { RoleService } from './role.service';
 import * as bcrypt from 'bcrypt';

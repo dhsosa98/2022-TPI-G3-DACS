@@ -1,12 +1,7 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
-import { Sale } from 'src/sales/entitities/sale.entity';
-import { SalesService } from 'src/sales/services/sales.service';
-import { ControlTourismService } from 'src/tourismControl/services/controlTourism.service';
-import { User } from 'src/users/entitities/users.entity';
 import { UserService } from 'src/users/services/users.service';
 import { Package } from '../entitities/packages.entity';
 import { ReservedPackages as ReservedPackages } from '../entitities/reservedPackages.entity';
-import { PackagesByClientRepository } from '../repositories/PackagesByClient.repository';
 import { PackagesService } from './Packages.service';
 
 @Injectable()
