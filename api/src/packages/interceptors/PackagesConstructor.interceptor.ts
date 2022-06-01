@@ -12,7 +12,7 @@ import { ShowsService } from '../services/Shows.service';
 import { TicketService } from '../services/Ticket.service';
 
 @Injectable()
-export class ValidatePackages implements NestInterceptor {
+export class PackagesConstructor implements NestInterceptor {
   constructor(
     private insuranceService: InsuranceService,
     private ticketService: TicketService,

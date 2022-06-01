@@ -45,7 +45,7 @@ export class MarketingService {
     }
   }
 
-  @Cron('* * 19 27 * *')
+  // @Cron('* ' 17 27 * *')
   // @Timeout(3000)
   async handleNotifications() {
     const date = new Date();
