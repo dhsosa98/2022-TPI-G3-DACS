@@ -1,4 +1,4 @@
-export interface Pagination {
+export interface Queries {
   skip?: number;
   limit?: number;
   sort?: { field: string; by: 'ASC' | 'DESC' }[];

@@ -15,14 +15,6 @@ import { ReservedPackagesService } from '../services/ReservedPackages.service';
 export class ReservedPackagesController {
   constructor(private readonly packageService: ReservedPackagesService) {}
 
-  // @Get('/buyed')
-  // getBuyedPackages(): string {
-  //   // Mientras tanto vamos a utilizar un id de un cliente en específico,
-  //   // luego este id lo vamos a obtener del token de autenticación
-  //   const req = { clientId: 1 };
-  //   return this.packageService.getPackagesBuyedByCostumer(req.clientId);
-  // }
-
   @Post('/')
   createReserve(@Request() req: any, @Body() packagesByClient: any) {
     return this.packageService.createReserve(req.user.uid, packagesByClient);
