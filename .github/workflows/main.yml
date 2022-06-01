@@ -23,3 +23,8 @@ jobs:
           working-directory: ./api
         - run: npm test
           working-directory: ./api
+        - name: Run linters
+          uses: wearerequired/lint-action@v2
+          with:
+            eslint: true
+
