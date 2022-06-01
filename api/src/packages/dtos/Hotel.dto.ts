@@ -11,17 +11,16 @@ export class HotelDto {
   phone: number;
 }
 
-
 export class HotelOnUpdateDto {
-  @IsOptional() 
+  @IsOptional()
   @IsString()
   name: string;
 
-  @IsOptional() 
+  @IsOptional()
   @IsString()
   address: string;
 
-  @IsOptional() 
+  @IsOptional()
   @IsNumber()
   phone: number;
 }

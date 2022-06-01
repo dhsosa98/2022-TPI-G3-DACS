@@ -4,7 +4,7 @@ import { Role } from 'src/auth/enums/role.enum';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { PackageDto, PackageOnUpdateDto } from '../dtos/Package.dto';
-import { ValidatePackages } from '../interceptors/PackagesConstructor.interceptor';
+import { PackagesConstructor } from '../interceptors/PackagesConstructor.interceptor';
 import { PackagesService } from '../services/Packages.service';
 import { ReservedPackagesService } from '../services/ReservedPackages.service';
 
@@ -40,7 +40,7 @@ export class PackagesController {
 
   @Post('/')
   @Roles(Role.Admin)
-  @UseInterceptors(ValidatePackages)
+  @UseInterceptors(PackagesConstructor)
   createPackage(@Body() tourismPackage: PackageDto) {
     return this.packageService.create(tourismPackage);
   }
@@ -53,7 +53,7 @@ export class PackagesController {
 
   @Patch('/:id')
   @Roles(Role.Admin)
-  @UseInterceptors(ValidatePackages)
+  @UseInterceptors(PackagesConstructor)
   updatePackage(@Body() pack: PackageOnUpdateDto, @Param('id') id: number) {
     return this.packageService.update(id, pack);
   }
