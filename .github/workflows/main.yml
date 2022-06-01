@@ -21,6 +21,8 @@ jobs:
             cache-dependency-path: api/package-lock.json 
         - run: npm ci
           working-directory: ./api
+          name: ESLint
+        - run: npm run lint
         - run: npm test
           working-directory: ./api
 
