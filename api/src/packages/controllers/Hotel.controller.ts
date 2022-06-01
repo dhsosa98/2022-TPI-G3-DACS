@@ -11,7 +11,7 @@ import { Public } from 'src/auth/decorators/public.decorator';
 import { Role } from 'src/auth/enums/role.enum';
 import { CreateQueries } from 'src/decorators/queries.decorator';
 import { Roles } from 'src/auth/decorators/roles.decorator';
-import { Pagination } from 'src/shared/interfaces/queries';
+import { Queries } from 'src/shared/interfaces/queries';
 import { HotelDto, HotelOnUpdateDto } from '../dtos/Hotel.dto';
 import { HotelService } from '../services/Hotel.service';
 @Controller('hotels')
@@ -20,7 +20,7 @@ export class HotelController {
 
   @Get('/')
   @Public()
-  async findAllHotels(@CreateQueries() options: Pagination) {
+  async findAllHotels(@CreateQueries() options: Queries) {
     return await this.hotelService.findAll(options);
   }
 
