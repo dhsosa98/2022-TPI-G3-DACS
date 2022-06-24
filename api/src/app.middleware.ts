@@ -8,7 +8,7 @@ export class LoggerMiddleware implements NestMiddleware {
     // luego este id lo vamos a obtener del token de autenticación
     req.userId = 1;
     req.user = {
-      roles: ['admin']
+      roles: ['admin'],
     };
     next();
   }

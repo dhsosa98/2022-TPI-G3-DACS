@@ -36,7 +36,7 @@ export const DatabaseProviders = [
         TravelWay,
         Package,
         Sale,
-        ReservedPackages
+        ReservedPackages,
       ]);
       await sequelize.sync();
       return sequelize;

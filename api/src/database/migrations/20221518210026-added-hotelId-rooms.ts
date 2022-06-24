@@ -12,4 +12,3 @@ module.exports = {
     return Promise.all([queryInterface.removeColumn('Rooms', 'roomNumber')]);
   },
 };
-

@@ -1,4 +1,10 @@
-import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
 import { TravelWay } from './travelWays.entity';
 
 @Table({ tableName: 'Tickets', timestamps: false })
