@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     return queryInterface.bulkInsert('packagebookings', [
       {
         subTotal: 2000,
@@ -45,10 +45,10 @@ module.exports = {
         userId: 5,
         packId: 2,
       },
-    ])
+    ]);
   },
 
-  async down (queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('packagebookings', null, {})
-  }
+  async down(queryInterface, Sequelize) {
+    return queryInterface.bulkDelete('packagebookings', null, {});
+  },
 };

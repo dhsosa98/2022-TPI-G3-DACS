@@ -35,7 +35,7 @@ export class ShowsService {
 
   async update(id: number, show: any): Promise<Show> {
     const showToUpdate = await this.findOne(id);
-  
+
     showToUpdate.name = show.name;
     showToUpdate.seat = show.seat;
     showToUpdate.dateShow = show.dateShow;
