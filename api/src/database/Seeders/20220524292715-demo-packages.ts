@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('packages', [
+    return queryInterface.bulkInsert('Packages', [
       {
         name: 'HELIUM',
         quantPeople: 2,
@@ -907,6 +907,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('packages', null, {});
+    return queryInterface.bulkDelete('Packages', null, {});
   },
 };

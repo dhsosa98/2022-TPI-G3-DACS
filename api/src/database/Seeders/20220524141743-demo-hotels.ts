@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('hotels', [
+    return queryInterface.bulkInsert('Hotels', [
       {
         name: 'Hoeger, Herzog and Wiegand',
         address: '94 Southridge Circle',
@@ -459,6 +459,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('hotels', null, {});
+    return queryInterface.bulkDelete('Hotels', null, {});
   },
 };
