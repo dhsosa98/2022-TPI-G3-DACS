@@ -2,40 +2,39 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('rooms', [
+    return queryInterface.bulkInsert('Rooms', [
       {
         numBeds: 4,
         description: 'Really nice view',
-        amount: 58.90,
+        amount: 58.9,
         type: 'Suite',
-        roomNumber: 49
+        roomNumber: 49,
       },
       {
         numBeds: 2,
         description: 'Has a jacuzzi',
         amount: 49.99,
         type: 'Double',
-        roomNumber: 24
+        roomNumber: 24,
       },
       {
         numBeds: 3,
         description: 'Nice view',
         amount: 49.99,
         type: 'Triple',
-        roomNumber: 17
+        roomNumber: 17,
       },
       {
         numBeds: 6,
         description: 'Bunk beds for the bois',
         amount: 60,
         type: 'Suite',
-        roomNumber: 31
+        roomNumber: 31,
       },
-
-    ])
+    ]);
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('rooms', null, {})
-  }
+    return queryInterface.bulkDelete('Rooms', null, {});
+  },
 };

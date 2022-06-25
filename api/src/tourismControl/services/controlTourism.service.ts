@@ -1,3 +1,5 @@
+/*eslint-disable*/
+require('dotenv').config();
 import { HttpService } from '@nestjs/axios';
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { Observable, of, throwError } from 'rxjs';
@@ -11,7 +13,9 @@ export class ControlTourismService {
   httpComptroller(req: HttpBodyRequestComptroller): Observable<any> {
     return this.httpService
       .post(
-        'http://localhost:8080/operacion',
+        `http://${
+          process.env.DOCKER ? 'tourism_control' : 'localhost'
+        }:8080/operacion`,
         { ...req },
         {
           headers: {

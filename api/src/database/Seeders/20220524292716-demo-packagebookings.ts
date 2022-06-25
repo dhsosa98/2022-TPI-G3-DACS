@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('packagebookings', [
+  async up(queryInterface, Sequelize) {
+    return queryInterface.bulkInsert('PackageBookings', [
       {
         subTotal: 2000,
         pending: 1,
@@ -45,10 +45,10 @@ module.exports = {
         userId: 5,
         packId: 2,
       },
-    ])
+    ]);
   },
 
-  async down (queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('packagebookings', null, {})
-  }
+  async down(queryInterface, Sequelize) {
+    return queryInterface.bulkDelete('PackageBookings', null, {});
+  },
 };
