@@ -21,7 +21,7 @@ module.exports = {
       },
       travelWayId: {
         type: Sequelize.INTEGER,
-        references: { model: { tableName: 'Travelways' }, key: 'id' },
+        references: { model: { tableName: 'TravelWays' }, key: 'id' },
         allowNull: false,
       },
       amount: {

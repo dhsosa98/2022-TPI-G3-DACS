@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('reservehabs', [
+    return queryInterface.bulkInsert('ReserveHabs', [
       {
         departureDate: '2022-09-14 08:00:00',
         returnDate: '2022-10-01 08:00:00',
@@ -27,6 +27,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('reservehabs', null, {});
+    return queryInterface.bulkDelete('ReserveHabs', null, {});
   },
 };

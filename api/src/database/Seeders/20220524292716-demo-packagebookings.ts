@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('packagebookings', [
+    return queryInterface.bulkInsert('PackageBookings', [
       {
         subTotal: 2000,
         pending: 1,
@@ -49,6 +49,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('packagebookings', null, {});
+    return queryInterface.bulkDelete('PackageBookings', null, {});
   },
 };
