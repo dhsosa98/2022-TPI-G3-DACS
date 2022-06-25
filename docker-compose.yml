@@ -23,7 +23,7 @@ services:
       - EMAIL_PASSWORD=$EMAIL_PASSWORD
       - DOCKER=DOCKER
     # Run a command against the development stage of the image
-    command: sh -c "/wait && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run start:dev"
+    command: sh -c "/wait && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run start:dev"
     ports:
       - 6868:$PORT
     depends_on:
