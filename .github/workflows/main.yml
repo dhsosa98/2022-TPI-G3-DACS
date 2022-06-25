@@ -23,4 +23,6 @@ jobs:
           working-directory: ./api
         - run: npm test
           working-directory: ./api
+        - run: npm run lint
+          working-directory: ./api
 
