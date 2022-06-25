@@ -39,7 +39,8 @@ export class UserService {
   }
 
   async create(user: CreateUserDto): Promise<any> {
-    let { roleId, password } = user;
+    let { roleId } = user;
+    const { password } = user;
     const roles = await this.roleService.findAll();
     const exist = await this.userRepository.findOne({
       where: { email: user.email },

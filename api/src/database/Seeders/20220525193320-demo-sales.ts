@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('sales', [
+    return queryInterface.bulkInsert('Sales', [
       {
         paymentMethod: 'Credit Card',
         paymentAmount: 3000,
@@ -28,6 +28,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('sales', null, {});
+    return queryInterface.bulkDelete('Sales', null, {});
   },
 };
