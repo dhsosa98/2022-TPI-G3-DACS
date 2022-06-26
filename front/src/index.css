@@ -10,6 +10,7 @@
 
 body{
     background-image: url("../public/images/wallpaper.jpg");
+    background-color: black;
     background-position: fixed;
     background-repeat: no-repeat;
     background-size: cover;
