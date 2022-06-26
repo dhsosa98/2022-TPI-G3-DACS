@@ -10,6 +10,7 @@ module.exports = {
         poppins: ["Poppins", "sans-serif"],
         adelia: ["ADELIA", "cursive"],
         monstserrat: ['Montserrat', "sans-serif"],
+        mulish: ['Mulish', 'sans-serif']
       },
       dropShadow: {
         'Wxl': [
