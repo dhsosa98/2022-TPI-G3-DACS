@@ -2,6 +2,7 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import Logo from '../../public/icons/android/logo.png'
+import { Link } from "react-router-dom"
 import {
   CalendarIcon,
   MenuIcon,
@@ -15,22 +16,22 @@ const resources = [
   {
     name: 'Hoteles',
     description: 'Vea los hoteles disponibles.',
-    href: '#',
+    href: '/hoteles',
     icon: OfficeBuildingIcon,
   },
   {
     name: 'Eventos',
     description: 'Vea los eventos disponibles.',
-    href: '#',
+    href: '/eventos',
     icon: CalendarIcon,
   },
   {
     name: 'Medios de transporte',
     description: 'Vea las formas de viaje disponibles.',
-    href: '#',
+    href: '/transporte',
     icon: TruckIcon,
   },
-  { name: 'Paquetes', description: 'Vea los paquetes disponibles.', href: '#', icon: ArchiveIcon },
+  { name: 'Paquetes', description: 'Vea los paquetes disponibles.', href: '/paquetes', icon: ArchiveIcon },
 ]
 
 
@@ -41,18 +42,18 @@ function classNames(...classes) {
 export default function NavBar() {
   return (
  
-    <Popover className="relative bg-[#ffffff]">
+    <Popover className="relative bg-[#ffffffcc]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#">
+            <Link to="/">
               <span className="sr-only">Workflow</span>
               <img
                 className="h-12 w-auto"
                 src={Logo}
                 alt=""
               />
-            </a>
+            </Link>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -63,12 +64,12 @@ export default function NavBar() {
           <Popover.Group as="nav" className="hidden md:flex space-x-10">
             
 
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+            <Link to="/quienesSomos" className="text-base font-medium text-gray-500 hover:text-gray-900">
               Quienes somos?
-            </a>
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+            </Link>
+            <Link to="/contacto" className="text-base font-medium text-gray-500 hover:text-gray-900">
               Contacto
-            </a>
+            </Link>
 
             <Popover className="relative">
               {({ open }) => (
@@ -76,7 +77,7 @@ export default function NavBar() {
                   <Popover.Button
                     className={classNames(
                       open ? 'text-gray-900' : 'text-gray-500',
-                      'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                      'group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 '
                     )}
                   >
                     <span>Informacion</span>
@@ -102,9 +103,9 @@ export default function NavBar() {
                       <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                         <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                           {resources.map((item) => (
-                            <a
+                            <Link
                               key={item.name}
-                              href={item.href}
+                              to={item.href}
                               className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                             >
                               <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
@@ -112,7 +113,7 @@ export default function NavBar() {
                                 <p className="text-base font-medium text-gray-900">{item.name}</p>
                                 <p className="mt-1 text-sm text-gray-500">{item.description}</p>
                               </div>
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       </div>
@@ -123,15 +124,15 @@ export default function NavBar() {
             </Popover>
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+            <Link to="/iniciarsesion" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
               Ingresar
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/registrarse"
               className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
             >
               Registrarse
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -167,35 +168,35 @@ export default function NavBar() {
             </div>
             <div className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                <Link to="/quienessomos" className="text-base font-medium text-gray-900 hover:text-gray-700">
                   Quienes Somos?
-                </a>
+                </Link>
 
-                <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                <Link to="/contacto" className="text-base font-medium text-gray-900 hover:text-gray-700">
                   Contacto
-                </a>
+                </Link>
                 {resources.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className="text-base font-medium text-gray-900 hover:text-gray-700"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
               <div>
-                <a
-                  href="#"
+                <Link
+                  to="/iniciarsesion"
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
                 >
                   Ingresar
-                </a>
+                </Link>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   No tienes cuenta?{' '}
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                  <Link to="/registrarse" className="text-indigo-600 hover:text-indigo-500">
                     Registrarse
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
