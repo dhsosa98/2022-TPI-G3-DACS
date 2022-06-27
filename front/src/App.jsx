@@ -16,7 +16,7 @@ function App() {
       <NavBar/>
     </section>
     <Switch>
-      <Home/>
+      <Home />
     </Switch>
   </Router>
   )

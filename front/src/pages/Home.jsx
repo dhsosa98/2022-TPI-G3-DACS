@@ -3,12 +3,10 @@ import Login from '../components/Login'
 
 const Home = () => {
   return (
-    <section >
+    <section className='flex justify-center'>
         <Login/>
       </section>
   )
 }
 
 export default Home
-
-// className="mt-[100px] bg-[#FFF] border-4 rounded-2xl w-[30rem] h-[30rem] mr-auto ml-auto"
