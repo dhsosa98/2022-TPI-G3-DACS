@@ -6,10 +6,10 @@ export default function Example() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
           <div className="sm:max-w-lg">
             <h1 className="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">
-              Tenemos todos los paquetes para vos! XD :'vv
+              Tenemos todos los paquetes para vos y tu familia!
             </h1>
             <p className="mt-4 text-xl text-gray-500">
-              Este ño no te pierdas de los mejores eventos, en nuestros paquetes con todo incluido precios imbatibles! 😎
+              Este ño no te pierdas de los mejores eventos, en nuestros paquetes con todo incluido, a precios imbatibles! 😎
             </p>
           </div>
           <div>
@@ -77,7 +77,7 @@ export default function Example() {
                 to="/paquetes"
                 className="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700"
               >
-                Ver paquetes
+                Ver paquetes!
               </Link>
             </div>
           </div>
