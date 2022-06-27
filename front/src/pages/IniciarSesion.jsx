@@ -1,8 +1,11 @@
 import React from 'react'
+import Login from '../components/Login'
 
 const IniciarSesion = () => {
   return (
-    <div>IniciarSesion</div>
+    <section className='flex justify-center'>
+        <Login/>
+      </section>
   )
 }
 
