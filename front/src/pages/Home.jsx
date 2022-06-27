@@ -38,13 +38,6 @@ export default function Example() {
                       </div>
                     </div>
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className="w-44 h-[310px] rounded-lg overflow-hidden">
-                        <img
-                          src="https://wp-growpro.s3-eu-west-1.amazonaws.com/media/2020/08/viajes-para-aprender-ingles.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
                         <img
                           src="https://t1.ev.ltmcdn.com/es/posts/2/9/5/paisaje_natural_definicion_y_geografia_1592_1_600.webp"
@@ -70,7 +63,7 @@ export default function Example() {
                       </div>
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
                         <img
-                          src="https://phantom-marca.unidadeditorial.es/681da5195f7b9ef7cd30296aca7d9377/f/jpg/assets/multimedia/imagenes/2021/03/01/16146332597601.jpg"
+                          src="https://wp-growpro.s3-eu-west-1.amazonaws.com/media/2020/08/viajes-para-aprender-ingles.jpg"
                           alt=""
                           className="w-full h-full object-center object-cover"
                         />
