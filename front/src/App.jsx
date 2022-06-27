@@ -8,9 +8,9 @@ function App() {
   <section>
     <NavBar/>
   </section>
-  <section className="mt-[100px] bg-[#FFF] border-4 rounded-2xl w-[30rem] h-[30rem] mr-auto ml-auto">
+  {/* <section className="mt-[100px] bg-[#FFF] border-4 rounded-2xl w-[30rem] h-[30rem] mr-auto ml-auto">
     <Login/>
-  </section>
+  </section> */}
 
   </>
   )
