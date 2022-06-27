@@ -1,18 +1,24 @@
 import NavBar from "./components/NavBar"
 import Login from "./components/Login"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Home from "./pages/Home";
+
 function App() {
 
   return(
-  <>
-
-  <section>
-    <NavBar/>
-  </section>
-  <section className="mt-[100px] bg-[#FFF] border-4 rounded-2xl w-[30rem] h-[30rem] mr-auto ml-auto">
-    <Login/>
-  </section>
-
-  </>
+  <Router>
+    <section>
+      <NavBar/>
+    </section>
+    <Switch>
+      <Home/>
+    </Switch>
+  </Router>
   )
 }
 

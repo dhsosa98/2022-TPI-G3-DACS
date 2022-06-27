@@ -1,19 +1,3 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { LockClosedIcon } from '@heroicons/react/solid'
 import Logo from '../../public/icons/android/logo.png'
 export default function Login() {
@@ -35,18 +19,18 @@ export default function Login() {
               src={Logo}
               alt="Fantur Logo"
             />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Ingresa a tu cuenta</h2>
+            <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900">Ingresa a tu cuenta</h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               O{' '}
               <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                registrate gratis! xd
+                registrate gratis!
               </a>
             </p>
           </div>
           <form className="mt-8 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
-              <div>
+              <div className='mb-3'>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
@@ -91,7 +75,7 @@ export default function Login() {
 
               <div className="text-sm">
                 <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                  Olvidaste tu pass pibe?
+                  Olvidaste tu contraseña?
                 </a>
               </div>
             </div>

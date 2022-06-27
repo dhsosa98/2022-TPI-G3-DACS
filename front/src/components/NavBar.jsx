@@ -9,12 +9,7 @@ import {
   TruckIcon,
 } from '@heroicons/react/outline'
 import { ArchiveIcon, ChevronDownIcon, OfficeBuildingIcon } from '@heroicons/react/solid'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
 
 const resources = [
   {
@@ -45,6 +40,7 @@ function classNames(...classes) {
 
 export default function NavBar() {
   return (
+ 
     <Popover className="relative bg-[#ffffff]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
@@ -207,5 +203,6 @@ export default function NavBar() {
         </Popover.Panel>
       </Transition>
     </Popover>
+
   )
 }
