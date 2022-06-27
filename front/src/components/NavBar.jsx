@@ -49,7 +49,7 @@ export default function NavBar() {
             <Link to="/">
               <span className="sr-only">Workflow</span>
               <img
-                className="h-12 w-auto"
+                className="h-12 w-[120px]"
                 src={Logo}
                 alt=""
               />
