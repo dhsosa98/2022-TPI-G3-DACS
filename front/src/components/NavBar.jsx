@@ -3,23 +3,18 @@ import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import Logo from '../../public/icons/android/logo.png'
 import {
-  BookmarkAltIcon,
   CalendarIcon,
-  ChartBarIcon,
-  CursorClickIcon,
   MenuIcon,
-  PhoneIcon,
-  PlayIcon,
-  RefreshIcon,
-  ShieldCheckIcon,
-  PaperAirplaneIcon,
-  SupportIcon,
-  ViewGridIcon,
   XIcon,
   TruckIcon,
 } from '@heroicons/react/outline'
 import { ArchiveIcon, ChevronDownIcon, OfficeBuildingIcon } from '@heroicons/react/solid'
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const resources = [
   {
