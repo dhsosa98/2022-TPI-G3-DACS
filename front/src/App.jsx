@@ -1,13 +1,18 @@
-
-import BarNavigation from './components/NavBar'
-
+import NavBar from "./components/NavBar"
+import Login from "./components/Login"
 function App() {
 
-  return (
-    <div class="m-0 p-0">
-      <BarNavigation/>
+  return(
+  <>
 
-      </div>
+  <section>
+    <NavBar/>
+  </section>
+  <section className="mt-[100px] bg-[#FFF] border-4 rounded-2xl w-[30rem] h-[30rem] mr-auto ml-auto">
+    <Login/>
+  </section>
+
+  </>
   )
 }
 
