@@ -22,3 +22,21 @@ jobs:
       run: docker push '${{secrets.DOCKER_LOGIN}}'/backend:latest
     - name: Push the Docker front image to Docker Hub
       run: docker push '${{secrets.DOCKER_LOGIN}}'/front:latest
+      
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: '${{secrets.AZURE_CREDENTIALS}}'
+
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Azure CLI script file
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.30.0
+        inlineScript: |
+          chmod +x $GITHUB_WORKSPACE/sampleScript.sh
+          $GITHUB_WORKSPACE/sampleScript.sh
+    - name: Restart app
+      run: az webapp restart --name "tpi-dacs" --resource-group TPI-DACS-Recurso
