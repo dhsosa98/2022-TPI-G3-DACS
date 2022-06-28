@@ -7,7 +7,6 @@ import {
   Link
 } from "react-router-dom";
 
-
 import QuienesSomos from "./pages/QuienesSomos";
 import Eventos from "./pages/Eventos";
 import Hoteles from "./pages/Hoteles";
