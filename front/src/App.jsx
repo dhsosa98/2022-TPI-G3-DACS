@@ -1,9 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import axios from 'axios'
+import {API_BASE_URL} from './vite-env.d'
+
+console.log(API_BASE_URL)
 
 function App() {
   const [count, setCount] = useState(0)
+  const [hotels, setHotels] = useState([])
+
+  useEffect(() => {
+    axios.get(`${API_BASE_URL}/hotels`).then(
+      response => {
+        setHotels(response.data)
+      }
+    )
+  }, [])
 
   return (
     <div className="App">
@@ -38,6 +51,16 @@ function App() {
           </a>
         </p>
       </header>
+      <main>
+        {hotels.map(hotel => (
+          <div className=' p-10' key={hotel.id}>
+            <h2>{hotel.name}</h2>
+            <p>{hotel.address}</p>
+            <p>{hotel.phone}</p>
+          </div>
+        ))}
+
+      </main>
     </div>
   )
 }
