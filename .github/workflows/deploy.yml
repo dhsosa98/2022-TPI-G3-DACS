@@ -9,9 +9,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker front image
-      run: docker build . --file front/Dockerfile.prod --tag '${{secrets.DOCKER_LOGIN}}'/front:latest  
+      run: docker build . --file front/Dockerfile.prod --target production --tag '${{secrets.DOCKER_LOGIN}}'/front:latest  
     - name: Build the Docker backend image
-      run: docker build . --file api/Dockerfile.prod --tag '${{secrets.DOCKER_LOGIN}}'/backend:latest
+      run: docker build . --file api/Dockerfile.prod --target production --tag '${{secrets.DOCKER_LOGIN}}'/backend:latest
     - name: Build the Docker ngnix image
       run: docker build . --file ngnix/Dockerfile --tag '${{secrets.DOCKER_LOGIN}}'/nginx:latest
     - name: Docker Login
