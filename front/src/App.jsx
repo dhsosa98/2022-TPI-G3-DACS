@@ -1,68 +1,50 @@
-import { useEffect, useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import axios from 'axios'
-import {API_BASE_URL} from './vite-env.d'
+import NavBar from "./components/NavBar"
+import Login from "./components/Login"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-console.log(API_BASE_URL)
+import QuienesSomos from "./pages/QuienesSomos";
+import Eventos from "./pages/Eventos";
+import Hoteles from "./pages/Hoteles";
+import IniciarSesion from "./pages/IniciarSesion";
+import Paquetes from "./pages/Paquetes";
+import Registrarse from "./pages/Registrarse";
+import Transporte from "./pages/Transporte";
+import Home from "./pages/Home";
+import Contacto from "./pages/Contacto";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [hotels, setHotels] = useState([])
 
-  useEffect(() => {
-    axios.get(`${API_BASE_URL}/hotels`).then(
-      response => {
-        setHotels(response.data)
-      }
-    )
-  }, [])
-
-  return (
-    <div className="App">
-      
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-      <main>
-        {hotels.map(hotel => (
-          <div className=' p-10' key={hotel.id}>
-            <h2>{hotel.name}</h2>
-            <p>{hotel.address}</p>
-            <p>{hotel.phone}</p>
-          </div>
-        ))}
-
-      </main>
-    </div>
+  return(
+    <Router>
+      <div className="App ">
+        <NavBar/>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/quienessomos" component={QuienesSomos} />
+          <Route path="/eventos" component={Eventos} />
+          <Route path="/hoteles" component={Hoteles} />
+          <Route path="/iniciarsesion" component={IniciarSesion} />
+          <Route path="/paquetes" component={Paquetes} />
+          <Route path="/registrarse" component={Registrarse} />
+          <Route path="/transporte" component={Transporte} />
+          <Route path="/contacto" component={Contacto} />
+        </Switch>
+      </div>
+    </Router>
+  // <Router>
+  //   <section>
+  //     <NavBar/>
+  //   </section>
+  //   <Switch>
+  //     <Home />
+  //   </Switch>
+  // </Router>
   )
 }
 
