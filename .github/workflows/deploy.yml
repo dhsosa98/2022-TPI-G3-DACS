@@ -6,15 +6,19 @@ on:
 jobs:
   build:
     runs-on : ubuntu-latest
-  steps:
-    uses: actions/checkout@v2
-    name: Build the Docker image
-    run: docker build . --file front/Dockerfile.prod --tag '${{secrets.DOCKER_LOGIN}}'/front:latest  
-    run: docker build . --file api/Dockerfile.prod --tag '${{secrets.DOCKER_LOGIN}}'/backend:latest
-    run: docker build . --file ngnix/Dockerfile --tag '${{secrets.DOCKER_LOGIN}}'/nginx:latest
-    name: Docker Login
-    run: docker login --username '${secrets.DOCKER_LOGIN) --password '${{secrets.DOCKER_PASSWORD}}'
-    name: Push the Docker images to Docker Hub
-    run: doker push '${{secrets.DOCKER_LOGIN}}'/nginx:latest
-    run: doker push '${{secrets.DOCKER_LOGIN}}'/backend:latest
-    run: doker push '${{secrets.DOCKER_LOGIN}}'/front:latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker front image
+      run: docker build . --file front/Dockerfile.prod --tag '${{secrets.DOCKER_LOGIN}}'/front:latest  
+    - name: Build the Docker backend image
+      run: docker build . --file api/Dockerfile.prod --tag '${{secrets.DOCKER_LOGIN}}'/backend:latest
+    - name: Build the Docker ngnix image
+      run: docker build . --file ngnix/Dockerfile --tag '${{secrets.DOCKER_LOGIN}}'/nginx:latest
+    - name: Docker Login
+      run: docker login --username '${secrets.DOCKER_LOGIN) --password '${{secrets.DOCKER_PASSWORD}}'
+    - name: Push the Docker nginx image to Docker Hub
+      run: doker push '${{secrets.DOCKER_LOGIN}}'/nginx:latest
+    - name: Push the Docker backend image to Docker Hub
+      run: doker push '${{secrets.DOCKER_LOGIN}}'/backend:latest
+    - name: Push the Docker front image to Docker Hub
+      run: doker push '${{secrets.DOCKER_LOGIN}}'/front:latest
