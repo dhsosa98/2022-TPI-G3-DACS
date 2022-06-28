@@ -1,0 +1,92 @@
+# docker-compose.yml
+version: "3.7"
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./api
+      # Only will build development stage from our dockerfile
+      target: development
+    env_file:
+    - ./api/.env
+    environment:
+      - WAIT_HOSTS=mysqldb:3306
+      - DB_HOST=mysqldb
+      - DB_USER=$DB_USER
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_NAME=$DB_NAME
+      - DB_PORT=$DB_PORT
+      - DB_DIALECT=$DB_DIALECT
+      - PORT=8000
+      - EMAIL_HOST=$EMAIL_HOST
+      - EMAIL_USER=$EMAIL_USER
+      - EMAIL_PASSWORD=$EMAIL_PASSWORD
+      - DOCKER=DOCKER
+    # Run a command against the development stage of the image
+    container_name: dev-api
+    command: sh -c "/wait && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run start:dev"
+    ports:
+      - 8000:8000
+    depends_on:
+      - mysqldb
+    networks:
+      - backend
+      - frontend
+    stdin_open: true
+    tty: true
+    mem_reservation: 1024M
+
+  tourism_control:
+    image: frredacs/turismo-control:1.2
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    networks:
+      - backend
+    mem_reservation: 128M
+
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    env_file: ./api/.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=$DB_PASSWORD
+      - MYSQL_DATABASE=$DB_NAME
+    ports:
+      - 3007:$DB_PORT
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - backend
+    mem_reservation: 256M
+
+  ui: 
+    build:
+      dockerfile: Dockerfile
+      context: ./front
+      # Only will build development stage from our dockerfile
+      target: front_development
+    env_file: ./api/.env
+    environment:
+      - VITE_API_BASE_URL=/api
+    # Run a command against the development stage of the image
+    # image: dhsosa98/front:1.0
+    container_name: dev-front
+    command: npm run dev
+    networks:
+      - frontend
+    ports:
+      - 3000:3000
+
+  nginx: 
+    build: ./nginx
+    ports:
+      - 80:80
+    networks:
+      - frontend
+    restart: always
+volumes: 
+  db:
+networks:
+  backend:
+  frontend:

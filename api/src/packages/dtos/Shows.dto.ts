@@ -16,7 +16,6 @@ export class ShowDto {
   dateShow: Date;
 }
 
-
 export class ShowOnUpdateDto {
   @IsOptional()
   @IsString()

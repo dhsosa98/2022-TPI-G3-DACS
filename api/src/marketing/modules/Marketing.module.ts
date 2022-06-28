@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MarketingService } from '../services/MarketingService.service';
 import { ScheduleModule } from '@nestjs/schedule';
-import { PackagesModule } from 'src/packages/modules/packages.module';
+import { PackagesModule } from 'src/packages/modules/Packages.module';
 import { ConfigService, ConfigModule } from '@nestjs/config';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
