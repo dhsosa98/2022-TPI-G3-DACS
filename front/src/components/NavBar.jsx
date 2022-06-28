@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import Logo from '../../public/icons/android/logo.png'
@@ -38,6 +37,8 @@ const resources = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
+
+
 
 export default function NavBar() {
   return (
@@ -92,7 +93,7 @@ export default function NavBar() {
 
                   <Transition
                     as={Fragment}
-                    enter="transition ease-out duration-200"
+                    enter="transition ease-out duration-500"
                     enterFrom="opacity-0 translate-y-1"
                     enterTo="opacity-100 translate-y-0"
                     leave="transition ease-in duration-150"
@@ -103,17 +104,25 @@ export default function NavBar() {
                       <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                         <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                           {resources.map((item) => (
-                            <Link
+                            <NavLink
+                              onclick={
+                                <Transition
+                                as={Fragment}
+                                className="hidden"
+                              ></Transition>
+                              }
+                              activeStyle={{backgroundColor: "#0ed4d4f9",textDecoration:"none"}}
                               key={item.name}
                               to={item.href}
-                              className="-m-3 p-3 flex items-start rounded-lg hover:bg-[#00adad86]"
+                              className="-m-3 p-3 flex items-start rounded-lg hover:bg-[#00ffff41]"
+                              
                             >
                               <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600 " aria-hidden="true" />
                               <div className="ml-4 ">
                                 <p className="text-base font-medium text-gray-900">{item.name}</p>
                                 <p className="mt-1 text-sm text-gray-500">{item.description}</p>
                               </div>
-                            </Link>
+                            </NavLink>
                           ))}
                         </div>
                       </div>
