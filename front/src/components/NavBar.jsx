@@ -105,12 +105,6 @@ export default function NavBar() {
                         <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                           {resources.map((item) => (
                             <NavLink
-                              onclick={
-                                <Transition
-                                as={Fragment}
-                                className="hidden"
-                              ></Transition>
-                              }
                               activeStyle={{backgroundColor: "#0ed4d4f9",textDecoration:"none"}}
                               key={item.name}
                               to={item.href}
@@ -178,35 +172,37 @@ export default function NavBar() {
             </div>
             <div className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <Link to="/quienessomos" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                <NavLink activeStyle={{color: "#e5463f",textDecoration:"none"}}  to="/quienessomos" className="text-base font-medium text-gray-900 hover:text-[#009999]">
                   Quienes Somos?
-                </Link>
+                </NavLink>
 
-                <Link to="/contacto" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                <NavLink activeStyle={{color: "#e5463f",textDecoration:"none"}} to="/contacto" className="text-base font-medium text-gray-900 hover:text-[#009999]">
                   Contacto
-                </Link>
+                </NavLink>
                 {resources.map((item) => (
-                  <Link
+                  <NavLink
+                    activeStyle={{color: "#e5463f",textDecoration:"none"}}
                     key={item.name}
                     to={item.href}
-                    className="text-base font-medium text-gray-900 hover:text-gray-700"
+                    className="-m-3 p-3 flex items-start rounded-lg hover:text-[#009999]"
                   >
                     {item.name}
-                  </Link>
+                  </NavLink>
                 ))}
               </div>
               <div>
-                <Link
+                <NavLink
+                  activeStyle={{backgroundColor: "#e5463f",textDecoration:"none"}}
                   to="/iniciarsesion"
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
                 >
                   Ingresar
-                </Link>
+                </NavLink>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   No tienes cuenta?{' '}
-                  <Link to="/registrarse" className="text-indigo-600 hover:text-indigo-500">
+                  <NavLink activeStyle={{color: "#e5463f",textDecoration:"none"}} to="/registrarse" className="text-indigo-600 hover:text-indigo-500">
                     Registrarse
-                  </Link>
+                  </NavLink>
                 </p>
               </div>
             </div>

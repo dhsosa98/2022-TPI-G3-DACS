@@ -1,25 +1,23 @@
 import { Link } from "react-router-dom"
-export default function Example() {
+export default function Home() {
   return (
     <div className="relative overflow-hidden">
       <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
           <div className="sm:max-w-lg">
-            <h1 className="text-4xl font font-extrabold tracking-tight text-[#ffffff] sm:text-6xl drop-shadow-xl">
+            <h1 className="text-4xl font font-extrabold tracking-tight text-[#ffffff] sm:text-6xl drop-shadow-2xl">
               Tenemos todos los paquetes para vos y tu familia!
             </h1>
-            <p className="mt-4 text-xl text-[#ffffffb2] drop-shadow-2xl shadow-black">
+            <p className="mt-4 text-xl text-[#ffffff] drop-shadow-2xl shadow-black">
               Este año no te pierdas de los mejores eventos, en nuestros paquetes todo incluido, a precios imbatibles!😎
             </p>
           </div>
-          <div>
-            <div className="mt-0">
+
               <div
-                aria-hidden="true"
-                className="pointer-events-none lg:absolute lg:inset-y-0 lg:max-w-7xl lg:mx-auto lg:w-full"
+                className="pointer-events-none lg:absolute lg:inset-y-0 lg:max-w-7xl lg:mx-10 lg:w-full"
               >
                 <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                  <div className="flex items-center space-x-6 lg:space-x-8">
+                  <div className="flex items-center space-x-6 lg:space-x-8 mt-8">
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100 border-4">
                         <img
@@ -32,7 +30,7 @@ export default function Example() {
                         <img
                           src="https://www.cronista.com/files/image/304/304165/5ffe2012cb34e_950_534!.png?s=cb26ada201e0724bd22526f73a7274cc&d=1632271001"
                           alt=""
-                          className="w-full h-full object-center object-cover border-4"
+                          className="w-full h-full object-center object-cover"
                         />
                       </div>
                     </div>
@@ -47,6 +45,13 @@ export default function Example() {
                       <div className="w-44 h-64 rounded-lg overflow-hidden border-4">
                         <img
                           src="https://i.blogs.es/e32e91/trucos-enfocar-fotografia-paisaje-01/1366_2000.jpg"
+                          alt=""
+                          className="w-full h-full object-center object-cover"
+                        />
+                      </div>
+                      <div className="w-44 h-64 rounded-lg overflow-hidden border-4">
+                        <img
+                          src="https://www.primeraedicion.com.ar/wp-content/uploads/2020/03/corri.jpg"
                           alt=""
                           className="w-full h-full object-center object-cover"
                         />
@@ -67,6 +72,7 @@ export default function Example() {
                           className="w-full h-full object-center object-cover"
                         />
                       </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -81,7 +87,5 @@ export default function Example() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   )
 }
