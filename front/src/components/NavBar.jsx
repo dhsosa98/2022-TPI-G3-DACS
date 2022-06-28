@@ -2,7 +2,7 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import Logo from '../../public/icons/android/logo.png'
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import {
   CalendarIcon,
   MenuIcon,
@@ -64,12 +64,12 @@ export default function NavBar() {
           <Popover.Group as="nav" className="hidden md:flex space-x-10">
             
 
-            <Link to="/quienesSomos" className="text-base font-medium text-gray-500 hover:text-gray-900">
+            <NavLink to="/quienesSomos" activeStyle={{color: "#e5463f",textDecoration:"none"}} className="text-base font-medium text-gray-500 hover:text-gray-900" >
               Quienes somos?
-            </Link>
-            <Link to="/contacto" className="text-base font-medium text-gray-500 hover:text-gray-900">
+            </NavLink>
+            <NavLink to="/contacto" activeStyle={{color: "#e5463f",textDecoration:"none"}} className="text-base font-medium text-gray-500 hover:text-gray-900">
               Contacto
-            </Link>
+            </NavLink>
 
             <Popover className="relative">
               {({ open }) => (
@@ -106,10 +106,10 @@ export default function NavBar() {
                             <Link
                               key={item.name}
                               to={item.href}
-                              className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                              className="-m-3 p-3 flex items-start rounded-lg hover:bg-[#00adad86]"
                             >
-                              <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                              <div className="ml-4">
+                              <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600 " aria-hidden="true" />
+                              <div className="ml-4 ">
                                 <p className="text-base font-medium text-gray-900">{item.name}</p>
                                 <p className="mt-1 text-sm text-gray-500">{item.description}</p>
                               </div>
@@ -124,15 +124,16 @@ export default function NavBar() {
             </Popover>
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <Link to="/iniciarsesion" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+            <NavLink activeStyle={{color: "#e5463f",textDecoration:"none"}} to="/iniciarsesion" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
               Ingresar
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
+              activeStyle={{backgroundColor: "#e5463f",textDecoration:"none"}}
               to="/registrarse"
               className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
             >
               Registrarse
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>
