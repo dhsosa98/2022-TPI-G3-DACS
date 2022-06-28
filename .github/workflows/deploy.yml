@@ -35,8 +35,4 @@ jobs:
       uses: azure/CLI@v1
       with:
         azcliversion: 2.30.0
-        inlineScript: |
-          chmod +x $GITHUB_WORKSPACE/sampleScript.sh
-          $GITHUB_WORKSPACE/sampleScript.sh
-    - name: Restart app
-      run: az webapp restart --name "tpi-dacs" --resource-group TPI-DACS-Recurso
+        inlineScript: az webapp restart --name "tpi-dacs" --resource-group TPI-DACS-Recurso
