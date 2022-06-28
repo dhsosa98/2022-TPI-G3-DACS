@@ -13,7 +13,7 @@ jobs:
     - name: Build the Docker backend image
       run: cd api && docker build . --file Dockerfile.prod --target production --tag '${{secrets.DOCKER_LOGIN}}'/backend:latest
     - name: Build the Docker ngnix image
-      run: cd ngnix && docker build . --file Dockerfile --tag '${{secrets.DOCKER_LOGIN}}'/nginx:latest
+      run: cd nginx && docker build . --file Dockerfile --tag '${{secrets.DOCKER_LOGIN}}'/nginx:latest
     - name: Docker Login
       run: docker login --username '${secrets.DOCKER_LOGIN) --password '${{secrets.DOCKER_PASSWORD}}'
     - name: Push the Docker nginx image to Docker Hub
