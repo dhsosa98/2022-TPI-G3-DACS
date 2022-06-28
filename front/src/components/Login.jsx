@@ -1,5 +1,6 @@
 import { LockClosedIcon } from '@heroicons/react/solid'
 import Logo from '../../public/icons/android/logo.png'
+import {Link} from 'react-router-dom'
 export default function Login() {
   return (
     <>
@@ -14,9 +15,9 @@ export default function Login() {
             <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900">Ingresa a tu cuenta</h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               O{' '}
-              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+              <Link to="/registrarse" className="font-medium text-indigo-600 hover:text-indigo-500">
                 registrate gratis!
-              </a>
+              </Link>
             </p>
           </div>
           <form className="mt-8 space-y-6" action="#" method="POST">

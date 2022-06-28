@@ -1,8 +1,11 @@
 import React from 'react'
+import Registro from '../components/Registro'
 
 const Registrarse = () => {
   return (
-    <div>Registrarse</div>
+    <section className='flex justify-center'>
+        <Registro/>
+      </section>
   )
 }
 
