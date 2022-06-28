@@ -38,7 +38,7 @@ export class User extends Model {
   @Column
   roleId: number;
 
-  @BelongsTo(() => Role)
+  @BelongsTo(()=>Role)
   role: Role;
 
   @BelongsToMany(() => Package, () => Sale)

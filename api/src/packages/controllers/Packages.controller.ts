@@ -1,14 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-  UseGuards,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards, UseInterceptors } from '@nestjs/common';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { Role } from 'src/auth/enums/role.enum';
 import { RolesGuard } from 'src/auth/guards/roles.guard';

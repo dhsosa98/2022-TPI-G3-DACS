@@ -8,4 +8,5 @@ export class InsuranceOnUpdateDto {
   @IsOptional()
   @IsNumber()
   amount: number;
+
 }

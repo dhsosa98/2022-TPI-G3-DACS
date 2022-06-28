@@ -11,6 +11,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
         allowNull: false,
+
       },
       quantPeople: {
         type: Sequelize.INTEGER,
@@ -59,8 +60,9 @@ module.exports = {
       total: {
         type: Sequelize.REAL,
         allowNull: false,
-      },
+      }
     });
+    
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Packs');

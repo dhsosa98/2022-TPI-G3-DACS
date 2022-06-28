@@ -6,7 +6,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       seat: {
         type: Sequelize.INTEGER,
@@ -17,12 +17,13 @@ module.exports = {
         allowNull: false,
       },
       returnDate: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
       travelWayId: {
-        type: Sequelize.INTEGER,
-        references: { model: { tableName: 'TravelWays' }, key: 'id' },
-        allowNull: false,
+        type: Sequelize.INTEGER,references:{model:{tableName:'Travelways'},
+        key: 'id'
+      },
+      allowNull: false,
       },
       amount: {
         type: Sequelize.REAL,
@@ -32,5 +33,5 @@ module.exports = {
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Tickets');
-  },
+  }
 };
