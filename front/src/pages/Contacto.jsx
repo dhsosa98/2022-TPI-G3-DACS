@@ -1,8 +1,11 @@
 import React from 'react'
+import Formu from '../components/Formulario'
 
 const Contacto = () => {
   return (
-    <div>Contacto</div>
+    <section className="flex justify-center mt-[70px]">
+      <Formu/>
+    </section>
   )
 }
 
