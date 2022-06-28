@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 export default function Home() {
   return (
-    <div className="relative overflow-hidden">
-      <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+    <div className="relative">
+      <div className="sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
           <div className="sm:max-w-lg">
             <h1 className="text-4xl font font-extrabold tracking-tight text-[#ffffff] sm:text-6xl drop-shadow-2xl">
@@ -17,7 +17,7 @@ export default function Home() {
                 className="pointer-events-none lg:absolute lg:inset-y-0 lg:max-w-7xl lg:mx-10 lg:w-full"
               >
                 <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                  <div className="flex items-center space-x-6 lg:space-x-8 mt-8">
+                  <div className="flex items-center space-x-6 lg:space-x-8 mt-24">
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100 border-4">
                         <img
@@ -35,13 +35,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className="w-44 h-64 rounded-lg overflow-hidden border-4">
-                        <img
-                          src="https://t1.ev.ltmcdn.com/es/posts/2/9/5/paisaje_natural_definicion_y_geografia_1592_1_600.webp"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
+                      
                       <div className="w-44 h-64 rounded-lg overflow-hidden border-4">
                         <img
                           src="https://i.blogs.es/e32e91/trucos-enfocar-fotografia-paisaje-01/1366_2000.jpg"
