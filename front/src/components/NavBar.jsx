@@ -73,7 +73,7 @@ export default function NavBar() {
             </NavLink>
 
             <Popover className="relative">
-              {({ open }) => (
+              {({ open, close }) => (
                 <>
                   <Popover.Button
                     className={classNames(
@@ -105,6 +105,7 @@ export default function NavBar() {
                         <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                           {resources.map((item) => (
                             <NavLink
+                              onClick={()=>close()}
                               activeStyle={{backgroundColor: "#0ed4d4f9",textDecoration:"none"}}
                               key={item.name}
                               to={item.href}
