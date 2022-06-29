@@ -24,6 +24,7 @@ services:
       - DOCKER=DOCKER
     # Run a command against the development stage of the image
     container_name: dev-api
+    image: dhsosa98/api_dev:latest
     command: sh -c "/wait && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run start:dev"
     ports:
       - 8000:8000
@@ -70,7 +71,7 @@ services:
     environment:
       - VITE_API_BASE_URL=/api
     # Run a command against the development stage of the image
-    # image: dhsosa98/front:1.0
+    image: dhsosa98/front_dev:latest
     container_name: dev-front
     command: npm run dev
     networks:
@@ -80,6 +81,7 @@ services:
 
   nginx: 
     build: ./nginx
+    image: dhsosa98/nginx_dev:latest
     ports:
       - 80:80
     networks:
