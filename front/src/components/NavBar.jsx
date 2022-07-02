@@ -1,7 +1,8 @@
 import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import { Popover, Transition} from '@headlessui/react'
 import Logo from '../../public/icons/android/logo.png'
 import { Link, NavLink } from "react-router-dom"
+
 import {
   CalendarIcon,
   MenuIcon,
@@ -73,7 +74,7 @@ export default function NavBar() {
             </NavLink>
 
             <Popover className="relative">
-              {({ open }) => (
+              {({ open, close }) => (
                 <>
                   <Popover.Button
                     className={classNames(
@@ -90,7 +91,7 @@ export default function NavBar() {
                       aria-hidden="true"
                     />
                   </Popover.Button>
-
+                          
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-500"
@@ -105,6 +106,7 @@ export default function NavBar() {
                         <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                           {resources.map((item) => (
                             <NavLink
+                              onClick={() => close()}
                               activeStyle={{backgroundColor: "#0ed4d4f9",textDecoration:"none"}}
                               key={item.name}
                               to={item.href}
@@ -181,6 +183,7 @@ export default function NavBar() {
                 </NavLink>
                 {resources.map((item) => (
                   <NavLink
+                    
                     activeStyle={{color: "#e5463f",textDecoration:"none"}}
                     key={item.name}
                     to={item.href}
