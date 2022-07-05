@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from "react";
 import { Redirect, Route } from "react-router-dom";
 
-const PublicRouter = ({ auth, component: Component, ...resto }) => {
+const PublicRouter = ({ component: Component, ...resto }) => {
+  const [auth, setAuth] = useState(false);
   return (
     <Route
       {...resto}
@@ -12,4 +13,4 @@ const PublicRouter = ({ auth, component: Component, ...resto }) => {
   );
 };
 
-export default PublicRouter
+export default PublicRouter;

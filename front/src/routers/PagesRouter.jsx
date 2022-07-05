@@ -11,7 +11,7 @@ import Home from "../pages/Home";
 import Contacto from "../pages/Contacto";
 import Hotel from "../pages/Hotel";
 
-const AuthRouter = () => {
+const PagesRouter = () => {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
@@ -29,4 +29,4 @@ const AuthRouter = () => {
   );
 };
 
-export default AuthRouter;
+export default PagesRouter;
