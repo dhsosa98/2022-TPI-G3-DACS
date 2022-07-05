@@ -9,16 +9,30 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker front image
-      run: docker build . --file front/Dockerfile.prod --tag '${{secrets.DOCKER_LOGIN}}'/front:latest  
+      run: cd front && docker build . --file Dockerfile.prod --target production --tag '${{secrets.DOCKER_LOGIN}}'/front:latest  
     - name: Build the Docker backend image
-      run: docker build . --file api/Dockerfile.prod --tag '${{secrets.DOCKER_LOGIN}}'/backend:latest
+      run: cd api && docker build . --file Dockerfile.prod --target production --tag '${{secrets.DOCKER_LOGIN}}'/backend:latest
     - name: Build the Docker ngnix image
-      run: docker build . --file ngnix/Dockerfile --tag '${{secrets.DOCKER_LOGIN}}'/nginx:latest
+      run: cd nginx && docker build . --file Dockerfile --tag '${{secrets.DOCKER_LOGIN}}'/nginx:latest
     - name: Docker Login
-      run: docker login --username '${secrets.DOCKER_LOGIN) --password '${{secrets.DOCKER_PASSWORD}}'
+      run: docker login --username '${{secrets.DOCKER_LOGIN}}' --password '${{secrets.DOCKER_PASSWORD}}'
     - name: Push the Docker nginx image to Docker Hub
-      run: doker push '${{secrets.DOCKER_LOGIN}}'/nginx:latest
+      run: docker push '${{secrets.DOCKER_LOGIN}}'/nginx:latest
     - name: Push the Docker backend image to Docker Hub
-      run: doker push '${{secrets.DOCKER_LOGIN}}'/backend:latest
+      run: docker push '${{secrets.DOCKER_LOGIN}}'/backend:latest
     - name: Push the Docker front image to Docker Hub
-      run: doker push '${{secrets.DOCKER_LOGIN}}'/front:latest
+      run: docker push '${{secrets.DOCKER_LOGIN}}'/front:latest
+      
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: '${{secrets.AZURE_CREDENTIALS}}'
+
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Azure CLI script file
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.30.0
+        inlineScript: az webapp restart --name "tpi-dacs" --resource-group TPI-DACS-Recurso
