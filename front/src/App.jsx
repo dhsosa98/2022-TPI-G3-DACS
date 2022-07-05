@@ -15,6 +15,7 @@ import Contacto from "./pages/Contacto";
 import { useEffect } from "react";
 import { API_BASE_URL } from "./vite-env.d";
 import axios from "axios";
+import Hotel from "./pages/Hotel";
 
 function App() {
   const [hotels, setHotels] = useState([]);
@@ -36,7 +37,8 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/quienessomos" component={QuienesSomos} />
           <Route path="/eventos" component={Eventos} />
-          <Route path="/hoteles" component={Hoteles} />
+          <Route exact path="/hoteles" component={Hoteles} />
+          <Route path="/hoteles/:id" component={Hotel} />
           <Route path="/iniciarsesion" component={IniciarSesion} />
           <Route path="/paquetes" component={Paquetes} />
           <Route path="/registrarse" component={Registrarse} />
