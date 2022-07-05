@@ -16,45 +16,31 @@ import { useEffect } from "react";
 import { API_BASE_URL } from "./vite-env.d";
 import axios from "axios";
 import Hotel from "./pages/Hotel";
+import AuthRouter from "./routers/AuthRouter";
+import PublicRouter from "./routers/PublicRouter";
 
 function App() {
   const [hotels, setHotels] = useState([]);
+  const [auth, setAuth] = useState(false);
 
   useEffect(() => {
-    async function getHotels(){
+    async function getHotels() {
       const response = await axios.get(API_BASE_URL + "/hotels");
       setHotels(response.data);
-    };
+    }
     getHotels();
   }, []);
-  
+
   console.log(hotels[0]);
   return (
     <Router>
       <div className="App ">
         <NavBar />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/quienessomos" component={QuienesSomos} />
-          <Route path="/eventos" component={Eventos} />
-          <Route exact path="/hoteles" component={Hoteles} />
-          <Route path="/hoteles/:id" component={Hotel} />
-          <Route path="/iniciarsesion" component={IniciarSesion} />
-          <Route path="/paquetes" component={Paquetes} />
-          <Route path="/registrarse" component={Registrarse} />
-          <Route path="/transporte" component={Transporte} />
-          <Route path="/contacto" component={Contacto} />
+          <PublicRouter path="/" auth={auth} component={AuthRouter} />
         </Switch>
       </div>
     </Router>
-    // <Router>
-    //   <section>
-    //     <NavBar/>
-    //   </section>
-    //   <Switch>
-    //     <Home />
-    //   </Switch>
-    // </Router>
   );
 }
 

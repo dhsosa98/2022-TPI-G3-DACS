@@ -6,7 +6,7 @@ import Home from '../pages/Home';
 const AppRouter = () => {
     
     // Para Login
-    const [log, setLog] = React.useState(false);
+    
 
   return (
       <Router>

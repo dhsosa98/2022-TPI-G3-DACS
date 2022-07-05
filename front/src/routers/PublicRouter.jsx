@@ -1,9 +1,15 @@
 import React from 'react'
+import { Redirect, Route } from "react-router-dom";
 
-const PublicRouter = () => {
+const PublicRouter = ({ auth, component: Component, ...resto }) => {
   return (
-    <div>PublicRouter</div>
-  )
-}
+    <Route
+      {...resto}
+      component={(props) =>
+        auth ? <Redirect to="/" /> : <Component {...props} />
+      }
+    />
+  );
+};
 
 export default PublicRouter
