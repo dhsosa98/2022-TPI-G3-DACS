@@ -7,12 +7,10 @@ import {
   MenuIcon,
   XIcon,
   TruckIcon,
-} from "@heroicons/react/outline";
-import {
   ArchiveIcon,
-  ChevronDownIcon,
   OfficeBuildingIcon,
-} from "@heroicons/react/solid";
+} from "@heroicons/react/outline";
+import { ChevronDownIcon } from "@heroicons/react/solid";
 
 const resources = [
   {
