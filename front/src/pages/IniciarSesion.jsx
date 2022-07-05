@@ -3,7 +3,7 @@ import Login from '../components/Login'
 
 const IniciarSesion = () => {
   return (
-    <section className='flex justify-center'>
+    <section className='flex justify-center p-2'>
         <Login/>
       </section>
   )
