@@ -1,21 +1,14 @@
-import React from 'react'
-import { Router, Switch } from 'react-router-dom';
-import NavBar from '../components/NavBar';
-import Home from '../pages/Home';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
 const AppRouter = () => {
-    
-    // Para Login
-    
+  // todo lo que se haga una vez logueado
 
   return (
-      <Router>
-        <NavBar />
-        <Switch>
-            <Home />
-        </Switch>    
-    </Router>
-  )
-}
+    <Switch>
+      <Route path="/" exact component={Home} />
+    </Switch>
+  );
+};
 
-export default AppRouter
+export default AppRouter;
