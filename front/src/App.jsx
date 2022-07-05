@@ -1,7 +1,7 @@
 import NavBar from "./components/NavBar";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import AuthRouter from "./routers/AuthRouter";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import PublicRouter from "./routers/PublicRouter";
+import PagesRouter from "./routers/PagesRouter";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <div className="App ">
         <NavBar />
         <Switch>
-          <PublicRouter path="/" component={AuthRouter} />
+          <PublicRouter path="/" component={PagesRouter} />
         </Switch>
       </div>
     </Router>

@@ -12,7 +12,7 @@ import Contacto from "../pages/Contacto";
 import Hotel from "../pages/Hotel";
 import FormularioHotel from "../components/FormularioHotel";
 
-const AuthRouter = () => {
+const PagesRouter = () => {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
@@ -31,4 +31,4 @@ const AuthRouter = () => {
   );
 };
 
-export default AuthRouter;
+export default PagesRouter;
