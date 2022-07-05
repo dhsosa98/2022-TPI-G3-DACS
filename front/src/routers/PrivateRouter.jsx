@@ -1,7 +1,10 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import { useState } from 'react';
 
-const PrivateRouter = ({ auth, component: Component, ...resto }) => {
+
+const PrivateRouter = ({ component: Component, ...resto }) => {
+  const [auth, setAuth] = useState(false);
   return (
     <Route
       {...resto}

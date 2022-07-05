@@ -10,6 +10,7 @@ import Transporte from "../pages/Transporte";
 import Home from "../pages/Home";
 import Contacto from "../pages/Contacto";
 import Hotel from "../pages/Hotel";
+import FormularioHotel from "../components/FormularioHotel";
 
 const AuthRouter = () => {
   return (
@@ -24,6 +25,7 @@ const AuthRouter = () => {
       <Route path="/registrarse" component={Registrarse} />
       <Route path="/transporte" component={Transporte} />
       <Route path="/contacto" component={Contacto} />
+      <Route path="/formu-hotel" component={FormularioHotel} />
       <Redirect to="/" />
     </Switch>
   );

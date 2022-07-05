@@ -82,6 +82,7 @@ typings/
 .nuxt
 dist
 docker-compose.prod.yml
+docker-compose.test.yml
 
 # Gatsby files
 .cache/
