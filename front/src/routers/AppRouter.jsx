@@ -1,14 +1,9 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React from 'react'
 
 const AppRouter = () => {
-  // todo lo que se haga una vez logueado
-
   return (
-    <Switch>
-      <Route path="/" exact component={Home} />
-    </Switch>
-  );
-};
+    <div>AppRouter</div>
+  )
+}
 
-export default AppRouter;
+export default AppRouter
