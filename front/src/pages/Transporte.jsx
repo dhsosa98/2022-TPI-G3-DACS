@@ -41,7 +41,15 @@ const Transporte = () => {
                     <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">
                       {travelWay.name}
                     </h1>
+                    <div className="w-full p-3">
+                 
+                    <p className="text-center text-gray-600 sm:text-base text-sm">
+                      Viaje mas comodo en {travelWay.name}
+                    </p>
+
                   </div>
+                  </div>
+                  
                 </div>
                 <div className="group-hover:grid group-hover:hover:transition group-hover:hover:ease-in group-hover:hover:scale-105 group-hover:hover:duration-300 group-hover:hover:delay-150 hidden absolute top-0 bottom-[125px] right-0 left-0 justify-center items-center">
                 <Link  to={`/transporte/${travelWay.id}`} className="px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
