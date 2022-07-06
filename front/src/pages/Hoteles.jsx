@@ -60,7 +60,7 @@ const Hoteles = () => {
                 </div>
                 <div className="group-hover:grid group-hover:hover:transition group-hover:hover:ease-in group-hover:hover:scale-105 group-hover:hover:duration-300 group-hover:hover:delay-150 hidden absolute top-0 bottom-[125px] right-0 left-0 justify-center items-center">
                 <Link  to={`/hoteles/${hotel.id}`} className="px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
-                  Ver Hotel
+                Mas informacion
                 </Link>
                 </div>
               </div>

@@ -41,7 +41,7 @@ const Eventos = () => {
               <div className="bg-white border-2 border-gray-300 rounded-lg shadow-lg shadow-black p-5 group relative">
                 <div className="flex flex-wrap justify-center group-hover:opacity-60 group-hover:transition group-hover:ease-in group-hover:duration-100">
                   <div className="w-full p-3">
-                    <img src={images[count]} alt="hotel" className="w-full" />
+                    <img src={images[count]} alt="show" className="w-full" />
                   </div>
                   <div className="w-full p-3">
                     <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">
@@ -63,7 +63,7 @@ const Eventos = () => {
                 </div>
                 <div className="group-hover:grid group-hover:hover:transition group-hover:hover:ease-in group-hover:hover:scale-105 group-hover:hover:duration-300 group-hover:hover:delay-150 hidden absolute top-0 bottom-[125px] right-0 left-0 justify-center items-center">
                 <Link  to={`/eventos/${show.id}`} className="px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
-                  Ver Shows
+                  Mas informacion
                 </Link>
                 </div>
               </div>
