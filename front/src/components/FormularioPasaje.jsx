@@ -1,11 +1,11 @@
 import Container from "./Container";
 
-export default function FormularioPaquete() {
+export default function FormularioPasaje() {
   return (
     <Container>
       <div className="sm:mt-0">
         <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
-          Cargar un paquete
+          Cargar un pasaje
         </h1>
         <div className="md:mt-0 md:col-span-2 ">
           <form action="#" method="POST">
