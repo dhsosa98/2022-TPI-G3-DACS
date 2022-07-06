@@ -28,7 +28,7 @@ const resources = [
   {
     name: "Medios de transporte",
     description: "Vea las formas de viaje disponibles.",
-    href: "/transporte",
+    href: "/transportes",
     icon: TruckIcon,
   },
   {
