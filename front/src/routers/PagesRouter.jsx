@@ -11,6 +11,10 @@ import Home from "../pages/Home";
 import Contacto from "../pages/Contacto";
 import Hotel from "../pages/Hotel";
 import FormularioHotel from "../components/FormularioHotel";
+import FormularioEvento from "../components/FormularioEvento";
+import FormularioTransporte from "../components/FormularioTransporte";
+import FormularioPaquete from "../components/FormularioPaquete";
+import FormularioSeguro from "../components/FormularioSeguro";
 
 const PagesRouter = () => {
   return (
@@ -26,6 +30,10 @@ const PagesRouter = () => {
       <Route path="/transporte" component={Transporte} />
       <Route path="/contacto" component={Contacto} />
       <Route path="/formu-hotel" component={FormularioHotel} />
+      <Route path="/formu-evento" component={FormularioEvento} />
+      <Route path="/formu-transporte" component={FormularioTransporte} />
+      <Route path="/formu-paquete" component={FormularioPaquete} />
+      <Route path="/formu-seguro" component={FormularioSeguro} />
       <Redirect to="/" />
     </Switch>
   );
