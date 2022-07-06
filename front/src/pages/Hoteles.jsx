@@ -36,7 +36,7 @@ const Hoteles = () => {
         HOTELES
       </h1>
 
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center p-5">
         {hotels.map((hotel, count) => (
           <>
             <div key={hotel.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
@@ -46,7 +46,7 @@ const Hoteles = () => {
                     <img src={images[count]} alt="hotel" className="w-full" />
                   </div>
                   <div className="w-full p-3">
-                    <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px] mt-[20px]">
+                    <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">
                       {hotel.name}
                     </h1>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
@@ -60,7 +60,7 @@ const Hoteles = () => {
                 </div>
                 <div className="group-hover:grid group-hover:hover:transition group-hover:hover:ease-in group-hover:hover:scale-105 group-hover:hover:duration-300 group-hover:hover:delay-150 hidden absolute top-0 bottom-[125px] right-0 left-0 justify-center items-center">
                 <Link  to={`/hoteles/${hotel.id}`} className="px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
-                  Ver Hotel
+                Mas informacion
                 </Link>
                 </div>
               </div>

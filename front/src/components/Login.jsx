@@ -1,9 +1,19 @@
 import { LockClosedIcon } from '@heroicons/react/solid'
 import Logo from '../../public/icons/android/logo.png'
 import {Link} from 'react-router-dom'
+import {Field, Form, Formik} from 'formik'
+import { fetchUser } from '../services/auth'
+import { useContext } from 'react'
+import { AuthContext } from '../contexts/Auth'
 export default function Login() {
+  const {login} = useContext(AuthContext)
+   const handleSubmit = async (values) => {
+   const response = await fetchUser(values.email, values.password)
+   login(response.data.access_token)
+}
+  const initialValues = {email: "", password: ""} 
   return (
-    <>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       <div className="border-4 min-h-full w-[30rem] rounded-3xl mt-[80px] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[#ffffffcc]">
         <div className="max-w-md w-full space-y-8">
           <div>
@@ -20,14 +30,14 @@ export default function Login() {
               </Link>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <Form>
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div className='mb-3'>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
-                <input
+                <Field
                   id="email-address"
                   name="email"
                   type="email"
@@ -41,7 +51,7 @@ export default function Login() {
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
-                <input
+                <Field
                   id="password"
                   name="password"
                   type="password"
@@ -84,9 +94,9 @@ export default function Login() {
                 Ingresar
               </button>
             </div>
-          </form>
+          </Form>
         </div>
       </div>
-    </>
+    </Formik>
   )
 }
