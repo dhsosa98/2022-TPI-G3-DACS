@@ -18,6 +18,7 @@ import Transporte from "../pages/Transporte";
 import FormularioPaquete from "../components/FormularioPaquete";
 import { CrearSeguro } from "../components/CrearSeguro";
 import { ActualizarSeguro } from "../components/ActualizarSeguro";
+import { InsuranceTable } from "../components/InsuranceTable";
 
 const PagesRouter = () => {
   return (
@@ -38,6 +39,7 @@ const PagesRouter = () => {
       <Route exact path="/formu-seguro" component={CrearSeguro} />
       <Route path="/formu-seguro/:id" component={ActualizarSeguro} />
       <Route path="/formu-paquete" component={FormularioPaquete} />
+      <Route path='/seguros' component={InsuranceTable} />
     </Switch>
   );
 };
