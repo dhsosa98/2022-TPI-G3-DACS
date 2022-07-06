@@ -1,24 +1,11 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { API_BASE_URL } from "../vite-env.d";
 import Container from "./Container";
 
-export default function FormularioPasaje() {
-  const [travelWays, setTravelWays] = useState([])
-
-  const fetchTravelWays = async () => {
-    const response = await axios.get(API_BASE_URL+"/travelWays");
-    setTravelWays(response.data);
-  }
-
-  useEffect(() => {
-    fetchTravelWays();
-  }, []);
+export default function FormularioPaquete() {
   return (
     <Container>
       <div className="sm:mt-0">
         <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
-          Cargar un pasaje
+          Cargar un paquete
         </h1>
         <div className="md:mt-0 md:col-span-2 ">
           <form action="#" method="POST">
@@ -49,7 +36,7 @@ export default function FormularioPasaje() {
                       Fecha de ida
                     </label>
                     <input
-                      type="date"
+                      type="text"
                       name="last-name"
                       id="last-name"
                       autoComplete="family-name"
@@ -65,7 +52,7 @@ export default function FormularioPasaje() {
                       Fecha de vuelta
                     </label>
                     <input
-                      type="date"
+                      type="text"
                       name="email-address"
                       id="email-address"
                       autoComplete="email"
@@ -87,11 +74,9 @@ export default function FormularioPasaje() {
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     >
                       <option value="">Seleccione un medio de transporte</option>
-                      {travelWays.map(travelWay => (
-                        <option key={travelWay.id} value={travelWay.id}>
-                          {travelWay.name}
-                        </option>
-                      ))}
+                      <option value="">Avion</option>
+                      <option value="">Tren</option>
+                      <option value="">Colectivo</option>
                     </select>
                   </div>
                   <div className="col-span-6 sm:col-span-3">
