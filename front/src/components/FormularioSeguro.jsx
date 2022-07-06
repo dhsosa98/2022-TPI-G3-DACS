@@ -1,7 +1,9 @@
 import Container from "./Container";
 import { Formik, Form, Field } from "formik";
+import { useHistory } from "react-router-dom";
 
 export default function FormularioSeguro({initialValues, handleSubmit, isEdit}) {
+  const history = useHistory();
   return (
     <Container>
       <div className="sm:mt-0">
@@ -44,6 +46,7 @@ export default function FormularioSeguro({initialValues, handleSubmit, isEdit}) 
               </div>
               <div className="px-4 py-3 bg-[#ffffffd8] text-right sm:px-6 gap-1 sm:justify-start justify-center flex flex-row-reverse">
                 <button
+                  onClick={()=>history.goBack()}
                   className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#afafaf] hover:bg-[#00000086] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Cancelar

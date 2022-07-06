@@ -21,3 +21,13 @@ export const updateInsurance = async (name, amount, id) => {
     });
     return response.data;
 }
+
+export const getInsurances = async () => {
+    const response = await Axios.get(API_BASE_URL+"/insurances");
+    return response.data;
+}
+
+export const deleteInsurance = async (id) => {
+    const response = await Axios.delete(API_BASE_URL+"/insurances/"+id);
+    return response.data;
+}
