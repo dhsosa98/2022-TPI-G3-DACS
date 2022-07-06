@@ -1,6 +1,53 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../vite-env.d";
 import Container from "./Container";
 
 export default function FormularioPaquete() {
+  const [tickets, setTickets] = useState([])
+
+  const fetchTickets = async () => {
+    const response = await axios.get(API_BASE_URL+"/tickets");
+    setTickets(response.data);
+  }
+
+  useEffect(() => {
+    fetchTickets();
+  }, []);
+
+  const [hotels, setHotels] = useState([])
+
+  const fetchHotels = async () => {
+    const response = await axios.get(API_BASE_URL+"/hotels");
+    setHotels(response.data);
+  }
+
+  useEffect(() => {
+    fetchHotels();
+  }, []);
+
+  const [insurances, setInsurances] = useState([])
+
+  const fetchInsurances = async () => {
+    const response = await axios.get(API_BASE_URL+"/insurances");
+    setInsurances(response.data);
+  }
+
+  useEffect(() => {
+    fetchInsurances();
+  }, []);
+
+  const [shows, setShows] = useState([])
+
+  const fetchShows = async () => {
+    const response = await axios.get(API_BASE_URL+"/shows");
+    setShows(response.data);
+  }
+
+  useEffect(() => {
+    fetchShows();
+  }, []);
+
   return (
     <Container>
       <div className="sm:mt-0">
@@ -17,7 +64,7 @@ export default function FormularioPaquete() {
                       htmlFor="first-name"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Asiento
+                      Nombre
                     </label>
                     <input
                       type="text"
@@ -33,67 +80,92 @@ export default function FormularioPaquete() {
                       htmlFor="last-name"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Fecha de ida
+                      Pasaje
                     </label>
-                    <input
+                  <select
                       type="text"
                       name="last-name"
                       id="last-name"
                       autoComplete="family-name"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                    >
+                    <option value="">Seleccione un medio de transporte</option>
+                      {tickets.map(ticket => (
+                        <option key={ticket.id} value={ticket.id}>
+                          {ticket.name}
+                        </option>
+                        ))}
+                    </select>
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="email-address"
+                      htmlFor="last-name"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Fecha de vuelta
+                      Hotel
                     </label>
-                    <input
+                  <select
                       type="text"
-                      name="email-address"
-                      id="email-address"
-                      autoComplete="email"
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-                  <div className="col-span-6 sm:col-span-6">
-                    <label
-                      htmlFor="email-address"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Medio de transporte
-                    </label>
-                    <select
-                      type="text"
-                      name="email-address"
-                      id="email-address"
-                      autoComplete="email"
+                      name="last-name"
+                      id="last-name"
+                      autoComplete="family-name"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     >
-                      <option value="">Seleccione un medio de transporte</option>
-                      <option value="">Avion</option>
-                      <option value="">Tren</option>
-                      <option value="">Colectivo</option>
+                    <option value="">Seleccione algun hotel</option>
+                      {hotels.map(hotel => (
+                        <option key={hotel.id} value={hotel.id}>
+                          {hotel.name}
+                        </option>
+                        ))}
                     </select>
                   </div>
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="email-address"
+                      htmlFor="last-name"
                       className="block text-sm font-medium text-gray-700"
                     >
-                     Precio
+                      Seguro
                     </label>
-                    <input
+                  <select
                       type="text"
-                      name="email-address"
-                      id="email-address"
-                      autoComplete="email"
+                      name="last-name"
+                      id="last-name"
+                      autoComplete="family-name"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                    >
+                    <option value="">Seleccione algun seguro</option>
+                      {insurances.map(insurance => (
+                        <option key={insurance.id} value={insurance.id}>
+                          {insurance.name}
+                        </option>
+                        ))}
+                    </select>
                   </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="last-name"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Espectaculo
+                    </label>
+                  <select
+                      type="text"
+                      name="last-name"
+                      id="last-name"
+                      autoComplete="family-name"
+                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    >
+                    <option value="">Seleccione algun Espectaculo</option>
+                      {shows.map(show => (
+                        <option key={show.id} value={show.id}>
+                          {show.name}
+                        </option>
+                        ))}
+                    </select>
+                  </div>
+                  
                 </div>
               </div>
               <div className="px-4 py-3 bg-[#ffffffd8] text-right sm:px-6 gap-1 sm:justify-start justify-center flex flex-row-reverse">

@@ -52,7 +52,7 @@ export default function FormularioEvento() {
                       Fecha
                     </label>
                     <input
-                      type="text"
+                      type="date"
                       name="email-address"
                       id="email-address"
                       autoComplete="email"
