@@ -8,7 +8,7 @@ export const ActualizarEvento = (props) => {
     const initialValues = {
         name: "",
         seat: "",
-        dataShow: "",
+        dateShow: "",
         amount: "",
       }
     const [shows, setShow] = useState(initialValues);
@@ -29,7 +29,6 @@ export const ActualizarEvento = (props) => {
     const handleSubmit =  async (values) => {
         try{
         const { name, seat, dateShow, amount } = values;
-        console.log(values)
         const response = await updateShow(name, seat, dateShow, amount, id)
         }catch(error){
           console.log(error)

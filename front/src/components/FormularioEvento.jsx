@@ -67,7 +67,7 @@ export default function FormularioEvento({initialValues, handleSubmit, isEdit}) 
                       Precio
                     </label>
                     <Field
-                      type="numbre"
+                      type="number"
                       name="amount"
                       id="amount"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
