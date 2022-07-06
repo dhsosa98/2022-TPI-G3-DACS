@@ -3,11 +3,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import QuienesSomos from "../pages/QuienesSomos";
 import Eventos from "../pages/Eventos";
 import Hoteles from "../pages/Hoteles";
-import IniciarSesion from "../pages/IniciarSesion";
 import Paquetes from "../pages/Paquetes";
-import Registrarse from "../pages/Registrarse";
-
-import Home from "../pages/Home";
 import Contacto from "../pages/Contacto";
 import Hotel from "../pages/Hotel";
 import FormularioHotel from "../components/FormularioHotel";
