@@ -11,6 +11,8 @@ import {
   OfficeBuildingIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/Auth";
 
 const resources = [
   {
@@ -44,6 +46,7 @@ function classNames(...classes) {
 }
 
 export default function NavBar() {
+  const { auth, logout } = useContext(AuthContext);
   return (
     <Popover className="relative bg-[#ffffffcc]">
       {({ open, close }) => (
@@ -143,6 +146,8 @@ export default function NavBar() {
                 </Popover>
               </Popover.Group>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                {!auth ? (
+                  <>
                 <NavLink
                   activeStyle={{ color: "#e5463f", textDecoration: "none" }}
                   to="/iniciarsesion"
@@ -159,7 +164,10 @@ export default function NavBar() {
                   className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
                 >
                   Registrarse
-                </NavLink>
+                </NavLink></>) : (
+                  <button onClick={()=>{logout()}} className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
+                    Cerrar Sesion
+                  </button>)}
               </div>
             </div>
           </div>
@@ -229,6 +237,7 @@ export default function NavBar() {
                       </NavLink>
                     ))}
                   </div>
+                  {!auth ? (
                   <div>
                     <NavLink
                       onClick={() => close()}
@@ -255,7 +264,11 @@ export default function NavBar() {
                         Registrarse
                       </NavLink>
                     </p>
-                  </div>
+                  </div>) : (
+                      <button onClick={()=>{logout()}} className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
+                        Cerrar Sesion
+                      </button>
+                      )}
                 </div>
               </div>
             </Popover.Panel>
