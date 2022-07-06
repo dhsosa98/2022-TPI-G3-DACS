@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { TravelWay } from '../entitities/travelWays.entity';
+import {NotFoundException} from '@nestjs/common';
 
 @Injectable()
 export class TravelWaysService {
@@ -7,6 +8,16 @@ export class TravelWaysService {
     @Inject('TRAVEL_WAYS_REPOSITORY')
     private travelWaysRepository: typeof TravelWay,
   ) {}
+
+  async findOne(id: number): Promise<TravelWay> {
+    const travelWay = await this.travelWaysRepository.findOne({ where: { id } });
+    if (!TravelWay) {
+      throw new NotFoundException('No existe este transporte');
+    }
+    return travelWay;
+  }
+
+
   async findAll(): Promise<TravelWay[]> {
     const travelWays = await this.travelWaysRepository.findAll();
     if (!travelWays.length) {
