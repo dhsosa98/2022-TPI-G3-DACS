@@ -3,7 +3,7 @@ import Formu from '../components/Formulario'
 
 const Contacto = () => {
   return (
-    <section className="flex justify-center mt-[70px]">
+    <section className="flex justify-center mt-[40px]">
       <Formu/>
     </section>
   )

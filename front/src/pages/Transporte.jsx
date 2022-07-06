@@ -32,8 +32,8 @@ const Transporte = () => {
                   <div className="w-full p-3">
                     <img src={images[id-1]} alt="hotel" className="w-full" />
                   </div>
-                  <div className="w-full p-3">
-                    <h1 className="text-center mb-[10px] text-bold text-2xl">
+                  <div className="w-full">
+                    <h1 className="text-center text-bold text-2xl">
                       {transporte.name}
                     </h1>
                     <div className="w-full p-3">

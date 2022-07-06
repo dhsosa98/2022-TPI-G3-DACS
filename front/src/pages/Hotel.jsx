@@ -28,7 +28,7 @@ const Hotel = () => {
             <div key={hotel.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
               <div className="bg-white border-2 border-gray-300 rounded-lg shadow-lg shadow-black p-5">
                 <div className="flex flex-wrap justify-center">
-                  <div className="w-full p-3">
+                  <div className="w-full">
                     <img src={images[id-1]} alt="hotel" className="w-full" />
                   </div>
                   <div className="w-full p-3">
