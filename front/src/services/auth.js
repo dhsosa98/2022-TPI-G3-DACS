@@ -11,3 +11,13 @@ export const fetchUser = async (username, password) => {
 export const getUser = async () => {
     return await axios.get(`${API_BASE_URL}/users/${id}`);
 }
+
+export const registerUser = async ( firstname, lastname, ciut, username, password) => {
+    return await axios.post(`${API_BASE_URL}/auth/signup`, {
+        firstname,
+        lastname,
+        ciut,
+        username,
+        password,
+    });
+}
