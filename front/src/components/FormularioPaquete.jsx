@@ -92,7 +92,7 @@ export default function FormularioPaquete() {
                     <option value="">Seleccione un medio de transporte</option>
                       {tickets.map(ticket => (
                         <option key={ticket.id} value={ticket.id}>
-                          {ticket.name}
+                          {ticket.id}
                         </option>
                         ))}
                     </select>

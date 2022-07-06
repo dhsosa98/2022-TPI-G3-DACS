@@ -1,5 +1,5 @@
 import React from 'react'
-import Formu from '../components/Formulario'
+import Formu from '../components/Contacto'
 
 const Contacto = () => {
   return (
