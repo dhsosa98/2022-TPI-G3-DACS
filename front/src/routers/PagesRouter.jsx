@@ -19,6 +19,7 @@ import FormularioPasaje from "../components/FormularioPasaje";
 import Evento from "../pages/Evento";
 import Transportes from "../pages/Transportes";
 import Transporte from "../pages/Transporte";
+import FormularioPaquete from "../components/FormularioPaquete";
 
 const PagesRouter = () => {
   return (
@@ -37,6 +38,7 @@ const PagesRouter = () => {
       <Route path="/formu-transporte" component={FormularioTransporte} />
       <Route path="/formu-pasaje" component={FormularioPasaje} />
       <Route path="/formu-seguro" component={FormularioSeguro} />
+      <Route path="/formu-paquete" component={FormularioPaquete} />
     </Switch>
   );
 };
