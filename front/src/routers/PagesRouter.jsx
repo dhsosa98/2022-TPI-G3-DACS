@@ -20,6 +20,8 @@ import Evento from "../pages/Evento";
 import Transportes from "../pages/Transportes";
 import Transporte from "../pages/Transporte";
 import FormularioPaquete from "../components/FormularioPaquete";
+import { CrearSeguro } from "../components/CrearSeguro";
+import { ActualizarSeguro } from "../components/ActualizarSeguro";
 
 const PagesRouter = () => {
   return (
@@ -37,7 +39,8 @@ const PagesRouter = () => {
       <Route path="/formu-evento" component={FormularioEvento} />
       <Route path="/formu-transporte" component={FormularioTransporte} />
       <Route path="/formu-pasaje" component={FormularioPasaje} />
-      <Route path="/formu-seguro" component={FormularioSeguro} />
+      <Route exact path="/formu-seguro" component={CrearSeguro} />
+      <Route path="/formu-seguro/:id" component={ActualizarSeguro} />
       <Route path="/formu-paquete" component={FormularioPaquete} />
     </Switch>
   );
