@@ -36,7 +36,7 @@ const Hoteles = () => {
         HOTELES
       </h1>
 
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center p-5">
         {hotels.map((hotel, count) => (
           <>
             <div key={hotel.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
@@ -46,7 +46,7 @@ const Hoteles = () => {
                     <img src={images[count]} alt="hotel" className="w-full" />
                   </div>
                   <div className="w-full p-3">
-                    <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px] mt-[20px]">
+                    <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">
                       {hotel.name}
                     </h1>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
