@@ -21,6 +21,7 @@ export class UserService {
     const user = await this.userRepository.findOne({
       where: { id },
       include: [Role],
+      attributes: { exclude: ['password'] },
     });
 
     if (!user) {

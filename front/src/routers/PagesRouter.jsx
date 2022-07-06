@@ -20,14 +20,11 @@ import FormularioPasaje from "../components/FormularioPasaje";
 const PagesRouter = () => {
   return (
     <Switch>
-      <Route path="/" exact component={Home} />
       <Route path="/quienessomos" component={QuienesSomos} />
       <Route path="/eventos" component={Eventos} />
       <Route exact path="/hoteles" component={Hoteles} />
       <Route path="/hoteles/:id" component={Hotel} />
-      <Route path="/iniciarsesion" component={IniciarSesion} />
       <Route path="/paquetes" component={Paquetes} />
-      <Route path="/registrarse" component={Registrarse} />
       <Route path="/transporte" component={Transporte} />
       <Route path="/contacto" component={Contacto} />
       <Route path="/formu-hotel" component={FormularioHotel} />
@@ -35,7 +32,6 @@ const PagesRouter = () => {
       <Route path="/formu-transporte" component={FormularioTransporte} />
       <Route path="/formu-pasaje" component={FormularioPasaje} />
       <Route path="/formu-seguro" component={FormularioSeguro} />
-      <Redirect to="/" />
     </Switch>
   );
 };
