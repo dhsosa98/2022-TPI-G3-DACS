@@ -10,7 +10,7 @@ module.exports = {
         email: 'gasteac@gmail.com',
         password:
           '$2b$10$Rk23lwC7BsFNkWujkp/5jOFL.3PY58bg8QrrYOYiFGds23iXoorzG',
-        roleId: 1,
+        roleId: 2,
       },
       {
         firstName: 'Diego',
@@ -28,7 +28,7 @@ module.exports = {
         email: 'elfranco@gmail.com',
         password:
           '$2b$10$XJ15rMwt76jq//gjxnMmY.3dlnvVs.DZP9zssC5b4CArlPgdtOZG2',
-        roleId: 2,
+        roleId: 1,
       },
       {
         firstName: 'Joaquin',
@@ -37,7 +37,7 @@ module.exports = {
         email: 'joaquingil@gmail.com',
         password:
           '$2b$10$4pUdGUgis93wmpsn8xYtGOijAkdtFOlNlHXZABUii7gfnbMdXoWtS',
-        roleId: 2,
+        roleId: 1,
       },
       {
         firstName: 'Ariel',
@@ -46,7 +46,7 @@ module.exports = {
         email: 'acevedoariel.ea1@gmail.com',
         password:
           '$2b$10$C9aFiy3rgFCRN/exsM.1r.rljEtr5BPGfrrFyxS8TdlrygC.j63a2',
-        roleId: 2,
+        roleId: 1,
       },
       {
         firstName: 'Tomas',
