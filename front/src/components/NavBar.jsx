@@ -188,18 +188,18 @@ export default function NavBar() {
                 </NavLink></>) : (
                   <>
                   {isAdmin && <NavLink
-                  activeStyle={{ color: "#e5463f", textDecoration: "none" }}
+   
                   to="/admin"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#00adad] hover:text-white hover:bg-[#00adad86]"
+                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#000000] hover:text-white hover:bg-[#00adad86]"
                 >
-                  Admin
+                  Vista Admininstrador
                 </NavLink>}
                   <button onClick={()=>{
                      setIsOpen(true)
                   }} 
                     
                     
-                    className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
+                    className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#7a3e3e] hover:bg-[#a05252]">
                     Cerrar Sesion
                   </button>
                   </>)}

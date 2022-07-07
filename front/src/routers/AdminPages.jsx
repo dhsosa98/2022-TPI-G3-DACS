@@ -17,6 +17,8 @@ const AdminPages = () => {
     <>
       <NavBarAdmin/>
       <Switch>
+        {/* <Route path="/admin/crear-usuario" component={CrearUsuario} />
+        <Route path='/admin/lista-usuarios' component={usersTable} /> */}
         <Route path="/admin" exact component={HomeAdmin} />
         <Route path="/admin/crear-hotel" component={FormularioHotel} />
         <Route path="/admin/crear-transporte" component={FormularioTransporte} />
