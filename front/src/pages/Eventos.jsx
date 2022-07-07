@@ -11,6 +11,7 @@ import s5 from '../../public/images/shows/5.jpg'
 import s6 from '../../public/images/shows/6.jpg'
 import s7 from '../../public/images/shows/7.jpg'
 import s8 from '../../public/images/shows/8.jpg'
+import Pagination from "../components/Pagination";
 
 
 export const images = [s1, s2, s3, s4, s5, s6, s7, s8]
@@ -29,15 +30,15 @@ const Eventos = () => {
   }, []);
 
   return (
-    <section class=" bg-[#ffffffcc] text-black p-10 m-10 rounded-lg ">
-      <h1 className="font-bold text-center text-6xl mb-5 text-[#000000cb]">
+    <section className=" bg-[#ffffffcc] text-black sm:p-10 py-10 sm:m-10 m-3 rounded-lg ">
+      <h1 className="font-bold text-center sm:text-6xl text-3xl text-[#000000cb] ">
         EVENTOS
       </h1>
 
       <div className="flex flex-wrap justify-center p-5 gap-10">
-        {shows.map((show, count) => (
+        {shows?.map((show, count) => (
           <>
-            <div key={show.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
+            <div key={show?.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
               <div className="bg-white rounded-lg p-5 group relative">
                 <div className="flex flex-wrap justify-center group-hover:opacity-60 group-hover:transition group-hover:ease-in group-hover:duration-100">
                   <div className="w-full p-3">
@@ -45,24 +46,24 @@ const Eventos = () => {
                   </div>
                   <div className="w-full p-3">
                     <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">
-                      {show.name}
+                      {show?.name}
                     </h1>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
                       <span className=" font-bold">Fecha:</span>{" "}
-                      {new Date(show.dateShow).toLocaleDateString()} 
+                      {/* {new Date(show.dateShow).toLocaleDateString()}  */}
                     </p>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
                       <span className=" font-bold">Asientos disp:</span>{" "}
-                      {show.seat} 
+                      {show?.seat} 
                     </p>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
                       <span className=" font-bold">Precio:</span>{" $"}
-                      {show.amount}
+                      {show?.amount}
                     </p>
                   </div>
                 </div>
                 <div className="group-hover:grid group-hover:hover:transition group-hover:hover:ease-in group-hover:hover:scale-105 group-hover:hover:duration-300 group-hover:hover:delay-150 hidden absolute top-0 bottom-[125px] right-0 left-0 justify-center items-center">
-                <Link  to={`/eventos/${show.id}`} className="px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
+                <Link  to={`/eventos/${show?.id}`} className="px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
                   Mas informacion
                 </Link>
                 </div>
@@ -71,6 +72,7 @@ const Eventos = () => {
           </>
         ))}
       </div>
+      <Pagination/>
     </section>
   );
 };

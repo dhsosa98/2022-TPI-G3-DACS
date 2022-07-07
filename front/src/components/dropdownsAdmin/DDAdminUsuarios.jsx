@@ -1,26 +1,26 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { NavLink } from "react-router-dom";
-import { ChevronDownIcon, ThumbUpIcon } from "@heroicons/react/solid";
+import { ChevronDownIcon, UserAddIcon, UserGroupIcon } from "@heroicons/react/solid";
 
-const opcionesSeguros = [
+const opcionesUsuarios = [
     {
-      name: "Ver Seguros",
-      description: "Ver lista seguros.",
-      href: "/admin/lista-seguros",
-      icon: ThumbUpIcon
+      name: "Ver Usuarios",
+      description: "Ver lista usuarios.",
+      href: "/admin/lista-usuarios",
+      icon: UserGroupIcon
     },
     {
-      name: "Agregar Seguro",
-      description: "Agregue un nuevo seguro",
-      href: "/admin/crear-seguro",
-      icon: ThumbUpIcon
+      name: "Agregar Usuario",
+      description: "Agregue un nuevo usuario",
+      href: "/admin/crear-usuario",
+      icon: UserAddIcon
     }];
 
     function classNames(...classes) {
       return classes.filter(Boolean).join(" ");
     }
-export const DDAdminSeguros = () =>{
+export const DDAdminUsuarios = () =>{
 return (
 <>
 <Popover className="relative">
@@ -28,7 +28,7 @@ return (
                     <>
                        <Popover.Button
                         className="group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 ">
-                        <span>Seguros</span>
+                        <span>Usuarios</span>
                         <ChevronDownIcon
                           className="ml-2 h-5 w-5 group-hover:text-[#b60000]"
                           aria-hidden="true"
@@ -46,7 +46,7 @@ return (
                         <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-16 mt-3 px-2 w-screen max-w-[280px] sm:px-0">
                           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                             <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                              {opcionesSeguros.map((item) => (
+                              {opcionesUsuarios.map((item) => (
                                 <NavLink
                                   onClick={() => close()}
                                   activeStyle={{
