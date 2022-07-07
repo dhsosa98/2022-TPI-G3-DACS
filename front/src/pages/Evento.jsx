@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getShow } from "../services/shows";
+import { getShowById } from "../services/shows";
 import { images } from "./Eventos";
 
 
@@ -10,7 +10,7 @@ const Evento = () => {
     const {id} = useParams();
 
     const fetchShow = async () => {
-        const response = await getShow(id)
+        const response = await getShowById(id)
         setShow(response)
     }
 

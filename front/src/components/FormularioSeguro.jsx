@@ -1,44 +1,44 @@
 import Container from "./Container";
+import { Formik, Form, Field } from "formik";
+import { useHistory } from "react-router-dom";
 
-export default function FormularioTransporte() {
+export default function FormularioSeguro({initialValues, handleSubmit, isEdit}) {
+  const history = useHistory();
   return (
     <Container>
       <div className="sm:mt-0">
         <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
-          Cargar un Seguro
+         {!isEdit ? "Cargar un Seguro" : "Editar un Seguro"}
         </h1>
         <div className="md:mt-0 md:col-span-2 ">
-          <form action="#" method="POST">
+          <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize={true}>
+          <Form>
             <div className="shadow overflow-hidden sm:rounded-lg ">
               <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="first-name"
                       className="block text-sm font-medium text-gray-700"
                     >
                       Nombre
                     </label>
-                    <input
+                    <Field
                       type="text"
-                      name="first-name"
-                      id="first-name"
-                      autoComplete="given-name"
+                      name="name"
+                      id="name"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="first-name"
                       className="block text-sm font-medium text-gray-700"
                     >
                       Precio
                     </label>
-                    <input
-                      type="text"
-                      name="first-name"
-                      id="first-name"
-                      autoComplete="given-name"
+                    <Field
+                      type="number"
+                      name="amount"
+                      id="amount"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -46,7 +46,7 @@ export default function FormularioTransporte() {
               </div>
               <div className="px-4 py-3 bg-[#ffffffd8] text-right sm:px-6 gap-1 sm:justify-start justify-center flex flex-row-reverse">
                 <button
-                  type="submit"
+                  onClick={()=>history.goBack()}
                   className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#afafaf] hover:bg-[#00000086] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Cancelar
@@ -59,7 +59,8 @@ export default function FormularioTransporte() {
                 </button>
               </div>
             </div>
-          </form>
+          </Form>
+          </Formik>
         </div>
       </div>
     </Container>

@@ -15,6 +15,7 @@ import h9 from '../../public/images/hotels/9.jpg'
 import h10 from '../../public/images/hotels/10.jpg'
 import h11 from '../../public/images/hotels/11.jpg'
 import h12 from '../../public/images/hotels/12.jpg'
+import Pagination from "../components/Pagination";
 
 export const images = [h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12]
 
@@ -35,8 +36,7 @@ const Hoteles = () => {
       <h1 className="font-bold text-center text-6xl mb-5 text-[#000000cb] mt-[40px]">
         HOTELES
       </h1>
-
-      <div className="flex flex-wrap justify-center p-5">
+      <div className="flex flex-wrap justify-center p-5 gap-10 ">
         {hotels.map((hotel, count) => (
           <>
             <div key={hotel.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
@@ -68,6 +68,7 @@ const Hoteles = () => {
           </>
         ))}
       </div>
+      <Pagination/>
     </>
   );
 };
