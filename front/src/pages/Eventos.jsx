@@ -29,8 +29,8 @@ const Eventos = () => {
   }, []);
 
   return (
-    <>
-      <h1 className="font-bold text-center text-6xl mb-5 text-[#000000cb] mt-[40px]">
+    <section class=" bg-[#ffffffcc] text-black p-10 m-10 rounded-lg ">
+      <h1 className="font-bold text-center text-6xl mb-5 text-[#000000cb]">
         EVENTOS
       </h1>
 
@@ -38,7 +38,7 @@ const Eventos = () => {
         {shows.map((show, count) => (
           <>
             <div key={show.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
-              <div className="bg-white border-2 border-gray-300 rounded-lg shadow-lg shadow-black p-5 group relative">
+              <div className="bg-white rounded-lg p-5 group relative">
                 <div className="flex flex-wrap justify-center group-hover:opacity-60 group-hover:transition group-hover:ease-in group-hover:duration-100">
                   <div className="w-full p-3">
                     <img src={images[count]} alt="show" className="w-full" />
@@ -71,7 +71,7 @@ const Eventos = () => {
           </>
         ))}
       </div>
-    </>
+    </section>
   );
 };
 

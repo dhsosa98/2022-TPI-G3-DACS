@@ -52,55 +52,14 @@ const resources = [
   },
 ];
 
-const formsAdmin = [
-  {
-    name: "Cargar hoteles",
-    description: "Formulario de hoteles.",
-    href: "/formu-hotel",
-    icon: OfficeBuildingIcon,
-  },
-  {
-    name: "Cargar eventos",
-    description: "Formulario de eventos.",
-    href: "/formu-evento",
-    icon: CalendarIcon,
-  },
-  {
-    name: "Cargar transportes",
-    description: "Formulario de transportes.",
-    href: "/formu-transporte",
-    icon: TruckIcon,
-  },
-  {
-    name: "Cargar paquetes",
-    description: "Formulario de paquetes",
-    href: "/formu-paquete",
-    icon: ArchiveIcon
-  },
-  {
-    name: "Cargar pasajes",
-    description: "Formulario de pasajes",
-    href: "/formu-pasaje",
-    icon: TicketIcon
-  },
-  {
-    name: "Cargar seguros",
-    description: "Formulario de seguros",
-    href: "/formu-seguro",
-    icon: ThumbUpIcon
-  },
-];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-
-
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
   
-  const { auth, logout } = useContext(AuthContext);
+  const { auth, logout, isAdmin } = useContext(AuthContext);
   return (
     <Popover className="relative bg-[#ffffff]">
       {({ open, close }) => (
@@ -227,6 +186,14 @@ export default function NavBar() {
                 >
                   Registrarse
                 </NavLink></>) : (
+                  <>
+                  {isAdmin && <NavLink
+                  activeStyle={{ color: "#e5463f", textDecoration: "none" }}
+                  to="/admin"
+                  className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Admin
+                </NavLink>}
                   <button onClick={()=>{
                      setIsOpen(true)
                   }} 
@@ -234,7 +201,8 @@ export default function NavBar() {
                     
                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
                     Cerrar Sesion
-                  </button>)}
+                  </button>
+                  </>)}
               </div>
             </div>
           </div>
