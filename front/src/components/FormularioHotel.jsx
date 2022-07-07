@@ -1,7 +1,7 @@
 import Container from "./Container";
 import { Formik, Form, Field } from "formik";
 import { useHistory } from "react-router-dom";
-export default function FormularioHotel(initialValues, handleSubmit, isEdit) {
+export default function FormularioHotel({initialValues, handleSubmit, isEdit}) {
   const history = useHistory();
   return (
     <Container>
@@ -53,7 +53,7 @@ export default function FormularioHotel(initialValues, handleSubmit, isEdit) {
                       Telefono
                     </label>
                     <Field
-                      type="text"
+                      type="number"
                       name="phone"
                       id="phone"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
