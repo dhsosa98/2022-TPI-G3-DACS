@@ -8,19 +8,18 @@ import Home from "./pages/Home";
 import IniciarSesion from "./pages/IniciarSesion";
 import Registrarse from "./pages/Registrarse";
 import QuienesSomos from "./pages/QuienesSomos";
+import AdminRouter from "./routers/AdminRouter";
+import AdminPages from "./routers/AdminPages";
 
 function App() {
   return (
     <Router>
       <div className="App ">
-        <NavBar/>
          <div class="flex flex-col min-h-screen">
         <Switch>
-          <Route path="/" exact component={Home} />
-          <PublicRouter path="/iniciarsesion" component={IniciarSesion} />
-          <PublicRouter path="/registrarse" component={Registrarse} />
-          <PrivateRouter path="/admin" component={QuienesSomos} />
           <Route path="/" component={PagesRouter} />
+          <AdminRouter path="/admin" component={AdminPages} />
+          <Route path="/" exact component={Home} />
           {/* <Redirect to="/" /> */}
         </Switch>
        </div>

@@ -14,6 +14,9 @@ import Transporte from "../pages/Transporte";
 import { InsuranceTable } from "../components/InsuranceTable";
 import Home from "../pages/Home";
 import NavBar from "../components/NavBar";
+import IniciarSesion from "../pages/IniciarSesion";
+import Registrarse from "../pages/Registrarse";
+import PublicRouter from "./PublicRouter";
 
 const PagesRouter = () => {
   return (
@@ -21,6 +24,8 @@ const PagesRouter = () => {
     <NavBar/>
     <Switch>
       <Route path="/" exact component={Home} />
+      <PublicRouter path="/iniciarsesion" component={IniciarSesion} />
+      <PublicRouter path="/registrarse" component={Registrarse} />
       <Route path="/quienessomos" component={QuienesSomos} />
       <Route exact path="/eventos" component={Eventos} />
       <Route path="/eventos/:id" component={Evento} />

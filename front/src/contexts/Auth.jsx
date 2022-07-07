@@ -10,12 +10,14 @@ export const AuthProvider = ({ children }) => {
     const isUser = JSON.parse(localStorage.getItem('user')) || false
     const [auth, setAuth] = useState(isToken)
     const [user, setUser] = useState(isUser)
+    const [isAdmin, setIsAdmin] = useState(JSON.parse(localStorage.getItem('user'))?.role?.description === 'Admin' || false)
     
     const login = async (token) => {
         localStorage.setItem('token', token)
         const response = await Axios.get(API_BASE_URL+'/users/profile')
         localStorage.setItem('user', JSON.stringify(response.data))
         setAuth(true)
+        setIsAdmin(response.data?.role?.description === 'Admin' || false)
         setUser(response.data)
     }
     
@@ -23,11 +25,12 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('user')
         localStorage.removeItem('token')
         setAuth(false)
+        setIsAdmin(false)
         setUser({})
     }
     
     return (
-        <AuthContext.Provider value={{ auth, user, login, logout }}>
+        <AuthContext.Provider value={{ auth, user, isAdmin, login, logout }}>
         {children}
         </AuthContext.Provider>
     )
