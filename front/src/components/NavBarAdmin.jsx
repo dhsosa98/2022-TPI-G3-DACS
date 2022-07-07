@@ -10,11 +10,12 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/Auth";
 import ModalCerrarSesion from "./ModalCerrarSesion";
 import { useState } from "react";
-// import {DDAdminHoteles} from "./dropdownsAdmin/DDAdminHoteles";
-// import {DDAdminEventos} from "./dropdownsAdmin/DDAdminEventos";
-// import { DDAdminPasajes } from "./dropdownsAdmin/DDAdminPasajes";
-// import { DDAdminSeguros } from "./dropdownsAdmin/DDAdminSeguros";
-// import { DDAdminPaquetes } from "./dropdownsAdmin/DDAdminPaquetes";
+import {DDAdminHoteles} from "./dropdownsAdmin/DDAdminHoteles";
+import {DDAdminEventos} from "./dropdownsAdmin/DDAdminEventos";
+import { DDAdminPasajes } from "./dropdownsAdmin/DDAdminPasajes";
+import { DDAdminSeguros } from "./dropdownsAdmin/DDAdminSeguros";
+import { DDAdminPaquetes } from "./dropdownsAdmin/DDAdminPaquetes";
+import { DDAdminUsuarios } from "./dropdownsAdmin/DDAdminUsuarios";
 
 
 
@@ -31,15 +32,15 @@ export default function NavBar() {
     <Popover className="relative bg-[#ffffff]">
       {({ open, close }) => (
         <>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="w-full mx-auto px-4 sm:px-6">
             {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen}/>}
             <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
-              <div className="flex justify-start lg:w-0 lg:flex-1">
+              {/* <div className="flex justify-start flex-shrink">
                 <Link to="/">
                   <span className="sr-only">Fantur</span>
                   <img className="h-12 w-[120px]" src={Logo} alt="" />
                 </Link>
-              </div>
+              </div> */}
               <div className="-mr-2 -my-2 md:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Abrir Menu</span>
@@ -47,21 +48,23 @@ export default function NavBar() {
                 </Popover.Button>
               </div>
               <Popover.Group as="nav" className="hidden md:flex space-x-10">
-                <NavLink
+                {/* <NavLink
                 activeStyle={{backgroundColor: "#1885b8"}}
                   to="/admin"
                   className=" whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-bold text-[#ffffff] "
                 >
                   Panel de Administrador
-                </NavLink>
-              </Popover.Group>
-              {/* <DDAdminHoteles/>
+                </NavLink> */}
+                <DDAdminHoteles/>
               <DDAdminEventos/>
               <DDAdminPasajes/>
               <DDAdminSeguros/>
-              <DDAdminPaquetes/> */}
+              <DDAdminPaquetes/>
+              <DDAdminUsuarios/>
+              </Popover.Group>
               
-              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">  
+              
+              <div className="hidden md:flex items-center justify-end flex-1 ">  
               {isAdmin && <NavLink
                   to="/"
                   className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium hover:bg-[#1c7c29] hover:text-white"
