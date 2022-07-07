@@ -13,12 +13,14 @@ import {
   ThumbUpIcon,
   TicketIcon,
   HeartIcon,
+  UserIcon,
 } from "@heroicons/react/outline";
-import { ChevronDownIcon } from "@heroicons/react/solid";
+import { BookOpenIcon, ChevronDownIcon } from "@heroicons/react/solid";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/Auth";
 import ModalCerrarSesion from "./ModalCerrarSesion";
 import { useState } from "react";
+import { DropwdownUser } from "./DropdownUser";
 
 const resources = [
   {
@@ -50,6 +52,21 @@ const resources = [
     description: "Vea los seguros disponibles.",
     href: "/seguros",
     icon: HeartIcon,
+  },
+];
+
+const userResources = [
+  {
+    name: "Mis Reservas",
+    description: "Ver mis reservas",
+    href: "/mis-reservas",
+    icon: BookOpenIcon,
+  },
+  {
+    name: "Mis datos",
+    description: "Ver mis datos.",
+    href: "/mis-datos",
+    icon: UserIcon,
   },
 ];
 
@@ -195,14 +212,14 @@ export default function NavBar() {
                   </>
                 ) : (
                   <>
-                    {isAdmin && (
+                    {isAdmin ? (
                       <NavLink
                         to="/admin"
                         className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#000000] hover:text-white hover:bg-[#00adad86]"
                       >
                         Vista Admininstrador
                       </NavLink>
-                    )}
+                    ) : <DropwdownUser/>}
                     <button
                       onClick={() => {
                         setIsOpen(true);
@@ -270,6 +287,20 @@ export default function NavBar() {
                       Contacto
                     </NavLink>
                     {resources.map((item) => (
+                      <NavLink
+                        onClick={() => close()}
+                        activeStyle={{
+                          color: "#e5463f",
+                          textDecoration: "none",
+                        }}
+                        key={item.name}
+                        to={item.href}
+                        className="-m-3 p-3 flex items-start rounded-lg hover:text-[#009999]"
+                      >
+                        {item.name}
+                      </NavLink>
+                    ))}
+                    {userResources?.map((item) => (
                       <NavLink
                         onClick={() => close()}
                         activeStyle={{
