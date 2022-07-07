@@ -6,11 +6,10 @@ import { AuthContext } from "../contexts/Auth";
 
 export default function ModalCerrarSesion({open, setOpen}) {
   const { logout } = useContext(AuthContext);
-  const cancelButtonRef = useRef(null)
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+      <Dialog as="div" className="relative z-10" onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
