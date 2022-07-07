@@ -3,7 +3,7 @@ import React from "react";
 const QuienesSomos = () => {
   return (
     <>
-      <section class=" bg-[#ffffffcc] text-black pb-10">
+      <section class=" flex-grow bg-[#ffffffcc] text-black pb-10">
         <div class="p-4 container flex flex-col items-center mx-auto space-y-6 md:p-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"

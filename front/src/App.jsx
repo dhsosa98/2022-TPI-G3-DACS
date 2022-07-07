@@ -14,6 +14,7 @@ function App() {
     <Router>
       <div className="App ">
         <NavBar/>
+         <div class="flex flex-col min-h-screen">
         <Switch>
           <Route path="/" exact component={Home} />
           <PublicRouter path="/iniciarsesion" component={IniciarSesion} />
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" component={PagesRouter} />
           {/* <Redirect to="/" /> */}
         </Switch>
+       </div>
         <Footer />
       </div>
     </Router>
