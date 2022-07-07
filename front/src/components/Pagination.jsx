@@ -35,7 +35,7 @@ const Pagination = (props) => {
 
   return (
     <>
-      <div className="bg-white px-4 py-3 flex items-center justify-between sm:px-6">
+      <div className=" bg-transparent px-4 py-3 flex items-center justify-between sm:px-6">
         {cantItems > size && (
           <div className=" container relative sm:hidden">
             {pageLimit.prev > size && (
@@ -74,7 +74,7 @@ const Pagination = (props) => {
           <div>
             {cantItems > size && (
               <nav
-                className="z-0 inline-flex rounded-3xl p-2 gap-2 border shadow-sm -space-x-px "
+                className="z-0 inline-flex rounded-3xl p-2 gap-2 -space-x-px "
                 aria-label="Pagination"
               >
                 {pageLimit.prev > size && (
