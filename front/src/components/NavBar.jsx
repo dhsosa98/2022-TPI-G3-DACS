@@ -102,7 +102,7 @@ export default function NavBar() {
   
   const { auth, logout } = useContext(AuthContext);
   return (
-    <Popover className="relative bg-[#ffffffcc]">
+    <Popover className="relative bg-[#ffffff]">
       {({ open, close }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">

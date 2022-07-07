@@ -1,4 +1,5 @@
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PublicRouter from "./routers/PublicRouter";
 import PagesRouter from "./routers/PagesRouter";
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" component={PagesRouter} />
           {/* <Redirect to="/" /> */}
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
