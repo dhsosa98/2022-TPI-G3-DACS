@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { deleteHotel, getHotels } from "../services/hotels";
 
+
 export const HotelTables = (props) => {
     const [hotels, setHotels] = useState([]);
 
