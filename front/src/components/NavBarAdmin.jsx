@@ -15,25 +15,79 @@ import {DDAdminEventos} from "./dropdownsAdmin/DDAdminEventos";
 import { DDAdminPasajes } from "./dropdownsAdmin/DDAdminPasajes";
 import { DDAdminSeguros } from "./dropdownsAdmin/DDAdminSeguros";
 import { DDAdminPaquetes } from "./dropdownsAdmin/DDAdminPaquetes";
+import { DDAdminUsuarios } from "./dropdownsAdmin/DDAdminUsuarios";
+import {
+  CalendarIcon,
+  TruckIcon,
+  ArchiveIcon,
+  OfficeBuildingIcon,
+  ThumbUpIcon,
+  TicketIcon,
+  UserGroupIcon,
+  HeartIcon,
+} from "@heroicons/react/outline";
 
-
-
+const resources = [
+  {
+    name: "Dashboard",
+    description: "Vea los seguros disponibles.",
+    href: "/admin",
+    icon: UserGroupIcon,
+  },
+  {
+    name: "Hoteles",
+    description: "Vea los hoteles disponibles.",
+    href: "/admin/listar-hoteles",
+    icon: OfficeBuildingIcon,
+  },
+  {
+    name: "Eventos",
+    description: "Vea los eventos disponibles.",
+    href: "/admin/listar-eventos",
+    icon: CalendarIcon,
+  },
+  {
+    name: "Pasajes",
+    description: "Vea las formas de viaje disponibles.",
+    href: "/admin/listar-pasajes",
+    icon: TicketIcon,
+  },
+  {
+    name: "Paquetes",
+    description: "Vea los paquetes disponibles.",
+    href: "/admin/listar-paquetes",
+    icon: ArchiveIcon,
+  },
+  {
+    name: "Seguros de viaje",
+    description: "Vea los seguros disponibles.",
+    href: "/admin/listar-seguros",
+    icon: HeartIcon,
+  },
+  {
+    name: "Usuarios",
+    description: "Vea los seguros disponibles.",
+    href: "/admin/listar-usuarios",
+    icon: UserGroupIcon,
+  },
+];
 
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export default function NavBar() {
+
   const [isOpen, setIsOpen] = useState(false)
-  const { auth, logout } = useContext(AuthContext);
+  const { auth, logout, isAdmin } = useContext(AuthContext);
   return (
-    <Popover className="relative bg-[#dddddd]">
+    <Popover className="relative bg-[#ffffff] w-full">
       {({ open, close }) => (
         <>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="w-full px-4 sm:px-6 ">
             {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen}/>}
-            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
-              <div className="flex justify-start lg:w-0 lg:flex-1">
+            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10 flex-wrap">
+              <div className="flex justify-start flex-shrink">
                 <Link to="/">
                   <span className="sr-only">Fantur</span>
                   <img className="h-12 w-[120px]" src={Logo} alt="" />
@@ -47,22 +101,32 @@ export default function NavBar() {
               </div>
               <Popover.Group as="nav" className="hidden md:flex space-x-10">
                 <NavLink
+                activeStyle=''
                   to="/admin"
-                  className="text-base font-medium text-[#d60000]"
+                  className="text-base font-medium text-gray-900 hover:text-[#b60000]"
                 >
                   Dashboard
                 </NavLink>
-              </Popover.Group>
-              <DDAdminHoteles/>
+                <DDAdminHoteles/>
               <DDAdminEventos/>
               <DDAdminPasajes/>
               <DDAdminSeguros/>
               <DDAdminPaquetes/>
-              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">    
+              <DDAdminUsuarios/>
+              </Popover.Group>
+              
+              
+              <div className="hidden md:flex items-center justify-end flex-1 ">  
+              {isAdmin && <NavLink
+                  to="/"
+                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium hover:bg-[#1c7c29] hover:text-white"
+                >
+                  Vista Usuario
+                </NavLink>}
                   <button onClick={()=>{
                      setIsOpen(true)
                   }} 
-                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
+                    className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#7a3e3e] hover:bg-[#a05252]">
                     Cerrar Sesion
                   </button>
               </div>
@@ -105,7 +169,7 @@ export default function NavBar() {
                     
 
                    
-                    {/* {resources.map((item) => (
+                    {resources.map((item) => (
                       <NavLink
                         onClick={() => close()}
                         activeStyle={{
@@ -118,7 +182,7 @@ export default function NavBar() {
                       >
                         {item.name}
                       </NavLink>
-                    ))} */}
+                    ))}
 
 
                   </div>
