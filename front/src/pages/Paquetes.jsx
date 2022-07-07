@@ -21,12 +21,9 @@ const Paquetes = () => {
   return (
     <section className=" bg-[#ffffffcc] text-black p-10 m-10 rounded-lg ">
       <h1 className="font-bold text-center text-6xl mb-5 text-[#000000cb]">
-        PAQUETES😎
+        PAQUETES
       </h1>
-      <h1 className="text-center text-bold text-2xl mt-[20px]">
-        Lista de paquetes
-      </h1>
-
+      
       <div className="flex flex-wrap justify-center p-5 gap-10 ">
         {paquetes.map((paquete, count) => (
           <>
