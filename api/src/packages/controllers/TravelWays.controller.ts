@@ -12,7 +12,7 @@ export class TravelWaysController {
     return this.travelWaysService.findOne(travelWayId);
   }
 
-  @Get('')
+  @Get('/')
   @Public()
   getAllTravelWays() {
     return this.travelWaysService.findAll();
