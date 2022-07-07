@@ -23,11 +23,6 @@ export class UserController {
     return this.userService.findAll();
   }
 
-  @Get('profile')
-  async getProfile(@Request() req) {
-    return this.userService.findOne(req.user.uid);
-  }
-
   @Get('/:id')
   @Roles(Role.Admin)
   getUser(@Param('id') id: number) {
