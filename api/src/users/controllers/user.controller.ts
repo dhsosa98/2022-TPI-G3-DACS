@@ -23,7 +23,7 @@ export class UserController {
     return this.userService.findAll();
   }
 
-  @Get('/profile')
+  @Get('profile')
   async getProfile(@Request() req) {
     return this.userService.findOne(req.user.uid);
   }
