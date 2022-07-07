@@ -26,7 +26,7 @@ const AdminPages = () => {
         <Route path="/admin/crear-paquete" component={FormularioPaquete} />
         <Route exact path="/admin/crear-evento" component={CrearEvento} />
         <Route path="/admin/editar-evento/:id" component={ActualizarEvento} />
-        <Route path='/admin/seguros' component={InsuranceTable} />
+        <Route path='/admin/lista-seguros' component={InsuranceTable} />
       </Switch>
     </>
   );
