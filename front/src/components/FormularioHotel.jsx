@@ -1,14 +1,17 @@
 import Container from "./Container";
-
-export default function FormularioHotel() {
+import { Formik, Form, Field } from "formik";
+import { useHistory } from "react-router-dom";
+export default function FormularioHotel(initialValues, handleSubmit, isEdit) {
+  const history = useHistory();
   return (
     <Container>
       <div className="sm:mt-0">
         <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
-          Cargar un Hotel
+        {!isEdit ? "Cargar un Hotel" : "Editar un Hotel"}
         </h1>
         <div className="md:mt-0 md:col-span-2 ">
-          <form>
+        <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize={true}>
+        <Form>
             <div className="shadow overflow-hidden sm:rounded-lg ">
               <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
@@ -19,11 +22,10 @@ export default function FormularioHotel() {
                     >
                       Nombre
                     </label>
-                    <input
+                    <Field
                       type="text"
-                      name="first-name"
-                      id="first-name"
-                      autoComplete="given-name"
+                      name="name"
+                      id="name"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -35,11 +37,10 @@ export default function FormularioHotel() {
                     >
                       Direccion
                     </label>
-                    <input
+                    <Field
                       type="text"
-                      name="last-name"
-                      id="last-name"
-                      autoComplete="family-name"
+                      name="address"
+                      id="address"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -51,11 +52,10 @@ export default function FormularioHotel() {
                     >
                       Telefono
                     </label>
-                    <input
+                    <Field
                       type="text"
-                      name="email-address"
-                      id="email-address"
-                      autoComplete="email"
+                      name="phone"
+                      id="phone"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -63,7 +63,7 @@ export default function FormularioHotel() {
               </div>
               <div className="px-4 py-3 bg-[#ffffffd8] text-right sm:px-6 gap-1 sm:justify-start justify-center flex flex-row-reverse">
                 <button
-                  type="submit"
+                  onClick={()=>history.goBack()}
                   className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#afafaf] hover:bg-[#00000086] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Cancelar
@@ -76,7 +76,8 @@ export default function FormularioHotel() {
                 </button>
               </div>
             </div>
-          </form>
+            </Form>
+          </Formik>
         </div>
       </div>
     </Container>

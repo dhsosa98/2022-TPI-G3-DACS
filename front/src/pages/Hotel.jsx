@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getHotel } from "../services/hotels";
 import { images } from "./Hoteles";
+import { getHotelById } from "../services/hotels";
 
 const Hotel = () => {
   const [hotel, setHotel] = useState([]);
   const { id } = useParams();
 
   const fetchHotel = async () => {
-    const response = await getHotel(id);
+    const response = await getHotelById(id);
     setHotel(response);
   };
 
