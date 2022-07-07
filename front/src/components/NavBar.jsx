@@ -7,12 +7,17 @@ import {
   MenuIcon,
   XIcon,
   TruckIcon,
-} from "@heroicons/react/outline";
-import {
   ArchiveIcon,
-  ChevronDownIcon,
   OfficeBuildingIcon,
-} from "@heroicons/react/solid";
+  ThumbUpIcon,
+  TicketIcon,
+  HeartIcon,
+} from "@heroicons/react/outline";
+import { ChevronDownIcon } from "@heroicons/react/solid";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/Auth";
+import ModalCerrarSesion from "./ModalCerrarSesion";
+import { useState } from "react";
 
 const resources = [
   {
@@ -30,7 +35,7 @@ const resources = [
   {
     name: "Medios de transporte",
     description: "Vea las formas de viaje disponibles.",
-    href: "/transporte",
+    href: "/transportes",
     icon: TruckIcon,
   },
   {
@@ -39,6 +44,12 @@ const resources = [
     href: "/paquetes",
     icon: ArchiveIcon,
   },
+  {
+    name: "Seguros de viaje",
+    description: "Vea los seguros disponibles.",
+    href: "/seguros",
+    icon: HeartIcon,
+  },
 ];
 
 function classNames(...classes) {
@@ -46,25 +57,35 @@ function classNames(...classes) {
 }
 
 export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false)
+  
+  const { auth, logout, isAdmin } = useContext(AuthContext);
   return (
-    <Popover className="relative bg-[#ffffffcc]">
+    <Popover className="relative bg-[#ffffff]">
       {({ open, close }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen}/>}
             <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <Link to="/">
-                  <span className="sr-only">Workflow</span>
+                  <span className="sr-only">Fantur</span>
                   <img className="h-12 w-[120px]" src={Logo} alt="" />
                 </Link>
               </div>
               <div className="-mr-2 -my-2 md:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                  <span className="sr-only">Open menu</span>
+                  <span className="sr-only">Abrir Menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
               </div>
               <Popover.Group as="nav" className="hidden md:flex space-x-10">
+                <NavLink
+                  to="/"
+                  className="text-base font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Inicio
+                </NavLink>
                 <NavLink
                   to="/quienesSomos"
                   activeStyle={{ color: "#e5463f", textDecoration: "none" }}
@@ -108,7 +129,7 @@ export default function NavBar() {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-1"
                       >
-                        <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
+                        <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-16 mt-3 px-2 w-screen max-w-sm sm:px-0">
                           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                             <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                               {resources.map((item) => (
@@ -143,8 +164,11 @@ export default function NavBar() {
                     </>
                   )}
                 </Popover>
+
               </Popover.Group>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                {!auth ? (
+                  <>
                 <NavLink
                   activeStyle={{ color: "#e5463f", textDecoration: "none" }}
                   to="/iniciarsesion"
@@ -161,11 +185,28 @@ export default function NavBar() {
                   className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
                 >
                   Registrarse
-                </NavLink>
+                </NavLink></>) : (
+                  <>
+                  {isAdmin && <NavLink
+                  activeStyle={{ color: "#e5463f", textDecoration: "none" }}
+                  to="/admin"
+                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#00adad] hover:text-white hover:bg-[#00adad86]"
+                >
+                  Admin
+                </NavLink>}
+                  <button onClick={()=>{
+                     setIsOpen(true)
+                  }} 
+                    
+                    
+                    className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
+                    Cerrar Sesion
+                  </button>
+                  </>)}
               </div>
             </div>
           </div>
-
+         
           <Transition
             as={Fragment}
             enter="duration-200 ease-out"
@@ -231,6 +272,7 @@ export default function NavBar() {
                       </NavLink>
                     ))}
                   </div>
+                  {!auth ? (
                   <div>
                     <NavLink
                       onClick={() => close()}
@@ -257,7 +299,11 @@ export default function NavBar() {
                         Registrarse
                       </NavLink>
                     </p>
-                  </div>
+                  </div>) : (
+                      <button onClick={()=>{logout()}} className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
+                        Cerrar Sesion
+                      </button>
+                      )}
                 </div>
               </div>
             </Popover.Panel>

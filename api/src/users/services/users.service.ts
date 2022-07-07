@@ -2,7 +2,7 @@ import {
   Inject,
   Injectable,
   NotFoundException,
-  UnauthorizedException,
+  ConflictException,
 } from '@nestjs/common';
 import { CreateUserDto } from '../dtos/createuser.dto';
 import { Role } from '../entitities/roles.entity';
@@ -21,6 +21,7 @@ export class UserService {
     const user = await this.userRepository.findOne({
       where: { id },
       include: [Role],
+      attributes: { exclude: ['password'] },
     });
 
     if (!user) {
@@ -46,14 +47,14 @@ export class UserService {
       where: { email: user.email },
     });
     if (exist) {
-      throw new UnauthorizedException('User already exists');
+      throw new ConflictException('User already exists');
     }
     if (!roleId) {
       roleId = roles[0].id;
     }
     if (roleId) {
       if (!roles.find((role) => role.id === roleId)) {
-        throw new UnauthorizedException('Invalid role');
+        throw new ConflictException('Invalid role');
       }
     }
     const newUser = await this.userRepository.create({

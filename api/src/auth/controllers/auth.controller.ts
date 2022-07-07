@@ -10,7 +10,7 @@ export class AuthController {
 
   @Public()
   @Post('/signup')
-  getProfile(@Body() user: RegisterUserDto) {
+  signup(@Body() user: RegisterUserDto) {
     return this.authService.register(user);
   }
 

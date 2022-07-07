@@ -76,7 +76,7 @@ module.exports = {
         total: 136020.83,
       },
       {
-        name: 'HUMAN IMMUNEGLOBULIN G and HYALURONIDASE (HUMAN RECOMBINANT)',
+        name: 'HUMAN IMMUNE GLOBULIN G and HYALURONIDASE (HUMAN RECOMBINANT)',
         quantPeople: 2,
         ticketId: 45,
         hotelId: 71,

@@ -1,9 +1,8 @@
 FROM node:16-alpine as front_development
 
-WORKDIR /front
+WORKDIR /usr/src/app/front
 
 COPY package*.json ./
 
 RUN npm install 
 
-COPY . .

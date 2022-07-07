@@ -35,6 +35,9 @@ services:
       - frontend
     stdin_open: true
     tty: true
+    volumes:
+       - ./api:/usr/src/app/api/:rw
+       - /usr/src/app/api/node_modules
     mem_reservation: 1024M
 
   tourism_control:
@@ -78,6 +81,10 @@ services:
       - frontend
     ports:
       - 3000:3000
+    stdin_open: true
+    volumes:
+       - ./front:/usr/src/app/front/:rw
+       - /usr/src/app/front/node_modules
 
   nginx: 
     build: ./nginx
