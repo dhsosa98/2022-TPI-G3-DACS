@@ -50,7 +50,7 @@ const Eventos = () => {
                     </h1>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
                       <span className=" font-bold">Fecha:</span>{" "}
-                      {/* {new Date(show.dateShow).toLocaleDateString()}  */}
+                      {new Date(show.dateShow).toLocaleDateString()} 
                     </p>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
                       <span className=" font-bold">Asientos disp:</span>{" "}
