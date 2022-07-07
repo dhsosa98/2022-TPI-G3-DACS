@@ -55,17 +55,23 @@ export default function NavBar() {
             <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <Link to="/">
-                  <span className="sr-only">Workflow</span>
+                  <span className="sr-only">Fantur</span>
                   <img className="h-12 w-[120px]" src={Logo} alt="" />
                 </Link>
               </div>
               <div className="-mr-2 -my-2 md:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                  <span className="sr-only">Open menu</span>
+                  <span className="sr-only">Abrir Menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
               </div>
               <Popover.Group as="nav" className="hidden md:flex space-x-10">
+                <NavLink
+                  to="/"
+                  className="text-base font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Inicio
+                </NavLink>
                 <NavLink
                   to="/quienesSomos"
                   activeStyle={{ color: "#e5463f", textDecoration: "none" }}
