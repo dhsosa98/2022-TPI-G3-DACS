@@ -12,7 +12,7 @@ export default function FormularioTransporte() {
             <div className="shadow overflow-hidden sm:rounded-lg ">
               <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-3">
+                  <div className="col-span-6">
                     <label
                       htmlFor="first-name"
                       className="block text-sm font-medium text-gray-700"

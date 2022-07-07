@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className="App ">
-        <NavBar />
+        <NavBar/>
         <Switch>
           <Route path="/" exact component={Home} />
           <PublicRouter path="/iniciarsesion" component={IniciarSesion} />

@@ -3,7 +3,7 @@ import React from 'react'
 const QuienesSomos = () => {
   return (
     <>
-<section class=" bg-[#ffffffcc] text-black h-fit m-16 rounded-md pb-16 ">
+<section class=" bg-[#ffffffcc] text-black pb-10">
 	<div class="p-4 container flex flex-col items-center mx-auto space-y-6 md:p-8">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="mt-8 w-16 h-16 text-[#00adad]">
 			<polygon points="328.375 384 332.073 458.999 256.211 406.28 179.924 459.049 183.625 384 151.586 384 146.064 496 182.756 496 256.169 445.22 329.242 496 365.936 496 360.414 384 328.375 384"></polygon>

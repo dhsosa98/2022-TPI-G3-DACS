@@ -9,6 +9,8 @@ import {
   TruckIcon,
   ArchiveIcon,
   OfficeBuildingIcon,
+  ThumbUpIcon,
+  TicketIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { useContext } from "react";
@@ -38,6 +40,45 @@ const resources = [
     description: "Vea los paquetes disponibles.",
     href: "/paquetes",
     icon: ArchiveIcon,
+  },
+];
+
+const formsAdmin = [
+  {
+    name: "Cargar hoteles",
+    description: "Formulario de hoteles.",
+    href: "/formu-hotel",
+    icon: OfficeBuildingIcon,
+  },
+  {
+    name: "Cargar eventos",
+    description: "Formulario de eventos.",
+    href: "/formu-evento",
+    icon: CalendarIcon,
+  },
+  {
+    name: "Cargar transportes",
+    description: "Formulario de transportes.",
+    href: "/formu-transporte",
+    icon: TruckIcon,
+  },
+  {
+    name: "Cargar paquetes",
+    description: "Formulario de paquetes",
+    href: "/formu-paquete",
+    icon: ArchiveIcon
+  },
+  {
+    name: "Cargar pasajes",
+    description: "Formulario de pasajes",
+    href: "/formu-pasaje",
+    icon: TicketIcon
+  },
+  {
+    name: "Cargar seguros",
+    description: "Formulario de seguros",
+    href: "/formu-seguro",
+    icon: ThumbUpIcon
   },
 ];
 
@@ -150,6 +191,72 @@ export default function NavBar() {
                     </>
                   )}
                 </Popover>
+
+                {/* INFO PARA EL ADMIN             */}
+                <Popover className="relative">
+                  {({ open, close }) => (
+                    <>
+                      <Popover.Button
+                        className={classNames(
+                          open ? "text-gray-900" : "text-gray-500",
+                          "group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 "
+                        )}
+                      >
+                        <span>Formularios</span>
+                        <ChevronDownIcon
+                          className={classNames(
+                            open ? "text-gray-600" : "text-gray-400",
+                            "ml-2 h-5 w-5 group-hover:text-gray-500"
+                          )}
+                          aria-hidden="true"
+                        />
+                      </Popover.Button>
+
+                      <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-500"
+                        enterFrom="opacity-0 translate-y-1"
+                        enterTo="opacity-100 translate-y-0"
+                        leave="transition ease-in duration-150"
+                        leaveFrom="opacity-100 translate-y-0"
+                        leaveTo="opacity-0 translate-y-1"
+                      >
+                        <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
+                          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                            <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                              {formsAdmin.map((item) => (
+                                <NavLink
+                                  onClick={() => close()}
+                                  activeStyle={{
+                                    backgroundColor: "#0ed4d4f9",
+                                    textDecoration: "none",
+                                  }}
+                                  key={item.name}
+                                  to={item.href}
+                                  className="-m-3 p-3 flex items-start rounded-lg hover:bg-[#00ffff41]"
+                                >
+                                  <item.icon
+                                    className="flex-shrink-0 h-6 w-6 text-indigo-600 "
+                                    aria-hidden="true"
+                                  />
+                                  <div className="ml-4 ">
+                                    <p className="text-base font-medium text-gray-900">
+                                      {item.name}
+                                    </p>
+                                    <p className="mt-1 text-sm text-gray-500">
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                </NavLink>
+                              ))}
+                            </div>
+                          </div>
+                        </Popover.Panel>
+                      </Transition>
+                    </>
+                  )}
+                </Popover>
+                
               </Popover.Group>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                 {!auth ? (
