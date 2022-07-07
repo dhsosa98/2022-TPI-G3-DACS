@@ -10,7 +10,13 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/Auth";
 import ModalCerrarSesion from "./ModalCerrarSesion";
 import { useState } from "react";
-import { DDAdminHoteles } from "./dropdownsAdmin/DDAdminHoteles";
+import {DDAdminHoteles} from "./dropdownsAdmin/DDAdminHoteles";
+import {DDAdminEventos} from "./dropdownsAdmin/DDAdminEventos";
+import { DDAdminPasajes } from "./dropdownsAdmin/DDAdminPasajes";
+import { DDAdminSeguros } from "./dropdownsAdmin/DDAdminSeguros";
+import { DDAdminPaquetes } from "./dropdownsAdmin/DDAdminPaquetes";
+
+
 
 
 
@@ -21,7 +27,7 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
   const { auth, logout } = useContext(AuthContext);
   return (
-    <Popover className="relative bg-[#ffffff]">
+    <Popover className="relative bg-[#dddddd]">
       {({ open, close }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -41,41 +47,24 @@ export default function NavBar() {
               </div>
               <Popover.Group as="nav" className="hidden md:flex space-x-10">
                 <NavLink
-                  to="/"
-                  className="text-base font-medium text-gray-500 hover:text-gray-900"
+                  to="/admin"
+                  className="text-base font-medium text-black hover:text-[#d60000]"
                 >
                   Dashboard
                 </NavLink>
               </Popover.Group>
               <DDAdminHoteles/>
-              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                {!auth ? (
-                  <>
-                <NavLink
-                  activeStyle={{ color: "#e5463f", textDecoration: "none" }}
-                  to="/iniciarsesion"
-                  className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
-                >
-                  Ingresar
-                </NavLink>
-                <NavLink
-                  activeStyle={{
-                    backgroundColor: "#e5463f",
-                    textDecoration: "none",
-                  }}
-                  to="/registrarse"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
-                >
-                  Registrarse
-                </NavLink></>) : (
+              <DDAdminEventos/>
+              <DDAdminPasajes/>
+              <DDAdminSeguros/>
+              <DDAdminPaquetes/>
+              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">    
                   <button onClick={()=>{
                      setIsOpen(true)
                   }} 
-                    
-                    
                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
                     Cerrar Sesion
-                  </button>)}
+                  </button>
               </div>
             </div>
           </div>

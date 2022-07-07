@@ -1,35 +1,34 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { NavLink } from "react-router-dom";
-import { ChevronDownIcon, OfficeBuildingIcon } from "@heroicons/react/solid";
+import { ChevronDownIcon, ArchiveIcon } from "@heroicons/react/solid";
 
-const opcionesHoteles = [
+const opcionesPaquetes = [
     {
-      name: "Ver Hoteles",
-      description: "Ver lista hoteles.",
-      href: "/admin/lista-hoteles",
-      icon: OfficeBuildingIcon
+      name: "Ver Paquetes",
+      description: "Ver lista paquetes.",
+      href: "/admin/lista-paquetes",
+      icon: ArchiveIcon
     },
     {
-      name: "Agregar Hotel",
-      description: "Agregue un nuevo hotel",
-      href: "/admin/crear-hotel",
-      icon: OfficeBuildingIcon
+      name: "Agregar Paquete",
+      description: "Agregue un nuevo paquete",
+      href: "/admin/crear-paquete",
+      icon: ArchiveIcon
     }];
 
     function classNames(...classes) {
       return classes.filter(Boolean).join(" ");
     }
-export const DDAdminHoteles = () =>{
+export const DDAdminPaquetes = () =>{
 return (
 <>
 <Popover className="relative">
                   {({ open, close }) => (
                     <>
                       <Popover.Button
-                        
                         className="group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 ">
-                        <span>Hoteles</span>
+                        <span>Paquetes</span>
                         <ChevronDownIcon
                           className="ml-2 h-5 w-5 group-hover:text-[#b60000]"
                           aria-hidden="true"
@@ -48,7 +47,7 @@ return (
                         <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-16 mt-3 px-2 w-screen max-w-sm sm:px-0">
                           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                             <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                              {opcionesHoteles.map((item) => (
+                              {opcionesPaquetes.map((item) => (
                                 <NavLink
                                 
                                   onClick={() => close()}
