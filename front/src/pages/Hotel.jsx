@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { images } from "./Hoteles";
 import { getHotelById } from "../services/hotels";
