@@ -10,6 +10,7 @@ import Hotel from "../pages/Hotel";
 import Evento from "../pages/Evento";
 import Transportes from "../pages/Transportes";
 import Transporte from "../pages/Transporte";
+import Seguros from "../pages/Seguros";
 
 import { InsuranceTable } from "../components/InsuranceTable";
 import Home from "../pages/Home";
@@ -30,6 +31,7 @@ const PagesRouter = () => {
       <Route exact path="/transportes" component={Transportes} />
       <Route path="/transportes/:id" component={Transporte} />
       <Route path="/contacto" component={Contacto} />
+      <Route path="/seguros" component={Seguros} />
     </Switch>
     </>
   );
