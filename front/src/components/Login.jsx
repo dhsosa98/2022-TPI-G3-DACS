@@ -1,10 +1,11 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
 import Logo from "../../public/icons/android/logo.png";
 import { Link } from "react-router-dom";
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, ErrorMessage } from "formik";
 import { fetchUser } from "../services/auth";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/Auth";
+import * as yup from "yup";
 
 export default function Login() {
   const { login } = useContext(AuthContext);
@@ -15,8 +16,14 @@ export default function Login() {
     login(response.data.access_token);
   };
   
+  const LoginSchema = yup.object().shape({
+    email: yup.string().required('Email is required'),
+    password: yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+  });
+
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={LoginSchema}>
+      {({ errors, touched }) => (
       <div className="border-4 min-h-full w-[30rem] rounded-3xl mt-[80px] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[#ffffffcc]">
         <div className="max-w-md w-full space-y-8">
           <div>
@@ -47,9 +54,15 @@ export default function Login() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${touched.email && errors.email ? "border-red-500" : "border-gray-300"} placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
                   placeholder="Email"
                 />
+                <ErrorMessage
+                name="email"
+                render={(msg) => (
+                <p className=" text-red-500">{msg}</p>
+              )}
+            />
               </div>
               <div>
                 <label htmlFor="password" className="sr-only">
@@ -64,6 +77,12 @@ export default function Login() {
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
                 />
+                <ErrorMessage
+                name="password"
+                render={(msg) => (
+                <p className=" text-red-500">{msg}</p>
+              )}
+            />
               </div>
             </div>
 
@@ -110,6 +129,7 @@ export default function Login() {
           </Form>
         </div>
       </div>
+      )}
     </Formik>
   );
 }
