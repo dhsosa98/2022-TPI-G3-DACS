@@ -72,7 +72,7 @@ function Footer(){
                 </div>
             </div>
         </div>
-        <div className="py-3 text-sm text-center text-gray-900">© 1968 Company Co. All rights reserved.</div>
+        <div className="py-3 text-sm text-center text-gray-900">© 2022 Los Frigolinas. All rights reserved.</div>
     </footer>
 )}
 export default Footer
