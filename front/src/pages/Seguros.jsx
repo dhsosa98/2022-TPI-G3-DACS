@@ -19,7 +19,7 @@ const Insurance = (props) => {
     fetchInsurances();
   }, []);
   return (
-    <section class=" bg-[#ffffffcc] text-black p-10 m-10 rounded-lg ">
+    <section className=" bg-[#ffffffcc] text-black p-10 m-10 rounded-lg ">
       <h1 className="font-bold text-center text-6xl mb-5 text-[#000000cb] ">
         SEGUROS
       </h1>
