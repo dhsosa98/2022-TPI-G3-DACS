@@ -2,8 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../vite-env.d";
 import Container from "./Container";
+import { Formik, Form, Field } from "formik";
+import { useHistory } from "react-router-dom";
 
-export default function FormularioPasaje() {
+export default function FormularioPasaje({initialValues, handleSubmit, isEdit}) {
+  const history = useHistory();
   const [travelWays, setTravelWays] = useState([])
 
   const fetchTravelWays = async () => {
@@ -18,10 +21,11 @@ export default function FormularioPasaje() {
     <Container>
       <div className="sm:mt-0">
         <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
-          Cargar un Pasaje
+        {!isEdit ? "Cargar un Pasaje" : "Editar un Pasaje"}
         </h1>
         <div className="md:mt-0 md:col-span-2 ">
-          <form>
+        <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize={true}>
+        <Form>
             <div className="shadow overflow-hidden sm:rounded-lg ">
               <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
@@ -32,11 +36,10 @@ export default function FormularioPasaje() {
                     >
                       Asiento
                     </label>
-                    <input
-                      type="text"
-                      name="first-name"
-                      id="first-name"
-                      autoComplete="given-name"
+                    <Field
+                      type="number"
+                      name="seat"
+                      id="seat"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -48,11 +51,10 @@ export default function FormularioPasaje() {
                     >
                       Fecha de ida
                     </label>
-                    <input
+                    <Field
                       type="date"
-                      name="last-name"
-                      id="last-name"
-                      autoComplete="family-name"
+                      name="depurateDate"
+                      id="depurateDate"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -64,11 +66,10 @@ export default function FormularioPasaje() {
                     >
                       Fecha de vuelta
                     </label>
-                    <input
+                    <Field
                       type="date"
-                      name="email-address"
-                      id="email-address"
-                      autoComplete="email"
+                      name="returnDate"
+                      id="returnDate"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -79,20 +80,20 @@ export default function FormularioPasaje() {
                     >
                       Medio de transporte
                     </label>
-                    <select
-                      type="text"
-                      name="email-address"
-                      id="email-address"
-                      autoComplete="email"
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    >
-                      <option value="">Seleccione un medio de transporte</option>
-                      {travelWays.map(travelWay => (
-                        <option key={travelWay.id} value={travelWay.id}>
-                          {travelWay.name}
-                        </option>
-                      ))}
-                    </select>
+                    <Field
+                    as='select'
+                          type="number"
+                          name="travelWayId"
+                          id="travelWayId"
+                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        >
+                          <option value="">Seleccione un medio de transporte</option>
+                          {travelWays.map(travelWay => (
+                            <option key={travelWay.id} value={travelWay.id}>
+                              {travelWay.name}
+                            </option>
+                          ))}
+                        </Field>
                   </div>
                   <div className="col-span-6">
                     <label
@@ -101,11 +102,10 @@ export default function FormularioPasaje() {
                     >
                      Precio
                     </label>
-                    <input
-                      type="text"
-                      name="email-address"
-                      id="email-address"
-                      autoComplete="email"
+                    <Field
+                      type="number"
+                      name="amount"
+                      id="amount"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -113,7 +113,7 @@ export default function FormularioPasaje() {
               </div>
               <div className="px-4 py-3 bg-[#ffffffd8] text-right sm:px-6 gap-1 sm:justify-start justify-center flex flex-row-reverse">
                 <button
-                  type="submit"
+                  onClick={()=>history.goBack()}
                   className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#afafaf] hover:bg-[#00000086] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Cancelar
@@ -126,7 +126,8 @@ export default function FormularioPasaje() {
                 </button>
               </div>
             </div>
-          </form>
+            </Form>
+          </Formik>
         </div>
       </div>
     </Container>
