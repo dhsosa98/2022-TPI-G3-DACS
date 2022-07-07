@@ -100,13 +100,13 @@ export default function NavBar() {
                 </Popover.Button>
               </div>
               <Popover.Group as="nav" className="hidden md:flex space-x-10">
-                {/* <NavLink
-                activeStyle={{backgroundColor: "#1885b8"}}
+                <NavLink
+                activeStyle=''
                   to="/admin"
-                  className=" whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-bold text-[#ffffff] "
+                  className="text-base font-medium text-gray-900 hover:text-[#b60000]"
                 >
-                  Panel de Administrador
-                </NavLink> */}
+                  Dashboard
+                </NavLink>
                 <DDAdminHoteles/>
               <DDAdminEventos/>
               <DDAdminPasajes/>
