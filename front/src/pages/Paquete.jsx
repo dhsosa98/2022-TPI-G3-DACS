@@ -38,7 +38,7 @@ const Paquete = () => {
                 <h1 className="text-center mb-[10px] text-bold text-2xl">
                   {paquete.name}
                 </h1>
-                <p className=" text-gray-600 sm:text-base text-sm">
+                {/* <p className=" text-gray-600 sm:text-base text-sm">
                   <p className="text-center text-gray-600 sm:text-base text-sm">
                     {paquete.show !== null && (
                       <span className="font-bold">
@@ -47,7 +47,7 @@ const Paquete = () => {
                       </span>
                     )}
                   </p>
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
