@@ -16,10 +16,11 @@ export const Dashboard = () => {
                     <div className=" relative ">
                         <div className=" relative group">
                             <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full"></div>
+                            <h1 className="fixed  text-4xl px-4 py-2 border border-transparent  font-bold text-[#000000]">Hoteles</h1>
                             <img className="w-full rounded-lg" src={hoteles} alt="Hotel" />
                             <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
                                 <NavLink to='/admin/lista-hoteles'><button className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full">Lista Hoteles</button></NavLink>
-                                <NavLink to='/admin/crear-hotel'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white">Agregar Hoteles</button></NavLink>
+                                <NavLink to='/admin/crear-hotel'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-[#000000]">Agregar Hoteles</button></NavLink>
                             </div>
                         </div>
                     </div>
@@ -27,10 +28,11 @@ export const Dashboard = () => {
                     <div className=" relative">
                         <div className=" relative group ">
                             <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full"></div>
+                            <h1 className="fixed  text-4xl px-4 py-2 border border-transparent  font-bold text-[#000000]">Eventos</h1>
                             <img className="w-full rounded-lg" src={eventos} alt="Evento" />
                             <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
                             <NavLink to='/admin/lista-pasajes'><button className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full">Lista Pasajes</button></NavLink>
-                            <NavLink to='/admin/crear-pasaje'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white">Agregar Pasajes</button></NavLink>
+                            <NavLink to='/admin/crear-pasaje'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-[#000000]">Agregar Pasajes</button></NavLink>
                             </div>
                         </div>
                     </div>
@@ -38,10 +40,11 @@ export const Dashboard = () => {
                     <div className=" relative ">
                         <div className=" relative group">
                             <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full"></div>
+                            <h1 className="fixed  text-4xl px-4 py-2 border border-transparent  font-bold text-[#000000]">Pasajes</h1>
                             <img className=" w-full rounded-lg" src={pasajes} alt="Pasajes" />
                             <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
                                 <NavLink to='/admin/lista-pasajes'><button className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full">Lista Pasajes</button></NavLink>
-                                <NavLink to='/admin/crear-pasaje'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white">Agregar Pasajes</button></NavLink>
+                                <NavLink to='/admin/crear-pasaje'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-[#000000]">Agregar Pasajes</button></NavLink>
                             </div>
                         </div>
                     </div>
@@ -49,10 +52,11 @@ export const Dashboard = () => {
                     <div className=" relative ">
                         <div className=" relative group">
                             <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full"></div>
+                            <h1 className="fixed  text-4xl px-4 py-2 border border-transparent  font-bold text-[#000000]">Seguros</h1>
                             <img className=" w-full rounded-lg" src={seguros} alt="Seguros" />
                             <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
                             <NavLink to='/admin/lista-seguros'><button className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full">Lista Seguros</button></NavLink>
-                            <NavLink to='/admin/crear-seguro'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white">Agregar Seguro</button></NavLink>
+                            <NavLink to='/admin/crear-seguro'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-[#000000]">Agregar Seguro</button></NavLink>
                             </div>
                         </div>
                     </div>
@@ -60,10 +64,11 @@ export const Dashboard = () => {
                     <div className=" relative ">
                         <div className=" relative group">
                             <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full"></div>
+                            <h1 className="fixed  text-4xl px-4 py-2 border border-transparent  font-bold text-[#000000]">Usuarios</h1>
                             <img className=" w-full rounded-lg" src={usuarios} alt="Usuarios" />
                             <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
                             <NavLink to='/admin/lista-usuarios'><button className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full">Lista Usuarios</button></NavLink>
-                            <NavLink to='/admin/crear-usuario'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white">Agregar Usuario</button></NavLink>
+                            <NavLink to='/admin/crear-usuario'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-[#000000]">Agregar Usuario</button></NavLink>
                             </div>
                         </div>
                     </div>
@@ -71,10 +76,11 @@ export const Dashboard = () => {
                     <div className=" relative ">
                         <div className=" relative group">
                             <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full"></div>
+                            <h1 className="fixed  text-4xl px-4 py-2 border border-transparent  font-bold text-[#000000]">Paquetes</h1>
                             <img className=" w-full rounded-lg" src={paquetes} alt="Paquetes" />
                             <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
                             <NavLink to='/admin/lista-paquetes'><button className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full">Lista Paquetes</button></NavLink>
-                            <NavLink to='/admin/crear-paquete'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white">Agregar Paquete</button></NavLink>
+                            <NavLink to='/admin/crear-paquete'><button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-[#000000]">Agregar Paquete</button></NavLink>
                             </div>
                         </div>
                     </div>
