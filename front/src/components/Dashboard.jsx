@@ -24,10 +24,10 @@ export const Dashboard = () => {
         <section className="bg-[#ffffffcc] text-black sm:p-10 p-4 sm:m-10 m-5 rounded-lg 2xl:container 2xl:mx-auto mb-10">
         <div className=" ">
             <div className="lg:px-20 md:px-6 sm:px-4">
-                <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-24 sm:gap-y-10 sm:gap-x-6 gap-y-6 lg:px-60">
+                <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-24 sm:gap-y-10 sm:gap-x-6 gap-y-6 max-w-[50vw] mx-auto">
                     <div className=" relative bg-white rounded-lg">
                         <div className=" relative group">
-                            <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-100 via-gray-400 to-opacity-30 group-hover:opacity-20 absolute top-0 left-0 h-full w-full"></div>
+                            <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-100 via-gray-400 to-opacity-30 group-hover:opacity-20 absolute top-0 left-0 "></div>
                             <h1 className="text-center text-2xl pt-2 text-[#000000]">Hoteles</h1>
                             {/* <img className="w-full rounded-lg" src={hoteles} alt="Hotel" /> */}
                             <OfficeBuildingIcon className=" text-[#1885b8]" />

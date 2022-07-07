@@ -16,9 +16,61 @@ import { DDAdminPasajes } from "./dropdownsAdmin/DDAdminPasajes";
 import { DDAdminSeguros } from "./dropdownsAdmin/DDAdminSeguros";
 import { DDAdminPaquetes } from "./dropdownsAdmin/DDAdminPaquetes";
 import { DDAdminUsuarios } from "./dropdownsAdmin/DDAdminUsuarios";
+import {
+  CalendarIcon,
+  TruckIcon,
+  ArchiveIcon,
+  OfficeBuildingIcon,
+  ThumbUpIcon,
+  TicketIcon,
+  UserGroupIcon,
+  HeartIcon,
+} from "@heroicons/react/outline";
 
-
-
+const resources = [
+  {
+    name: "Dashboard",
+    description: "Vea los seguros disponibles.",
+    href: "/admin",
+    icon: UserGroupIcon,
+  },
+  {
+    name: "Hoteles",
+    description: "Vea los hoteles disponibles.",
+    href: "/admin/listar-hoteles",
+    icon: OfficeBuildingIcon,
+  },
+  {
+    name: "Eventos",
+    description: "Vea los eventos disponibles.",
+    href: "/admin/listar-eventos",
+    icon: CalendarIcon,
+  },
+  {
+    name: "Pasajes",
+    description: "Vea las formas de viaje disponibles.",
+    href: "/admin/listar-pasajes",
+    icon: TicketIcon,
+  },
+  {
+    name: "Paquetes",
+    description: "Vea los paquetes disponibles.",
+    href: "/admin/listar-paquetes",
+    icon: ArchiveIcon,
+  },
+  {
+    name: "Seguros de viaje",
+    description: "Vea los seguros disponibles.",
+    href: "/admin/listar-seguros",
+    icon: HeartIcon,
+  },
+  {
+    name: "Usuarios",
+    description: "Vea los seguros disponibles.",
+    href: "/admin/listar-usuarios",
+    icon: UserGroupIcon,
+  },
+];
 
 
 function classNames(...classes) {
@@ -29,18 +81,18 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
   const { auth, logout, isAdmin } = useContext(AuthContext);
   return (
-    <Popover className="relative bg-[#ffffff]">
+    <Popover className="relative bg-[#ffffff] w-full">
       {({ open, close }) => (
         <>
-          <div className="w-full mx-auto px-4 sm:px-6">
+          <div className="w-full px-4 sm:px-6 ">
             {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen}/>}
-            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
-              {/* <div className="flex justify-start flex-shrink">
+            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10 flex-wrap">
+              <div className="flex justify-start flex-shrink">
                 <Link to="/">
                   <span className="sr-only">Fantur</span>
                   <img className="h-12 w-[120px]" src={Logo} alt="" />
                 </Link>
-              </div> */}
+              </div>
               <div className="-mr-2 -my-2 md:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Abrir Menu</span>
@@ -117,7 +169,7 @@ export default function NavBar() {
                     
 
                    
-                    {/* {resources.map((item) => (
+                    {resources.map((item) => (
                       <NavLink
                         onClick={() => close()}
                         activeStyle={{
@@ -130,7 +182,7 @@ export default function NavBar() {
                       >
                         {item.name}
                       </NavLink>
-                    ))} */}
+                    ))}
 
 
                   </div>
