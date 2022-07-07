@@ -5,12 +5,16 @@ import HomeAdmin from "../pages/HomeAdmin";
 import FormularioHotel from "../components/FormularioHotel";
 import FormularioTransporte from "../components/FormularioTransporte";
 import FormularioPaquete from "../components/FormularioPaquete";
+import { HotelTables } from "../components/HotelTables";
 import { CrearSeguro } from "../components/CrearSeguro";
 import { ActualizarSeguro } from "../components/ActualizarSeguro";
 import { ActualizarEvento } from "../components/ActualizarEvento";
 import { CrearEvento } from "../components/CrearEvento";
 import FormularioPasaje from "../components/FormularioPasaje";
 import { InsuranceTable } from "../components/InsuranceTable";
+import { ShowTable } from "../components/ShowTable";
+import { UserTables } from "../components/UserTable";
+
 
 const AdminPages = () => {
   return (
@@ -29,6 +33,9 @@ const AdminPages = () => {
         <Route exact path="/admin/crear-evento" component={CrearEvento} />
         <Route path="/admin/editar-evento/:id" component={ActualizarEvento} />
         <Route path='/admin/lista-seguros' component={InsuranceTable} />
+        <Route path='/admin/lista-hoteles' component={HotelTables} />
+        <Route path='/admin/lista-eventos' component={ShowTable} />
+        <Route path='/admin/lista-usuarios' component={UserTables} />
       </Switch>
     </>
   );

@@ -1,5 +1,7 @@
 import { API_BASE_URL } from '../vite-env.d';
-import Axios from '../config/axios';
+import Axios from "../config/axios";
+import axios from "axios";
+
 
 export const createShow = async (name, seat, dateShow, amount) => {
     const response = await Axios.post(API_BASE_URL+"/shows", {
@@ -26,7 +28,12 @@ export const updateShow = async (name, seat, dateShow, amount, id) => {
     return response.data;
 }
 
-export const getShows = async (id) => {
-    const response = await Axios.get(API_BASE_URL+"/shows?limit=8");
+export const getShows = async () => {
+    const response = await Axios.get(API_BASE_URL+"/shows");
+    return response.data;
+}
+
+export const deleteShow = async (id) => {
+    const response = await Axios.delete(API_BASE_URL+"/shows/"+id);
     return response.data;
 }
