@@ -79,7 +79,7 @@ export default function Registro() {
                 </p>
               </div>
 
-              <Form className="space-y-6" action="#" method="POST">
+              <Form className="space-y-6">
                 {error && <p className=" text-center text-red-600">{error}</p>}
                 {confirm && <p className=" text-center text-green-600">{confirm}</p>}
                 <input type="hidden" name="remember" defaultValue="true" />

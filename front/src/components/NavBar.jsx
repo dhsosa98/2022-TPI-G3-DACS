@@ -11,6 +11,7 @@ import {
   OfficeBuildingIcon,
   ThumbUpIcon,
   TicketIcon,
+  HeartIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { useContext } from "react";
@@ -42,6 +43,12 @@ const resources = [
     description: "Vea los paquetes disponibles.",
     href: "/paquetes",
     icon: ArchiveIcon,
+  },
+  {
+    name: "Seguros de viaje",
+    description: "Vea los seguros disponibles.",
+    href: "/seguros",
+    icon: HeartIcon,
   },
 ];
 

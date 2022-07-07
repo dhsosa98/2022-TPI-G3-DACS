@@ -21,7 +21,7 @@ export default function FormularioPasaje() {
           Cargar un Pasaje
         </h1>
         <div className="md:mt-0 md:col-span-2 ">
-          <form action="#" method="POST">
+          <form>
             <div className="shadow overflow-hidden sm:rounded-lg ">
               <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
