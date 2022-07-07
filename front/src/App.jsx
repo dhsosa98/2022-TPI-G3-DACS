@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <div className="App ">
-         <div class="flex flex-col min-h-screen">
+         <div className="flex flex-col min-h-screen">
         <Switch>
           <AdminRouter path="/admin" component={AdminPages} />
           <Route path="/" component={PagesRouter} />
