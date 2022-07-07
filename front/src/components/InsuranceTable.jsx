@@ -34,7 +34,7 @@ export const InsuranceTable = (props) => {
                         <td><img src=''/></td>
                         <td>{insurance.name}</td>
                         <td>{insurance.amount}</td>
-                        <td><Link to={'/formu-seguro/'+insurance.id}>Editar</Link></td>
+                        <td><Link to={'/admin/editar-seguro/'+insurance.id}>Editar</Link></td>
                         <td><button onClick={()=>{handleDelete(insurance.id)}}>Eliminar</button></td>
                     </tr>
                 ))}

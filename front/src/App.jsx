@@ -7,17 +7,17 @@ import Home from "./pages/Home";
 import IniciarSesion from "./pages/IniciarSesion";
 import Registrarse from "./pages/Registrarse";
 import QuienesSomos from "./pages/QuienesSomos";
+import AdminPages from "./routers/AdminPages";
+import AdminRouter from "./routers/AdminRouter";
 
 function App() {
   return (
     <Router>
       <div className="App ">
-        <NavBar/>
         <Switch>
-          <Route path="/" exact component={Home} />
           <PublicRouter path="/iniciarsesion" component={IniciarSesion} />
           <PublicRouter path="/registrarse" component={Registrarse} />
-          <PrivateRouter path="/admin" component={QuienesSomos} />
+          <AdminRouter path="/admin" component={AdminPages} />
           <Route path="/" component={PagesRouter} />
           {/* <Redirect to="/" /> */}
         </Switch>
