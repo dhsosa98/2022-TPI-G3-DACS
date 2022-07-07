@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { getTravelWay } from "../services/travelWays";
+import { getTravelWayById } from "../services/travelWays";
 import { images } from "./Transportes";
 
 const Transporte = () => {
@@ -10,7 +10,7 @@ const Transporte = () => {
   const history = useHistory();
 
   const fetchTransporte = async () => {
-    const response = await getTravelWay(id);
+    const response = await getTravelWayById(id);
     setTransporte(response);
   };
 
