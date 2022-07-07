@@ -14,6 +14,9 @@ import FormularioPasaje from "../components/FormularioPasaje";
 import { InsuranceTable } from "../components/InsuranceTable";
 import { ShowTable } from "../components/ShowTable";
 import { UserTables } from "../components/UserTable";
+import { PackageTable } from "../components/PackageTable";
+import { TicketTable } from "../components/TicketTable";
+
 
 
 const AdminPages = () => {
@@ -36,6 +39,8 @@ const AdminPages = () => {
         <Route path='/admin/lista-hoteles' component={HotelTables} />
         <Route path='/admin/lista-eventos' component={ShowTable} />
         <Route path='/admin/lista-usuarios' component={UserTables} />
+        <Route path='/admin/lista-paquetes' component={PackageTable} />
+        <Route path='/admin/lista-pasajes' component={TicketTable} />
       </Switch>
     </>
   );
