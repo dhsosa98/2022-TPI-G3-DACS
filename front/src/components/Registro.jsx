@@ -5,16 +5,23 @@ import { registerUser } from "../services/auth";
 
 export default function Registro() {
   const initialValues = {
-    nombre: "",
-    apellido: "",
+    firstName: "",
+    lastName: "",
     cuit: "",
     email: "",
     password: "",
   };
 
   const handleSubmit = async (values) => {
-    const response = await registerUser( values.firstname, values.lastname, values.cuit , values.email, values.password);
-    
+    console.log(values);
+    const response = await registerUser(
+      values.firstName,
+      values.lastName,
+      values.cuit,
+      values.email,
+      values.password
+    );
+    console.log(response);
   };
 
   return (
@@ -40,8 +47,8 @@ export default function Registro() {
                 </label>
                 <Field
                   type="text"
-                  name="nombre"
-                  id="nombre"
+                  name="firstName"
+                  id="firstName"
                   autoComplete="given-firstname"
                   required
                   className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -54,8 +61,8 @@ export default function Registro() {
                   Apellido
                 </label>
                 <Field
-                  id="apellido"
-                  name="apellido"
+                  id="lastName"
+                  name="lastName"
                   type="text"
                   autoComplete="given-lastname"
                   required
