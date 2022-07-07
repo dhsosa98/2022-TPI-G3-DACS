@@ -15,7 +15,7 @@ function Footer(){
                     <h3 className="tracking-wide uppercase text-gray-900">BIENVENIDO</h3>
                     <ul className="space-y-1">
                         <li>
-                            <a rel="noopener noreferrer" href="/">inicio</a>
+                            <a rel="noopener noreferrer" href="/">Inicio</a>
                         </li>
                     </ul>
                 </div>
