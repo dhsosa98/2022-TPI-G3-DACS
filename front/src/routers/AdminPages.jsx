@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import NavBar from "../components/NavBar";
+import NavBarAdmin from "../components/NavBarAdmin";
 import Home from "../pages/Home";
 import FormularioHotel from "../components/FormularioHotel";
 import FormularioTransporte from "../components/FormularioTransporte";
@@ -15,7 +15,7 @@ import { InsuranceTable } from "../components/InsuranceTable";
 const AdminPages = () => {
   return (
     <>
-      <NavBar/>
+      <NavBarAdmin/>
       <Switch>
         <Route path="/admin" exact component={Home} />
         <Route path="/admin/crear-hotel" component={FormularioHotel} />
