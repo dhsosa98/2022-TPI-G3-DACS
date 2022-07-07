@@ -1,5 +1,5 @@
 import Cards from "react-credit-cards";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import "react-credit-cards/es/styles-compiled.css";
 import { useEffect } from "react";
 import { getPackage } from "../services/packages";
@@ -8,6 +8,8 @@ import { images } from "../pages/Hoteles";
 import { useLocation } from "react-router-dom";
 import { createSales } from "../services/sales";
 import ModalExito from "./ModalExito";
+import ModalError from "./ModalError";
+import * as yup from "yup";
 
 export const Payment = () => {
     const location = useLocation()
@@ -21,6 +23,7 @@ export const Payment = () => {
   const search = new URLSearchParams(location.search);
   const packageId = search.get("packageId");
   const [error, setError] = useState(null);
+  const [afipError, setAfipError] = useState(null);
 
   const [pack, setPack] = useState({
     name: "",
@@ -61,27 +64,39 @@ export const Payment = () => {
             }
         }
         const response = await createSales(sale)
+        console.log(response)
         setSuccess(true)
     }
     catch (error) {
         console.log(error)
+        setAfipError(true)
     }
  };
 
   if (error){
     return <div>Error el paquete no existe</div>
   }
+
+  const cardSchema = yup.object().shape({
+    number: yup.string().required("El numero de tarjeta es requerido").min(18, "El numero de tarjeta debe tener 15 o 16 digitos").max(19, "El numero de tarjeta debe tener 15 o 16 digitos"),
+    cvc: yup.number().required("El cvc es requerido"),
+    expiry: yup.string().required("La fecha de expiracion es requerida"),
+    name: yup.string().required("El nombre del titular es requerido"),
+  })
+
+
   return (
-    <Formik initialValues={initialCard} onSubmit={handleSubmit}>
+    <Formik initialValues={initialCard} onSubmit={handleSubmit} validationSchema={cardSchema}>
       {({ values, handleSubmit }) => (
         <section className=" flex-grow bg-[#ffffffcc] text-black sm:m-10 m-2">
           <div className="p-4 container flex flex-col items-center mx-auto space-y-6 ">
           <h1 className="font-bold text-center sm:text-3xl text-3xl text-[#000000cb] ">Datos de Reserva</h1>
-            <div className=" bg-white rounded-lg p-5 flex gap-7 flex-wrap justify-center items-center ">
-                {success && <ModalExito open={success} setOpen={setSuccess} />}
+            <div className=" bg-white rounded-lg p-5 flex gap-7 flex-wrap justify-center items-center container max-w-lg ">
+                {success && <ModalExito open={success} setOpen={setSuccess} message={"Pago Realizado con Éxito."} />}
+                {afipError && <ModalError open={afipError} setOpen={setAfipError} message={{title: "Ha ocurrido un error", description: "No está habilitado para comprar este paquete"}} />}
             <div className="flex flex-wrap justify-center ">
                   <div className="w-full p-3 flex justify-center">
-                    <img src={images[0]} alt="pack" className="max-w-[30vw]" />
+                    <img src={images[pack?.id % 12]} alt="pack" className="max-w-[30vw]" />
                   </div>
                   <p className="text-center text-gray-600 text-4xl">
                     Paquete {pack?.id}
@@ -159,7 +174,7 @@ export const Payment = () => {
                 </div>
             </div>
             <h1 className="font-bold text-center sm:text-3xl text-3xl text-[#000000cb] ">Datos de pago</h1>
-            <div className=" bg-white rounded-lg p-5 flex gap-7 flex-wrap justify-center items-center">
+            <div className=" bg-white rounded-lg p-5 flex gap-7 flex-wrap justify-center items-center container max-w-lg ">
               <Cards
                 cvc={values.cvc}
                 expiry={values.expiry}
@@ -180,21 +195,34 @@ export const Payment = () => {
                   placeholder="Nro de Tarjeta"
                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2"
                 />
-
+                 <ErrorMessage
+                    name="number"
+                    render={(msg) => <p className=" text-red-500">{msg}</p>}
+                  />
                 <label>Nombre de Tarjeta</label>
                 <Field
                   name="name"
                   placeholder="Nombre"
                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2"
                 />
+                 <ErrorMessage
+                    name="name"
+                    render={(msg) => <p className=" text-red-500">{msg}</p>}
+                  />
                 <div className=" flex gap-2">
                   <div>
                     <label>Fecha de Vencimiento</label>
                     <Field
                       name="expiry"
                       placeholder="MM/AA"
+                      maxLength="5"
+                      value={values.expiry.length<=2 ? values.expiry.replace(/\//g, "").replace(/(\d{2})/g, "$1/").trim() : values.expiry}
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2"
                     />
+                     <ErrorMessage
+                    name="expiry"
+                    render={(msg) => <p className=" text-red-500">{msg}</p>}
+                  />
                   </div>
                   <div>
                     <label>CVC</label>
@@ -204,6 +232,10 @@ export const Payment = () => {
                       maxLength="4"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2"
                     />
+                     <ErrorMessage
+                    name="cvc"
+                    render={(msg) => <p className=" text-red-500">{msg}</p>}
+                  />
                   </div>
                 </div>
               </Form>

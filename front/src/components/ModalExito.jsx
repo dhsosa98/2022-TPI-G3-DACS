@@ -4,7 +4,7 @@ import { CheckIcon, ExclamationIcon } from '@heroicons/react/outline'
 import { useContext } from "react";
 import { AuthContext } from "../contexts/Auth";
 
-export default function ModalExito({open, setOpen}) {
+export default function ModalExito({open, setOpen, message}) {
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -23,7 +23,7 @@ export default function ModalExito({open, setOpen}) {
 
         <div className="fixed z-10 inset-0 overflow-y-auto">
           <div className="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
-            {/* <Transition.Child
+            <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -31,7 +31,7 @@ export default function ModalExito({open, setOpen}) {
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            > */}
+            >
               <Dialog.Panel className="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform -translate-y-48 sm:translate-y-0 transition-all sm:my-8 sm:max-w-lg sm:w-full">
                 <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
@@ -40,7 +40,7 @@ export default function ModalExito({open, setOpen}) {
                     </div>
                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                       <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
-                      Pago Realizado con Éxito. 
+                      {message} 
                       </Dialog.Title>
                     </div>
                   </div>
@@ -55,7 +55,7 @@ export default function ModalExito({open, setOpen}) {
                   </button>
                 </div>
               </Dialog.Panel>
-            {/* </Transition.Child> */}
+            </Transition.Child>
           </div>
         </div>
       </Dialog>
