@@ -18,14 +18,14 @@ export default function FormularioPasaje() {
     <Container>
       <div className="sm:mt-0">
         <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
-          Cargar un pasaje
+          Cargar un Pasaje
         </h1>
         <div className="md:mt-0 md:col-span-2 ">
           <form action="#" method="POST">
             <div className="shadow overflow-hidden sm:rounded-lg ">
               <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-4">
+                  <div className="col-span-6">
                     <label
                       htmlFor="first-name"
                       className="block text-sm font-medium text-gray-700"
@@ -94,7 +94,7 @@ export default function FormularioPasaje() {
                       ))}
                     </select>
                   </div>
-                  <div className="col-span-6 sm:col-span-3">
+                  <div className="col-span-6">
                     <label
                       htmlFor="email-address"
                       className="block text-sm font-medium text-gray-700"

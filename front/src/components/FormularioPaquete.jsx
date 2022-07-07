@@ -52,20 +52,21 @@ export default function FormularioPaquete() {
     <Container>
       <div className="sm:mt-0">
         <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
-          Cargar un paquete
+          Cargar un Paquete
         </h1>
         <div className="md:mt-0 md:col-span-2 ">
           <form action="#" method="POST">
             <div className="shadow overflow-hidden sm:rounded-lg ">
               <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-4">
+                  <div className="col-span-6">
                     <label
                       htmlFor="first-name"
                       className="block text-sm font-medium text-gray-700"
                     >
                       Nombre
                     </label>
+
                     <input
                       type="text"
                       name="first-name"
@@ -73,6 +74,7 @@ export default function FormularioPaquete() {
                       autoComplete="given-name"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
+
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
