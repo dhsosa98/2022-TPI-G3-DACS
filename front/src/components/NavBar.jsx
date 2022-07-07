@@ -58,20 +58,26 @@ function classNames(...classes) {
 }
 
 export default function NavBar() {
-  const [isOpen, setIsOpen] = useState(false)
-  
+  const [isOpen, setIsOpen] = useState(false);
+
   const { auth, logout, isAdmin } = useContext(AuthContext);
   return (
     <Popover className="relative bg-[#ffffff]">
       {({ open, close }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen}/>}
+            {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen} />}
             <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
-                <a rel="noopener noreferrer" href="/" className="flex justify-center space-x-3 lg:justify-start">
-                    <img className="h-12 w-12 " src={Logo} alt="" />
-                    <span className="self-center text-2xl font-medium">FANTUR</span>
+                <a
+                  rel="noopener noreferrer"
+                  href="/"
+                  className="flex justify-center space-x-3 lg:justify-start"
+                >
+                  <img className="h-12 w-12 " src={Logo} alt="" />
+                  <span className="self-center text-2xl font-medium">
+                    FANTUR
+                  </span>
                 </a>
               </div>
               <div className="-mr-2 -my-2 md:hidden">
@@ -165,49 +171,52 @@ export default function NavBar() {
                     </>
                   )}
                 </Popover>
-
               </Popover.Group>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                 {!auth ? (
                   <>
-                <NavLink
-                  activeStyle={{ color: "#e5463f", textDecoration: "none" }}
-                  to="/iniciarsesion"
-                  className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
-                >
-                  Ingresar
-                </NavLink>
-                <NavLink
-                  activeStyle={{
-                    backgroundColor: "#e5463f",
-                    textDecoration: "none",
-                  }}
-                  to="/registrarse"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
-                >
-                  Registrarse
-                </NavLink></>) : (
+                    <NavLink
+                      activeStyle={{ color: "#e5463f", textDecoration: "none" }}
+                      to="/iniciarsesion"
+                      className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+                    >
+                      Ingresar
+                    </NavLink>
+                    <NavLink
+                      activeStyle={{
+                        backgroundColor: "#e5463f",
+                        textDecoration: "none",
+                      }}
+                      to="/registrarse"
+                      className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
+                    >
+                      Registrarse
+                    </NavLink>
+                  </>
+                ) : (
                   <>
-                  {isAdmin && <NavLink
-   
-                  to="/admin"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#000000] hover:text-white hover:bg-[#00adad86]"
-                >
-                  Vista Admininstrador
-                </NavLink>}
-                  <button onClick={()=>{
-                     setIsOpen(true)
-                  }} 
-                    
-                    
-                    className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#7a3e3e] hover:bg-[#a05252]">
-                    Cerrar Sesion
-                  </button>
-                  </>)}
+                    {isAdmin && (
+                      <NavLink
+                        to="/admin"
+                        className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#000000] hover:text-white hover:bg-[#00adad86]"
+                      >
+                        Vista Admininstrador
+                      </NavLink>
+                    )}
+                    <button
+                      onClick={() => {
+                        setIsOpen(true);
+                      }}
+                      className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#e5463f] hover:bg-[#fb4339f6]"
+                    >
+                      Cerrar Sesion
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
-         
+
           <Transition
             as={Fragment}
             enter="duration-200 ease-out"
@@ -224,12 +233,14 @@ export default function NavBar() {
               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                 <div className="pt-5 pb-6 px-5">
                   <div className="flex items-center justify-between">
+                    {/* logo y nombre */}
                     <div>
-                      <img
-                        className="h-12 w-auto"
-                        src={Logo}
-                        alt="Fantur Logo"
-                      />
+                      <img className="h-12 w-12 " src={Logo} alt="" />
+                    </div>
+                    <div>
+                      <span className="self-center text-2xl font-medium">
+                        FANTUR
+                      </span>
                     </div>
                     <div className="-mr-2">
                       <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -274,44 +285,53 @@ export default function NavBar() {
                     ))}
                   </div>
                   {!auth ? (
-                  <div>
-                    <NavLink
-                      onClick={() => close()}
-                      activeStyle={{
-                        backgroundColor: "#e5463f",
-                        textDecoration: "none",
-                      }}
-                      to="/iniciarsesion"
-                      className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
-                    >
-                      Ingresar
-                    </NavLink>
-                    <p className="mt-6 text-center text-base font-medium text-gray-500">
-                      No tienes cuenta?{" "}
+                    <div>
                       <NavLink
                         onClick={() => close()}
                         activeStyle={{
-                          color: "#e5463f",
+                          backgroundColor: "#e5463f",
                           textDecoration: "none",
                         }}
-                        to="/registrarse"
-                        className="text-indigo-600 hover:text-indigo-500"
+                        to="/iniciarsesion"
+                        className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
                       >
-                        Registrarse
+                        Ingresar
                       </NavLink>
-                    </p>
-                  </div>) : (
-                      <>
-                      {isAdmin && <NavLink
-                      to="/admin"
-                      className="w-full whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#000000] hover:text-white hover:bg-[#00adad86]"
-                    >
-                      Vista Admininstrador
-                    </NavLink>}
-                      <button onClick={()=>{logout()}} className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
+                      <p className="mt-6 text-center text-base font-medium text-gray-500">
+                        No tienes cuenta?{" "}
+                        <NavLink
+                          onClick={() => close()}
+                          activeStyle={{
+                            color: "#e5463f",
+                            textDecoration: "none",
+                          }}
+                          to="/registrarse"
+                          className="text-indigo-600 hover:text-indigo-500"
+                        >
+                          Registrarse
+                        </NavLink>
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      {isAdmin && (
+                        <NavLink
+                          to="/admin"
+                          className="w-full whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#000000] hover:text-white hover:bg-[#00adad86]"
+                        >
+                          Vista Admininstrador
+                        </NavLink>
+                      )}
+                      <button
+                        onClick={() => {
+                          logout();
+                        }}
+                        className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#e5463f] hover:bg-[#fb4339f6]"
+                      >
                         Cerrar Sesion
                       </button>
-                      </>)}
+                    </>
+                  )}
                 </div>
               </div>
             </Popover.Panel>

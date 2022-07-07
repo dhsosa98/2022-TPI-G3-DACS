@@ -1,17 +1,14 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
-import Logo from "../../public/icons/android/logo.png";
+import Logo from "../../public/icons/android/android-launchericon-512-512.png";
 import { Link, NavLink } from "react-router-dom";
-import {
-  MenuIcon,
-  XIcon
-} from "@heroicons/react/outline";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/Auth";
 import ModalCerrarSesion from "./ModalCerrarSesion";
 import { useState } from "react";
-import {DDAdminHoteles} from "./dropdownsAdmin/DDAdminHoteles";
-import {DDAdminEventos} from "./dropdownsAdmin/DDAdminEventos";
+import { DDAdminHoteles } from "./dropdownsAdmin/DDAdminHoteles";
+import { DDAdminEventos } from "./dropdownsAdmin/DDAdminEventos";
 import { DDAdminPasajes } from "./dropdownsAdmin/DDAdminPasajes";
 import { DDAdminSeguros } from "./dropdownsAdmin/DDAdminSeguros";
 import { DDAdminPaquetes } from "./dropdownsAdmin/DDAdminPaquetes";
@@ -72,26 +69,22 @@ const resources = [
   },
 ];
 
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export default function NavBar() {
-
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const { auth, logout, isAdmin } = useContext(AuthContext);
   return (
     <Popover className="relative bg-[#ffffff] w-full">
       {({ open, close }) => (
         <>
           <div className="w-full px-4 sm:px-6 ">
-            {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen}/>}
+            {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen} />}
             <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10 flex-wrap">
               <div className="flex justify-start flex-shrink">
-                <Link to="/">
-                  <span className="sr-only">Fantur</span>
-                  <img className="h-12 w-[120px]" src={Logo} alt="" />
-                </Link>
+                <img className="h-12 w-12 " src={Logo} alt="" />
+                <span className="self-center text-2xl font-medium">FANTUR</span>
               </div>
               <div className="-mr-2 -my-2 md:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -101,38 +94,41 @@ export default function NavBar() {
               </div>
               <Popover.Group as="nav" className="hidden md:flex space-x-10">
                 <NavLink
-                activeStyle=''
+                  activeStyle=""
                   to="/admin"
                   className="text-base font-medium text-gray-900 hover:text-[#b60000]"
                 >
                   Dashboard
                 </NavLink>
-                <DDAdminHoteles/>
-              <DDAdminEventos/>
-              <DDAdminPasajes/>
-              <DDAdminSeguros/>
-              <DDAdminPaquetes/>
-              <DDAdminUsuarios/>
+                <DDAdminHoteles />
+                <DDAdminEventos />
+                <DDAdminPasajes />
+                <DDAdminSeguros />
+                <DDAdminPaquetes />
+                <DDAdminUsuarios />
               </Popover.Group>
-              
-              
-              <div className="hidden md:flex items-center justify-end flex-1 ">  
-              {isAdmin && <NavLink
-                  to="/"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium hover:bg-[#1c7c29] hover:text-white"
+
+              <div className="hidden md:flex items-center justify-end flex-1 ">
+                {isAdmin && (
+                  <NavLink
+                    to="/"
+                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium hover:bg-[#1c7c29] hover:text-white"
+                  >
+                    Vista Usuario
+                  </NavLink>
+                )}
+                <button
+                  onClick={() => {
+                    setIsOpen(true);
+                  }}
+                  className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#e5463f] hover:bg-[#a05252]"
                 >
-                  Vista Usuario
-                </NavLink>}
-                  <button onClick={()=>{
-                     setIsOpen(true)
-                  }} 
-                    className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#7a3e3e] hover:bg-[#a05252]">
-                    Cerrar Sesion
-                  </button>
+                  Cerrar Sesion
+                </button>
               </div>
             </div>
           </div>
-         
+
           <Transition
             as={Fragment}
             enter="duration-200 ease-out"
@@ -149,13 +145,17 @@ export default function NavBar() {
               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                 <div className="pt-5 pb-6 px-5">
                   <div className="flex items-center justify-between">
+                    
+                    {/* logo y nombre */}
                     <div>
-                      <img
-                        className="h-12 w-auto"
-                        src={Logo}
-                        alt="Fantur Logo"
-                      />
+                      <img className="h-12 w-12 " src={Logo} alt="" />
                     </div>
+                    <div>
+                      <span className="self-center text-2xl font-medium">
+                        FANTUR
+                      </span>
+                    </div>
+                  
                     <div className="-mr-2">
                       <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <span className="sr-only">Close menu</span>
@@ -166,9 +166,6 @@ export default function NavBar() {
                 </div>
                 <div className="py-6 px-5 space-y-6">
                   <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                    
-
-                   
                     {resources.map((item) => (
                       <NavLink
                         onClick={() => close()}
@@ -183,41 +180,45 @@ export default function NavBar() {
                         {item.name}
                       </NavLink>
                     ))}
-
-
                   </div>
                   {!auth ? (
-                  <div>
-                    <NavLink
-                      onClick={() => close()}
-                      activeStyle={{
-                        backgroundColor: "#e5463f",
-                        textDecoration: "none",
-                      }}
-                      to="/iniciarsesion"
-                      className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
-                    >
-                      Ingresar
-                    </NavLink>
-                    <p className="mt-6 text-center text-base font-medium text-gray-500">
-                      No tienes cuenta?{" "}
+                    <div>
                       <NavLink
                         onClick={() => close()}
                         activeStyle={{
-                          color: "#e5463f",
+                          backgroundColor: "#e5463f",
                           textDecoration: "none",
                         }}
-                        to="/registrarse"
-                        className="text-indigo-600 hover:text-indigo-500"
+                        to="/iniciarsesion"
+                        className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
                       >
-                        Registrarse
+                        Ingresar
                       </NavLink>
-                    </p>
-                  </div>) : (
-                      <button onClick={()=>{logout()}} className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
-                        Cerrar Sesion
-                      </button>
-                      )}
+                      <p className="mt-6 text-center text-base font-medium text-gray-500">
+                        No tienes cuenta?{" "}
+                        <NavLink
+                          onClick={() => close()}
+                          activeStyle={{
+                            color: "#e5463f",
+                            textDecoration: "none",
+                          }}
+                          to="/registrarse"
+                          className="text-indigo-600 hover:text-indigo-500"
+                        >
+                          Registrarse
+                        </NavLink>
+                      </p>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        logout();
+                      }}
+                      className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#e5463f] hover:bg-[#fb4339f6]"
+                    >
+                      Cerrar Sesion
+                    </button>
+                  )}
                 </div>
               </div>
             </Popover.Panel>
