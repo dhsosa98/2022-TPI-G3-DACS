@@ -17,8 +17,8 @@ function App() {
       <div className="App ">
          <div class="flex flex-col min-h-screen">
         <Switch>
-          <Route path="/" component={PagesRouter} />
           <AdminRouter path="/admin" component={AdminPages} />
+          <Route path="/" component={PagesRouter} />
           <Route path="/" exact component={Home} />
           {/* <Redirect to="/" /> */}
         </Switch>

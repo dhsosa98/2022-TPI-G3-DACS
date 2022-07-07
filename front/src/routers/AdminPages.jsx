@@ -21,7 +21,7 @@ const AdminPages = () => {
         <Route path="/admin/crear-hotel" component={FormularioHotel} />
         <Route path="/admin/crear-transporte" component={FormularioTransporte} />
         <Route path="/admin/crear-pasaje" component={FormularioPasaje} />
-        <Route exact path="admin/crear-seguro" component={CrearSeguro} />
+        <Route exact path="/admin/crear-seguro" component={CrearSeguro} />
         <Route path="/admin/editar-seguro/:id" component={ActualizarSeguro} />
         <Route path="/admin/crear-paquete" component={FormularioPaquete} />
         <Route exact path="/admin/crear-evento" component={CrearEvento} />
