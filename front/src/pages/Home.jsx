@@ -26,10 +26,12 @@ export default function Home() {
               </h1>
 
               <div class="flex flex-wrap justify-center mt-64">
-                <Link to='/paquetes' class="px-12 py-3 m-2 text-lg font-semibold rounded bg-[#b75c0c] text-white">
+                <Link 
+                to='/paquetes' 
+                class="px-12 py-3 m-2 text-lg font-semibold rounded bg-[#b75c0c] text-white hover:bg-[#dd7b24]">
                   Ver paquetes
                 </Link>
-                <Link to='/contacto' class="px-12 py-3 m-2 text-lg border rounded text-white border-black hover:bg-[#d0782b] hover:border-[#d0782b]">
+                <Link to='/contacto' class="px-12 py-3 m-2 text-lg border rounded text-white  hover:bg-[#059090]">
                   Contáctate
                 </Link>
               </div>
@@ -277,8 +279,8 @@ export default function Home() {
         </ParallaxLayer>
 
         <ParallaxLayer offset={2} speed={1} factor={1}>
-          <div class="pt-32 min-h-screen bg-white">
-            <div className="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5">
+          <div class="pt-12  min-h-screen bg-white">
+            <div className="container bg-gray-300 rounded-lg p-10 mb-10 grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5">
               <div className="w-full px-6 py-16 rounded-md sm:px-12 md:px-16 xl:col-span-2 bg-gray-900">
                 <span className="block mb-2 text-[#2badad]">
                   No te pierdas de ofertas increíbles
