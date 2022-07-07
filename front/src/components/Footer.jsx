@@ -3,19 +3,19 @@ import Logo from "../../public/icons/android/android-launchericon-512-512.png";
 function Footer(){
     return(
         <footer className="px-4 divide-y bg-[#ffffff] text-gray-900">
-        <div className="container flex flex-col justify-between py-10 mx-auto  lg:flex-row lg:space-y-0">
+        <div className="container flex flex-col justify-between py-6 mx-auto  lg:flex-row lg:space-y-0">
             <div className="lg:w-1/3 sm:mb-12">
-                <a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
+                <a rel="noopener noreferrer" href="/" className="flex justify-center space-x-3 lg:justify-start">
                     <img className="h-12 w-12 " src={Logo} alt="" />
                     <span className="self-center text-2xl font-semibold">FANTUR</span>
                 </a>
             </div>
             <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                 <div className="space-y-3">
-                    <h3 className="tracking-wide uppercase text-gray-900">Product</h3>
+                    <h3 className="tracking-wide uppercase text-gray-900">BIENVENIDO</h3>
                     <ul className="space-y-1">
                         <li>
-                            <a rel="noopener noreferrer" href="#">Features</a>
+                            <a rel="noopener noreferrer" href="/">inicio</a>
                         </li>
                     </ul>
                 </div>
@@ -23,24 +23,30 @@ function Footer(){
                     <h3 className="tracking-wide uppercase text-gray-900">Company</h3>
                     <ul className="space-y-1">
                         <li>
-                            <a rel="noopener noreferrer" href="#">Privacy</a>
+                            <a rel="noopener noreferrer" href="/quienesSomos">Quienes somos?</a>
                         </li>
                         <li>
-                            <a rel="noopener noreferrer" href="#">Terms of Service</a>
+                            <a rel="noopener noreferrer" href="/contacto">Contacto</a>
                         </li>
                     </ul>
                 </div>
                 <div className="space-y-3">
-                    <h3 className="uppercase text-gray-900">Developers</h3>
+                    <h3 className="uppercase text-gray-900">Informacion</h3>
                     <ul className="space-y-1">
                         <li>
-                            <a rel="noopener noreferrer" href="#">Public API</a>
+                            <a rel="noopener noreferrer" href="/hoteles">Hoteles</a>
                         </li>
                         <li>
-                            <a rel="noopener noreferrer" href="#">Documentation</a>
+                            <a rel="noopener noreferrer" href="/eventos">Eventos</a>
                         </li>
                         <li>
-                            <a rel="noopener noreferrer" href="#">Guides</a>
+                            <a rel="noopener noreferrer" href="/transportes">Medios de transporte</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="/paquetes">Paquetes</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="/seguros">Seguros de viajes</a>
                         </li>
                     </ul>
                 </div>
@@ -66,7 +72,7 @@ function Footer(){
                 </div>
             </div>
         </div>
-        <div className="py-6 text-sm text-center text-gray-900">© 1968 Company Co. All rights reserved.</div>
+        <div className="py-3 text-sm text-center text-gray-900">© 1968 Company Co. All rights reserved.</div>
     </footer>
 )}
 export default Footer
