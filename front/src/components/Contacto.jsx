@@ -1,12 +1,12 @@
 export default function Formu() {
     return (
       <>
-        <div className="sm:mt-0">
-            <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">Contactese con nosotros</h1>
+        <div className="sm:mt-0 p-4">
             <div className="md:mt-0 md:col-span-2 ">
               <form action="#" method="POST" >
-                <div className="shadow overflow-hidden sm:rounded-lg ">
+                <div className="shadow overflow-hidden rounded-lg ">
                   <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
+                  <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">Contactese con nosotros</h1>
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6 sm:col-span-3">
                         <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
@@ -65,14 +65,14 @@ export default function Formu() {
   
                      
                     </div>
-                  </div>
-                  <div className="px-4 py-3 bg-[#ffffffd8] text-right sm:px-6">
+                  <div className="text-right pt-4">
                     <button
                       type="submit"
-                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#00adad] hover:bg-[#00adad86] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="inline-flex w-full justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#00adad] hover:bg-[#00adad86] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                       Enviar
                     </button>
+                  </div>
                   </div>
                 </div>
               </form>
