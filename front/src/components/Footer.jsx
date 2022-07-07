@@ -20,7 +20,7 @@ function Footer(){
                     </ul>
                 </div>
                 <div className="space-y-3">
-                    <h3 className="tracking-wide uppercase text-gray-900">Company</h3>
+                    <h3 className="tracking-wide uppercase text-gray-900">Nosotros</h3>
                     <ul className="space-y-1">
                         <li>
                             <a rel="noopener noreferrer" href="/quienesSomos">Quienes somos?</a>
@@ -51,7 +51,7 @@ function Footer(){
                     </ul>
                 </div>
                 <div className="space-y-3">
-                    <div className="uppercase text-gray-900">Social media</div>
+                    <div className="uppercase text-gray-900">Redes Sociales</div>
                     <div className="flex justify-start space-x-3">
                         <a rel="noopener noreferrer" href="#" title="Facebook" className="flex items-center p-1">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
