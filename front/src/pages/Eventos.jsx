@@ -34,7 +34,7 @@ const Eventos = () => {
         EVENTOS
       </h1>
 
-      <div className="flex flex-wrap justify-center p-5">
+      <div className="flex flex-wrap justify-center p-5 gap-10">
         {shows.map((show, count) => (
           <>
             <div key={show.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
