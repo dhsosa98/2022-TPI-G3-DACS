@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBarAdmin from "../components/NavBarAdmin";
-import Home from "../pages/Home";
+import HomeAdmin from "../pages/HomeAdmin";
 import FormularioHotel from "../components/FormularioHotel";
 import FormularioTransporte from "../components/FormularioTransporte";
 import FormularioPaquete from "../components/FormularioPaquete";
@@ -17,7 +17,7 @@ const AdminPages = () => {
     <>
       <NavBarAdmin/>
       <Switch>
-        <Route path="/admin" exact component={Home} />
+        <Route path="/admin" exact component={HomeAdmin} />
         <Route path="/admin/crear-hotel" component={FormularioHotel} />
         <Route path="/admin/crear-transporte" component={FormularioTransporte} />
         <Route path="/admin/crear-pasaje" component={FormularioPasaje} />
