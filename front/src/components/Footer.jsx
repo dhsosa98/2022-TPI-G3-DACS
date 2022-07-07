@@ -23,7 +23,7 @@ function Footer(){
                     <h3 className="tracking-wide uppercase text-gray-900">Nosotros</h3>
                     <ul className="space-y-1">
                         <li>
-                            <a rel="noopener noreferrer" href="/quienesSomos">Quienes somos?</a>
+                            <a rel="noopener noreferrer" href="/quienesSomos">¿Quienes somos?</a>
                         </li>
                         <li>
                             <a rel="noopener noreferrer" href="/contacto">Contacto</a>
