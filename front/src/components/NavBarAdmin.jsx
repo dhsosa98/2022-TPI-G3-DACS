@@ -48,7 +48,7 @@ export default function NavBar() {
               <Popover.Group as="nav" className="hidden md:flex space-x-10">
                 <NavLink
                   to="/admin"
-                  className="text-base font-medium text-black hover:text-[#d60000]"
+                  className="text-base font-medium text-[#d60000]"
                 >
                   Dashboard
                 </NavLink>
