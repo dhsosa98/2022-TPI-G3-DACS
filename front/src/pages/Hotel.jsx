@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { images } from "./Hoteles";
 import { getHotelById } from "../services/hotels";
 
 const Hotel = () => {
   const [hotel, setHotel] = useState([]);
   const { id } = useParams();
+  const history = useHistory();
 
   const fetchHotel = async () => {
     const response = await getHotelById(id);
@@ -16,8 +17,6 @@ const Hotel = () => {
   useEffect(() => {
     fetchHotel();
   }, []);
-
-  const history = useHistory();
 
   return (
     <div className="flex flex-wrap justify-center items-center">
@@ -29,12 +28,6 @@ const Hotel = () => {
           {" "}
           Volver
         </button>
-        {/* <Link
-          to={`/hoteles/`}
-          className=" px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86] self-start mt-[20px]"
-        >
-          Volver
-        </Link> */}
 
         <div key={hotel.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
           <div className="bg-white border-2 border-gray-300 rounded-lg shadow-lg shadow-black p-5">

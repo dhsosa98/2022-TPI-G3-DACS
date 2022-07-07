@@ -53,8 +53,9 @@ const Paquete = () => {
                     {paquete.show !== null && (
                       <span className="font-bold">
                         Evento:{" "}
-                        <span className="font-normal">{paquete.show.name}
-                        <a
+                        <span className="font-normal">
+                          {paquete.show.name}
+                          <a
                             href={`/eventos/${paquete.show.id}`}
                             className="font-normal  text-blue-800"
                           >
@@ -93,12 +94,24 @@ const Paquete = () => {
                         <span className="font-normal">
                           {paquete.ticket.travelWay.name}
                           <a
-                            href={`/hoteles/${paquete.ticket.travelWay.id}`}
+                            href={`/transportes/${paquete.ticket.travelWay.id}`}
                             className="font-normal  text-blue-800"
                           >
                             {" "}
                             Mas info...
                           </a>
+                        </span>
+                      </span>
+                    )}
+                  </p>
+                </p>
+                <p className=" text-gray-600 sm:text-base text-sm">
+                  <p className="text-center text-gray-600 sm:text-base text-sm">
+                    {paquete.show !== null && (
+                      <span className="font-bold">
+                        Seguro:{" "}
+                        <span className="font-normal">
+                          {paquete.insurance.name}
                         </span>
                       </span>
                     )}
