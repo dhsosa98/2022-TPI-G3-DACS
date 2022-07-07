@@ -38,7 +38,7 @@ const QuienesSomos = () => {
           </p>
         </div>
 
-        <div class="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 px-20">
+        <div class="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 md:px-20 px-4">
           <div class="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-gray-900 text-gray-100">
             <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 bg-[#00adad]">
               <svg
@@ -54,7 +54,7 @@ const QuienesSomos = () => {
             </div>
             <div class="flex flex-col justify-center align-middle">
               <p class="text-3xl font-semibold leading-none">800</p>
-              <p class="capitalize">Paquetes nuevos</p>
+              <p class="capitalize sm:text-base text-sm">Paquetes nuevos</p>
             </div>
           </div>
           <div class="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-gray-900 text-gray-100">
@@ -73,7 +73,7 @@ const QuienesSomos = () => {
             </div>
             <div class="flex flex-col justify-center align-middle">
               <p class="text-3xl font-semibold leading-none">12.000</p>
-              <p class="capitalize">Clientes satifechos</p>
+              <p class="capitalize sm:text-base text-sm">Clientes satifechos</p>
             </div>
           </div>
           <div class="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-gray-900 text-gray-100">
@@ -95,7 +95,7 @@ const QuienesSomos = () => {
 
             <div class="flex flex-col justify-center align-middle">
               <p class="text-3xl font-semibold leading-none">11,3 mill.</p>
-              <p class="capitalize">De kilómetros recorridos</p>
+              <p class="capitalize sm:text-base text-sm">De kilómetros recorridos</p>
             </div>
           </div>
           <div class="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-gray-900 text-gray-100">
@@ -111,7 +111,7 @@ const QuienesSomos = () => {
             </div>
             <div class="flex flex-col justify-center align-middle">
               <p class="text-3xl font-semibold leading-none">17%</p>
-              <p class="capitalize">lorem ipsum</p>
+              <p class="capitalize sm:text-base text-sm">lorem ipsum</p>
             </div>
           </div>
         </div>
