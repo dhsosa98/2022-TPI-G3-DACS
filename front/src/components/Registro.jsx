@@ -2,8 +2,10 @@ import { PlayIcon } from "@heroicons/react/solid";
 import Logo from "../../public/icons/android/logo.png";
 import { Field, Form, Formik } from "formik";
 import { registerUser } from "../services/auth";
+import { useState } from "react";
 
 export default function Registro() {
+  const [error, setError] = useState(null);
   const initialValues = {
     firstName: "",
     lastName: "",
@@ -13,18 +15,26 @@ export default function Registro() {
   };
 
   const handleSubmit = async (values) => {
-    console.log(values);
-    const response = await registerUser(
-      values.firstName,
-      values.lastName,
-      values.cuit,
-      values.email,
-      values.password
-    );
-    console.log(response);
+    try {
+      console.log(values);
+      const response = await registerUser(
+        values.firstName,
+        values.lastName,
+        values.cuit,
+        values.email,
+        values.password
+      );
+      console.log(response);
+    } catch (error) {
+      if (error.response.status===409){
+        setError("El usuario ya existe");
+        return;
+      }
+    }
   };
 
   return (
+    <>
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       <div className="border-4 min-h-full w-[30rem] rounded-3xl mt-[80px] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[#ffffffcc]">
         <div className="max-w-md w-full space-y-8">
@@ -38,7 +48,8 @@ export default function Registro() {
             </p>
           </div>
 
-          <Form className="space-y-6" action="#" method="POST">
+          <Form className="space-y-6">
+             {error && <p className=" text-center text-red-500">{error}</p>}
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div className="p-1">
@@ -135,5 +146,6 @@ export default function Registro() {
         </div>
       </div>
     </Formik>
+    </>
   );
 }
