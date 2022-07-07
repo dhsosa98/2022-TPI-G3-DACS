@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory  } from "react-router-dom";
 import { getHotels } from "../services/hotels";
 import h1 from '../../public/images/hotels/1.jpg'
 import h2 from '../../public/images/hotels/2.jpg'
@@ -30,6 +30,8 @@ const Hoteles = () => {
   useEffect(() => {
     fetchHotels();
   }, []);
+
+  
 
   return (
     <section className=" bg-[#ffffffcc] text-black sm:p-10 py-10 sm:m-10 m-3 rounded-lg ">
