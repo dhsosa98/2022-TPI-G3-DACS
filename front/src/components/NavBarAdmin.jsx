@@ -10,14 +10,67 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/Auth";
 import ModalCerrarSesion from "./ModalCerrarSesion";
 import { useState } from "react";
-// import {DDAdminHoteles} from "./dropdownsAdmin/DDAdminHoteles";
-// import {DDAdminEventos} from "./dropdownsAdmin/DDAdminEventos";
-// import { DDAdminPasajes } from "./dropdownsAdmin/DDAdminPasajes";
-// import { DDAdminSeguros } from "./dropdownsAdmin/DDAdminSeguros";
-// import { DDAdminPaquetes } from "./dropdownsAdmin/DDAdminPaquetes";
+import {DDAdminHoteles} from "./dropdownsAdmin/DDAdminHoteles";
+import {DDAdminEventos} from "./dropdownsAdmin/DDAdminEventos";
+import { DDAdminPasajes } from "./dropdownsAdmin/DDAdminPasajes";
+import { DDAdminSeguros } from "./dropdownsAdmin/DDAdminSeguros";
+import { DDAdminPaquetes } from "./dropdownsAdmin/DDAdminPaquetes";
+import { DDAdminUsuarios } from "./dropdownsAdmin/DDAdminUsuarios";
+import {
+  CalendarIcon,
+  TruckIcon,
+  ArchiveIcon,
+  OfficeBuildingIcon,
+  ThumbUpIcon,
+  TicketIcon,
+  UserGroupIcon,
+  HeartIcon,
+} from "@heroicons/react/outline";
 
-
-
+const resources = [
+  {
+    name: "Dashboard",
+    description: "Vea los seguros disponibles.",
+    href: "/admin",
+    icon: UserGroupIcon,
+  },
+  {
+    name: "Hoteles",
+    description: "Vea los hoteles disponibles.",
+    href: "/admin/listar-hoteles",
+    icon: OfficeBuildingIcon,
+  },
+  {
+    name: "Eventos",
+    description: "Vea los eventos disponibles.",
+    href: "/admin/listar-eventos",
+    icon: CalendarIcon,
+  },
+  {
+    name: "Pasajes",
+    description: "Vea las formas de viaje disponibles.",
+    href: "/admin/listar-pasajes",
+    icon: TicketIcon,
+  },
+  {
+    name: "Paquetes",
+    description: "Vea los paquetes disponibles.",
+    href: "/admin/listar-paquetes",
+    icon: ArchiveIcon,
+  },
+  {
+    name: "Seguros de viaje",
+    description: "Vea los seguros disponibles.",
+    href: "/admin/listar-seguros",
+    icon: HeartIcon,
+  },
+  {
+    name: "Usuarios",
+    description: "Vea los seguros disponibles.",
+    href: "/admin/listar-usuarios",
+    icon: UserGroupIcon,
+  },
+];
 
 
 function classNames(...classes) {
@@ -28,13 +81,13 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
   const { auth, logout, isAdmin } = useContext(AuthContext);
   return (
-    <Popover className="relative bg-[#ffffff]">
+    <Popover className="relative bg-[#ffffff] w-full">
       {({ open, close }) => (
         <>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="w-full px-4 sm:px-6 ">
             {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen}/>}
-            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
-              <div className="flex justify-start lg:w-0 lg:flex-1">
+            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10 flex-wrap">
+              <div className="flex justify-start flex-shrink">
                 <Link to="/">
                   <span className="sr-only">Fantur</span>
                   <img className="h-12 w-[120px]" src={Logo} alt="" />
@@ -48,20 +101,22 @@ export default function NavBar() {
               </div>
               <Popover.Group as="nav" className="hidden md:flex space-x-10">
                 <NavLink
-                activeStyle={{backgroundColor: "#1885b8"}}
+                activeStyle=''
                   to="/admin"
-                  className=" whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-bold text-[#ffffff] "
+                  className="text-base font-medium text-gray-900 hover:text-[#b60000]"
                 >
-                  Panel de Administrador
+                  Dashboard
                 </NavLink>
-              </Popover.Group>
-              {/* <DDAdminHoteles/>
+                <DDAdminHoteles/>
               <DDAdminEventos/>
               <DDAdminPasajes/>
               <DDAdminSeguros/>
-              <DDAdminPaquetes/> */}
+              <DDAdminPaquetes/>
+              <DDAdminUsuarios/>
+              </Popover.Group>
               
-              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">  
+              
+              <div className="hidden md:flex items-center justify-end flex-1 ">  
               {isAdmin && <NavLink
                   to="/"
                   className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium hover:bg-[#1c7c29] hover:text-white"
@@ -114,7 +169,7 @@ export default function NavBar() {
                     
 
                    
-                    {/* {resources.map((item) => (
+                    {resources.map((item) => (
                       <NavLink
                         onClick={() => close()}
                         activeStyle={{
@@ -127,7 +182,7 @@ export default function NavBar() {
                       >
                         {item.name}
                       </NavLink>
-                    ))} */}
+                    ))}
 
 
                   </div>

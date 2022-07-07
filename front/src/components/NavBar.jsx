@@ -301,10 +301,17 @@ export default function NavBar() {
                       </NavLink>
                     </p>
                   </div>) : (
+                      <>
+                      {isAdmin && <NavLink
+                      to="/admin"
+                      className="w-full whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#000000] hover:text-white hover:bg-[#00adad86]"
+                    >
+                      Vista Admininstrador
+                    </NavLink>}
                       <button onClick={()=>{logout()}} className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
                         Cerrar Sesion
                       </button>
-                      )}
+                      </>)}
                 </div>
               </div>
             </Popover.Panel>

@@ -10,3 +10,8 @@ export const getPackage = async (id) => {
   const response = await axios.get(`${API_BASE_URL}/packages/${id}`);
   return response.data;
 };
+
+export const deletePackage = async (id) => {
+  const response = await Axios.delete(API_BASE_URL+"/packages/"+id);
+  return response.data;
+}

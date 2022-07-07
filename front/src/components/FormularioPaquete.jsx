@@ -8,6 +8,7 @@ export default function FormularioPaquete() {
 
   const fetchTickets = async () => {
     const response = await axios.get(API_BASE_URL+"/tickets");
+    console.log(response.data);
     setTickets(response.data);
   }
 
@@ -91,10 +92,10 @@ export default function FormularioPaquete() {
                       autoComplete="family-name"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     >
-                    <option value="">Seleccione un medio de transporte</option>
+                    <option value="">Seleccione un Pasaje</option>
                       {tickets.map(ticket => (
                         <option key={ticket.id} value={ticket.id}>
-                          {ticket.id}
+                          {ticket?.travelWay?.name}-{ticket.seat}
                         </option>
                         ))}
                     </select>

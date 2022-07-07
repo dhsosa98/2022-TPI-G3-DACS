@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getPackages } from "../services/packages";
 import { Link } from "react-router-dom";
 import { images } from "./Hoteles";import Paquete from "./Paquete";
+import Pagination from "../components/Pagination";
 ;
 
 const Paquetes = () => {
@@ -19,18 +20,18 @@ const Paquetes = () => {
   console.log(paquetes);
 
   return (
-    <section className=" bg-[#ffffffcc] text-black p-10 m-10 rounded-lg ">
-      <h1 className="font-bold text-center text-6xl mb-5 text-[#000000cb]">
-        PAQUETES
+    <section className=" bg-[#ffffffcc] text-black sm:p-10 py-10 sm:m-10 m-3 rounded-lg ">
+      <h1 className="font-bold text-center sm:text-6xl text-3xl text-[#000000cb] ">
+        NUESTROS PAQUETES
       </h1>
-      
+
       <div className="flex flex-wrap justify-center p-5 gap-10 ">
         {paquetes.map((paquete, count) => (
           <>
             <div key={paquete.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
               <div className="bg-white  rounded-lg shadow-sm  p-5 group relative">
                 <div className="flex flex-wrap justify-center group-hover:opacity-60 group-hover:transition group-hover:ease-in group-hover:duration-100">
-                  <p className="text-center text-gray-600 sm:text-base text-sm">
+                  <p className="text-center text-gray-600 text-4xl">
                     Paquete {paquete.id}
                   </p>
                   <div className="w-full p-3">
@@ -63,7 +64,7 @@ const Paquetes = () => {
                       )}
                     </p>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
-                      {paquete.ticket !== null && (
+                      {paquete.insurance !== null && (
                         <span className=" font-bold">
                           Seguro: <span className="font-normal">{paquete.insurance.name}</span>
                         </span>
@@ -84,6 +85,7 @@ const Paquetes = () => {
           </>
         ))}
       </div>
+      <Pagination/>
     </section>
   );
 };
