@@ -1,7 +1,9 @@
 import Container from "./Container";
 import { Formik, Form, Field } from "formik";
 import { useHistory } from "react-router-dom";
+
 export default function FormularioHotel({initialValues, handleSubmit, isEdit}) {
+
   const history = useHistory();
   return (
     <Container>
