@@ -1,5 +1,5 @@
 import FormularioHotel from "./FormularioHotel";
-import { createHotel } from "../services/Hotels";
+import { createHotel } from "../services/hotels";
 import { useState } from "react";
 import ModalExito from "./ModalExito";
 import ModalError from "./ModalError";
