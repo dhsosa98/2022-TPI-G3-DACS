@@ -5,7 +5,7 @@
 FROM node:16-alpine As development
 
 # Create app directory
-WORKDIR /api
+WORKDIR /usr/src/app/api
 
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.9.0/wait /wait
 
@@ -18,6 +18,5 @@ COPY package*.json ./
 
 RUN npm install --only=development
 
-COPY . .
 
 

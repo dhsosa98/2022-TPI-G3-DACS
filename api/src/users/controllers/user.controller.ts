@@ -11,6 +11,7 @@ import { Role } from 'src/auth/enums/role.enum';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { CreateUserDto } from '../dtos/createuser.dto';
 import { UserService } from '../services/users.service';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @Controller('users')
 export class UserController {

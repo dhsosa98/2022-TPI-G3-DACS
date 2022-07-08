@@ -1,18 +1,26 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
-import Logo from "../../public/icons/android/logo.png";
+import Logo from "../../public/icons/android/android-launchericon-512-512.png";
+
 import { Link, NavLink } from "react-router-dom";
 import {
   CalendarIcon,
   MenuIcon,
   XIcon,
   TruckIcon,
-} from "@heroicons/react/outline";
-import {
   ArchiveIcon,
-  ChevronDownIcon,
   OfficeBuildingIcon,
-} from "@heroicons/react/solid";
+  ThumbUpIcon,
+  TicketIcon,
+  HeartIcon,
+  UserIcon,
+} from "@heroicons/react/outline";
+import { BookOpenIcon, ChevronDownIcon } from "@heroicons/react/solid";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/Auth";
+import ModalCerrarSesion from "./ModalCerrarSesion";
+import { useState } from "react";
+import { DropwdownUser } from "./DropdownUser";
 
 const resources = [
   {
@@ -30,7 +38,7 @@ const resources = [
   {
     name: "Medios de transporte",
     description: "Vea las formas de viaje disponibles.",
-    href: "/transporte",
+    href: "/transportes",
     icon: TruckIcon,
   },
   {
@@ -39,6 +47,27 @@ const resources = [
     href: "/paquetes",
     icon: ArchiveIcon,
   },
+  {
+    name: "Seguros de viaje",
+    description: "Vea los seguros disponibles.",
+    href: "/seguros",
+    icon: HeartIcon,
+  },
+];
+
+const userResources = [
+  {
+    name: "Mis Reservas",
+    description: "Ver mis reservas",
+    href: "/mis-reservas",
+    icon: BookOpenIcon,
+  },
+  {
+    name: "Mis datos",
+    description: "Ver mis datos.",
+    href: "/mis-datos",
+    icon: UserIcon,
+  },
 ];
 
 function classNames(...classes) {
@@ -46,31 +75,47 @@ function classNames(...classes) {
 }
 
 export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { auth, logout, isAdmin } = useContext(AuthContext);
   return (
-    <Popover className="relative bg-[#ffffffcc]">
+    <Popover className="relative bg-[#ffffff]">
       {({ open, close }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen} />}
             <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
-                <Link to="/">
-                  <span className="sr-only">Workflow</span>
-                  <img className="h-12 w-[120px]" src={Logo} alt="" />
-                </Link>
+                <a
+                  rel="noopener noreferrer"
+                  href="/"
+                  className="flex justify-center space-x-3 lg:justify-start"
+                >
+                  <img className="h-12 w-12 " src={Logo} alt="" />
+                  <span className="self-center text-2xl font-medium">
+                    FANTUR
+                  </span>
+                </a>
               </div>
               <div className="-mr-2 -my-2 md:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                  <span className="sr-only">Open menu</span>
+                  <span className="sr-only">Abrir Menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
               </div>
               <Popover.Group as="nav" className="hidden md:flex space-x-10">
                 <NavLink
+                  to="/"
+                  className="text-base font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Inicio
+                </NavLink>
+                <NavLink
                   to="/quienesSomos"
                   activeStyle={{ color: "#e5463f", textDecoration: "none" }}
                   className="text-base font-medium text-gray-500 hover:text-gray-900"
                 >
-                  Quienes somos?
+                  ¿Quienes somos?
                 </NavLink>
                 <NavLink
                   to="/contacto"
@@ -108,7 +153,7 @@ export default function NavBar() {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-1"
                       >
-                        <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
+                        <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-16 mt-3 px-2 w-screen max-w-sm sm:px-0">
                           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                             <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                               {resources.map((item) => (
@@ -145,23 +190,46 @@ export default function NavBar() {
                 </Popover>
               </Popover.Group>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                <NavLink
-                  activeStyle={{ color: "#e5463f", textDecoration: "none" }}
-                  to="/iniciarsesion"
-                  className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
-                >
-                  Ingresar
-                </NavLink>
-                <NavLink
-                  activeStyle={{
-                    backgroundColor: "#e5463f",
-                    textDecoration: "none",
-                  }}
-                  to="/registrarse"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
-                >
-                  Registrarse
-                </NavLink>
+                {!auth ? (
+                  <>
+                    <NavLink
+                      activeStyle={{ color: "#e5463f", textDecoration: "none" }}
+                      to="/iniciarsesion"
+                      className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+                    >
+                      Ingresar
+                    </NavLink>
+                    <NavLink
+                      activeStyle={{
+                        backgroundColor: "#e5463f",
+                        textDecoration: "none",
+                      }}
+                      to="/registrarse"
+                      className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
+                    >
+                      Registrarse
+                    </NavLink>
+                  </>
+                ) : (
+                  <>
+                    {isAdmin ? (
+                      <NavLink
+                        to="/admin"
+                        className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#000000] hover:text-white hover:bg-[#00adad86]"
+                      >
+                        Vista Admininstrador
+                      </NavLink>
+                    ) : <DropwdownUser/>}
+                    <button
+                      onClick={() => {
+                        setIsOpen(true);
+                      }}
+                      className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#e5463f] hover:bg-[#fb4339f6]"
+                    >
+                      Cerrar Sesion
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -182,12 +250,14 @@ export default function NavBar() {
               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                 <div className="pt-5 pb-6 px-5">
                   <div className="flex items-center justify-between">
+                    {/* logo y nombre */}
                     <div>
-                      <img
-                        className="h-12 w-auto"
-                        src={Logo}
-                        alt="Fantur Logo"
-                      />
+                      <img className="h-12 w-12 " src={Logo} alt="" />
+                    </div>
+                    <div>
+                      <span className="self-center text-2xl font-medium">
+                        FANTUR
+                      </span>
                     </div>
                     <div className="-mr-2">
                       <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -230,34 +300,69 @@ export default function NavBar() {
                         {item.name}
                       </NavLink>
                     ))}
-                  </div>
-                  <div>
-                    <NavLink
-                      onClick={() => close()}
-                      activeStyle={{
-                        backgroundColor: "#e5463f",
-                        textDecoration: "none",
-                      }}
-                      to="/iniciarsesion"
-                      className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
-                    >
-                      Ingresar
-                    </NavLink>
-                    <p className="mt-6 text-center text-base font-medium text-gray-500">
-                      No tienes cuenta?{" "}
+                    {userResources?.map((item) => (
                       <NavLink
                         onClick={() => close()}
                         activeStyle={{
                           color: "#e5463f",
                           textDecoration: "none",
                         }}
-                        to="/registrarse"
-                        className="text-indigo-600 hover:text-indigo-500"
+                        key={item.name}
+                        to={item.href}
+                        className="-m-3 p-3 flex items-start rounded-lg hover:text-[#009999]"
                       >
-                        Registrarse
+                        {item.name}
                       </NavLink>
-                    </p>
+                    ))}
                   </div>
+                  {!auth ? (
+                    <div>
+                      <NavLink
+                        onClick={() => close()}
+                        activeStyle={{
+                          backgroundColor: "#e5463f",
+                          textDecoration: "none",
+                        }}
+                        to="/iniciarsesion"
+                        className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]"
+                      >
+                        Ingresar
+                      </NavLink>
+                      <p className="mt-6 text-center text-base font-medium text-gray-500">
+                        No tienes cuenta?{" "}
+                        <NavLink
+                          onClick={() => close()}
+                          activeStyle={{
+                            color: "#e5463f",
+                            textDecoration: "none",
+                          }}
+                          to="/registrarse"
+                          className="text-indigo-600 hover:text-indigo-500"
+                        >
+                          Registrarse
+                        </NavLink>
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      {isAdmin && (
+                        <NavLink
+                          to="/admin"
+                          className="w-full whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#000000] hover:text-white hover:bg-[#00adad86]"
+                        >
+                          Vista Admininstrador
+                        </NavLink>
+                      )}
+                      <button
+                        onClick={() => {
+                          logout();
+                        }}
+                        className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#e5463f] hover:bg-[#fb4339f6]"
+                      >
+                        Cerrar Sesion
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             </Popover.Panel>
