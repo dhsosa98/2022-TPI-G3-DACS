@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { getPackages } from "../services/packages";
 import { Link } from "react-router-dom";
 import { images } from "./Hoteles";
-import Paquete from "./Paquete";
 import Pagination from "../components/Pagination";
 import { useSelector } from "react-redux";
 ;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getHotels } from "../services/hotels";
 import h1 from "../../public/images/hotels/1.jpg";
 import h2 from "../../public/images/hotels/2.jpg";

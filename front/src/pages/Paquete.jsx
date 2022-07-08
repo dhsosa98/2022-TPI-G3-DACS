@@ -19,7 +19,7 @@ const Paquete = () => {
     insurance: "",
   });
   const { id } = useParams();
-  const { auth, user } = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
 
   const fetchPaquete = async () => {
     const data = await getPackageById(id);
@@ -32,7 +32,6 @@ const Paquete = () => {
 
   const handleReserve = async () => {
     const response = await createBooking(id);
-    console.log(response);
   };
 
   return (
