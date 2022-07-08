@@ -1,4 +1,4 @@
-import Axios from "../config/Axios";
+import Axios from "../config/axios";
 import { API_BASE_URL } from "../vite-env.d";
 
 export const getBookings = async () => {
