@@ -8,6 +8,7 @@ import Paquete from "../pages/Paquete";
 import Contacto from "../pages/Contacto";
 import Hotel from "../pages/Hotel";
 
+
 import Evento from "../pages/Evento";
 import Transportes from "../pages/Transportes";
 import Transporte from "../pages/Transporte";
@@ -20,6 +21,7 @@ import IniciarSesion from "../pages/IniciarSesion";
 import Registrarse from "../pages/Registrarse";
 import PublicRouter from "./PublicRouter";
 import { Payment } from "../components/Payment";
+import Reservas from "../pages/Reservas";
 
 const PagesRouter = () => {
   return (
@@ -41,6 +43,8 @@ const PagesRouter = () => {
         <Route path="/contacto" component={Contacto} />
         <Route path="/seguros" component={Seguros} />
         <Route path="/compra-paquete" component={Payment} />
+        <Route path="/mis-reservas" component={Reservas} />
+
       </Switch>
     </>
   );
