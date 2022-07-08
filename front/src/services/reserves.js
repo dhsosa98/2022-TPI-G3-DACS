@@ -16,10 +16,9 @@ export const deleteBooking = async (id) => {
   return response.data;
 };
 
-export const createBooking = async (uid, id) => {
-  const response = await Axios.post(API_BASE_URL + "/reserves", {
-    userId: uid,
-    reserve: { packagesByClient: id },
-  });
+export const createBooking = async (id) => {
+  const response = await Axios.post(API_BASE_URL + "/reserves",
+    { packageId: Number(id) } ,
+  );
   return response.data;
 };

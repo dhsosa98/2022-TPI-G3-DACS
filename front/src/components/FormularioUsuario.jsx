@@ -112,6 +112,20 @@ export default function FormularioUsuario({initialValues, handleSubmit, isEdit})
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
+                  <div className="col-span-6 sm:col-span-6">
+                    <label
+                      htmlFor="last-name"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Contraseña
+                    </label>
+                    <Field
+                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      type="password"
+                      name="password"
+                      id="password"
+                    />
+                    </div>
                 </div>
               </div>
               <div className="px-4 py-3 bg-[#ffffffd8] text-right sm:px-6 gap-1 sm:justify-start justify-center flex flex-row-reverse">

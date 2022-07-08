@@ -31,7 +31,7 @@ export const ActualizarUsuario = (props) => {
         try{
         const { firstName, lastName, cuit, email, roleId } = values;
         console.log(values)
-        const response = await updateUser(firstName, lastName, cuit, email, roleId, id)
+        const response = await updateUser(firstName, lastName, cuit, email, Number(roleId), id)
         }catch(error){
           console.log(error)
         }

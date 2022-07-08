@@ -30,11 +30,10 @@ const Paquete = () => {
     fetchPaquete();
   }, []);
 
-  const handleReserve = () => {
-    createBooking(user.id, id);
+  const handleReserve = async () => {
+    const response = await createBooking(id);
+    console.log(response);
   };
-
-  console.log(user, auth);
 
   return (
     <>

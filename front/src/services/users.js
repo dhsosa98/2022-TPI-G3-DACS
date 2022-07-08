@@ -1,13 +1,19 @@
 import Axios from "../config/axios"
 import { API_BASE_URL } from '../vite-env.d';
 
-export const createUser = async (name) => {
+export const createUser = async (firstName,
+    lastName,
+    cuit,
+    email,
+    roleId,
+    password) => {
     const response = await Axios.post(API_BASE_URL+"/users", {
         firstName,
         lastName,
         cuit,
         email,
         roleId,
+        password
     });
     return response.data;
 }
@@ -17,7 +23,7 @@ export const getUserById = async (id) => {
     return response.data;
 }
 
-export const updateUser = async (firstName, lastName, cuit, email, roleId) => {
+export const updateUser = async (firstName, lastName, cuit, email, roleId, id) => {
     const response = await Axios.patch(API_BASE_URL+"/users/"+id, {
         firstName,
         lastName,
