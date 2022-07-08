@@ -36,7 +36,9 @@ export class UserService {
 
   // BUSAR TODOS LOS USUARIOS NO ES NECESARIO PERO QUERIA PROBAR :)
   async findAll(options?: any): Promise<User[]> {
-    return await this.userRepository.findAll(options);
+    return await this.userRepository.findAll({
+      include: [Role],
+      attributes: { exclude: ['password'] },});
   }
 
   async create(user: CreateUserDto): Promise<any> {
