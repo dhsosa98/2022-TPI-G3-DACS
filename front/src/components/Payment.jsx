@@ -1,6 +1,6 @@
-import Cards from "react-credit-cards";
+import Cards from "@snowpak/react-credit-cards";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import "react-credit-cards/es/styles-compiled.css";
+import "@snowpak/react-credit-cards/es/styles-compiled.css";
 import { useEffect } from "react";
 import { useState } from "react";
 import { images } from "../pages/Hoteles";
