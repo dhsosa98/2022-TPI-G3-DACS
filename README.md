@@ -17,9 +17,26 @@ _Que cosas necesitas para poder iniciar la aplicación y como instalarlas_
 - MySQL 8.0.x.
 - npm.
 - Postman.
+- Docker.
 ```
 
-### Instalación 🔧
+### Instalación usando Docker 🐳
+_Despues de clonar el repositorio del proyecto_
+
+_En la consola ejecutamos el comando_
+
+```
+docker-compose up -d
+```
+
+_Una vez completado el proceso de docker ya podemos acceder a la pagina principal_
+```
+http://localhost:3000/
+```
+
+### Instalación usando NPM 🔧
+
+#### Para el Backend 🌎
 
 _Despues de clonar el repositorio del proyecto_
 
@@ -38,6 +55,11 @@ npm install
 _Por ultimo instalamos la base de datos, pero primero necesitamos un archivo llamado '.env' en la raiz del directorio .\api\ donde se declara lo necesario para poder comunicarnos con MySQL_
 
 ```
+EMAIL_HOST=smtp-relay.gmail.com
+EMAIL_USER=auth.op.ds@gmail.com
+EMAIL_PASSWORD=authdsds1998
+PORT=4000
+
 DB_USER=<user>
 DB_PASSWORD=<password>
 DB_PORT=3306
@@ -64,6 +86,35 @@ npx sequelize-cli db:migrate
 npx sequelize-cli db:seed:all
 ```
 
+_Poner en marcha el Backend_
+```
+npm run start:dev
+```
+
+#### Para el Frontend 💻
+
+_En la consola ejecutamos el comando_
+
+```
+cd .\api\
+```
+
+_Y descargamos todas las dependencias necesarias para poder correr el proyecto_
+
+```
+npm install
+```
+
+_Poner en marcha el Backend_
+```
+npm run dev
+```
+
+_Y aceedemos a la pagina principal_
+```
+http://localhost:3000/
+```
+
 ## Construido con 🛠️
 
 _Herramientas utilizadas para crear el proyecto_
@@ -75,6 +126,11 @@ _Herramientas utilizadas para crear el proyecto_
 - [Sequelize](https://sequelize.org/) - ORM para Nodejs que permite manipular bases de datos SQL.
 - [Jira](https://www.atlassian.com/software/jira?bundle=jira-software&edition=free) - Gestion del proyecto.
 - [GitHub](https://github.com/) - Herramienta de versionado.
+- [Docker](https://www.docker.com/) - Herramienta de contenedores.
+- [Vite.js](https://vitejs.dev/) - Frontend tool.
+- [Nginx](https://www.nginx.com/) - Reverse proxy.
+- [Azure](https://azure.microsoft.com/) - Servicios en la nube.
+
 
 ## Autores ✒️
 
