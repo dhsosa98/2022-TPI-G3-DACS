@@ -2,14 +2,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { deleteShow, getShows } from "../services/shows";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import Pagination from "./Pagination";
 import ModalConfirmar from "./ModalesConfirmacionBorrar/ModalConfirmarBorrarEvento";
 
 export const ShowTable = (props) => {
   const [shows, setShows] = useState([]);
   const [cantElements, setCantElements] = useState(0);
-  const {page, size} = useSelector(state => state.pagination);
+  const { page, size } = useSelector((state) => state.pagination);
   const [eliminar, setEliminar] = useState();
   const [id, setId] = useState();
 
@@ -17,7 +17,6 @@ export const ShowTable = (props) => {
     const response = await getShows(page, size);
     setShows(response.rows);
     setCantElements(response.count);
-
   };
 
   useEffect(() => {
@@ -25,7 +24,14 @@ export const ShowTable = (props) => {
   }, [page, size]);
   return (
     <section className=" flex-grow bg-[#ffffffcc] text-black pb-10">
-      {eliminar && <ModalConfirmar id={id} open={eliminar} setOpen={setEliminar} message='evento'/>}
+      {eliminar && (
+        <ModalConfirmar
+          id={id}
+          open={eliminar}
+          setOpen={setEliminar}
+          message="evento"
+        />
+      )}
       <div className="container p-2 mx-auto sm:p-4 text-gray-900">
         <div className="whitespace-nowrap flex mb-2 mt-6 items-center">
           <Link to={"/admin"}>
@@ -88,7 +94,9 @@ export const ShowTable = (props) => {
                   </td>
                   <td className="px-3 py-2">
                     <button
-                      onClick={() => {setEliminar(true);setId(show.id);
+                      onClick={() => {
+                        setEliminar(true);
+                        setId(show.id);
                       }}
                     >
                       <svg

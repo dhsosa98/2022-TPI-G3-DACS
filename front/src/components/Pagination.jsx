@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,10 +9,10 @@ import {
   setPage,
 } from "../features/paginationSlice";
 
-const Pagination = ({cantItems}) => {
+const Pagination = ({ cantItems }) => {
   const dispatch = useDispatch();
-  const {page, size} = useSelector(state => state.pagination);
-  console.log(page, size)
+  const { page, size } = useSelector((state) => state.pagination);
+  console.log(page, size);
   let pageLimit = {
     prev: (page + 1) * size - size + 1,
     next: (page + 1) * size,
@@ -23,13 +23,12 @@ const Pagination = ({cantItems}) => {
       .map((e, i) => i + 1)
       .filter((e, i) => (e % size === 0 ? i : 0)).length + 1;
 
-
-      useEffect(() => {
-        if ((page)*(size) >= cantItems){
-          const cant = Math.floor(cantItems / size)-1
-          dispatch(setPage(cant>=0 ? cant : 0));
-        }
-    }, [cantItems, page, size])
+  useEffect(() => {
+    if (page * size >= cantItems) {
+      const cant = Math.floor(cantItems / size) - 1;
+      dispatch(setPage(cant >= 0 ? cant : 0));
+    }
+  }, [cantItems, page, size]);
 
   return (
     <>
@@ -58,7 +57,9 @@ const Pagination = ({cantItems}) => {
         )}
         <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
           {cantItems > 0 && (
-            <p className={`text-sm text-gray-700 ${cantItems<=size && "mt-3"}`}>
+            <p
+              className={`text-sm text-gray-700 ${cantItems <= size && "mt-3"}`}
+            >
               Mostrando <span className="font-medium">{pageLimit.prev}</span>{" "}
               hasta{" "}
               <span className="font-medium">
@@ -116,7 +117,7 @@ const Pagination = ({cantItems}) => {
                 {new Array(cantPages)
                   ?.fill(1, 0, cantItems - 1)
                   ?.map((e, i) => i + 1)
-                  .slice(page-1>=0 ? page-1 : 0, page + 2)
+                  .slice(page - 1 >= 0 ? page - 1 : 0, page + 2)
                   ?.map((e) => (
                     <>
                       {e !== 1 && e !== cantPages && (

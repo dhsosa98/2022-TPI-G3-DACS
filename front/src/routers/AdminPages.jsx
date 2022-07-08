@@ -24,19 +24,20 @@ import { CrearPaquete } from "../components/CrearPaquete";
 import { CrearUsuario } from "../components/CrearUsuario";
 import { ActualizarUsuario } from "../components/ActualizarUsuario";
 
-
-
 const AdminPages = () => {
   return (
     <>
-      <NavBarAdmin/>
+      <NavBarAdmin />
       <Switch>
         {/* <Route path="/admin/crear-usuario" component={CrearUsuario} />
         <Route path='/admin/lista-usuarios' component={usersTable} /> */}
         <Route path="/admin" exact component={HomeAdmin} />
         <Route exact path="/admin/crear-hotel" component={CrearHotel} />
         <Route path="/admin/editar-hotel/:id" component={ActualizarHotel} />
-        <Route path="/admin/crear-transporte" component={FormularioTransporte} />
+        <Route
+          path="/admin/crear-transporte"
+          component={FormularioTransporte}
+        />
         <Route exact path="/admin/crear-pasaje" component={CrearPasaje} />
         <Route path="/admin/editar-pasaje/:id" component={ActualizarPasaje} />
         <Route exact path="/admin/crear-seguro" component={CrearSeguro} />
@@ -47,12 +48,12 @@ const AdminPages = () => {
         <Route path="/admin/editar-evento/:id" component={ActualizarEvento} />
         <Route exact path="/admin/crear-usuario" component={CrearUsuario} />
         <Route path="/admin/editar-usuario/:id" component={ActualizarUsuario} />
-        <Route path='/admin/lista-seguros' component={InsuranceTable} />
-        <Route path='/admin/lista-hoteles' component={HotelTables} />
-        <Route path='/admin/lista-eventos' component={ShowTable} />
-        <Route path='/admin/lista-usuarios' component={UserTables} />
-        <Route path='/admin/lista-paquetes' component={PackageTable} />
-        <Route path='/admin/lista-pasajes' component={TicketTable} />
+        <Route path="/admin/lista-seguros" component={InsuranceTable} />
+        <Route path="/admin/lista-hoteles" component={HotelTables} />
+        <Route path="/admin/lista-eventos" component={ShowTable} />
+        <Route path="/admin/lista-usuarios" component={UserTables} />
+        <Route path="/admin/lista-paquetes" component={PackageTable} />
+        <Route path="/admin/lista-pasajes" component={TicketTable} />
       </Switch>
     </>
   );

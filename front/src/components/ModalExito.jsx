@@ -1,11 +1,10 @@
-import { Fragment, useRef, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon, ExclamationIcon } from '@heroicons/react/outline'
+import { Fragment, useRef, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { CheckIcon, ExclamationIcon } from "@heroicons/react/outline";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/Auth";
 
-export default function ModalExito({open, setOpen, message}) {
-
+export default function ModalExito({ open, setOpen, message }) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -36,11 +35,17 @@ export default function ModalExito({open, setOpen, message}) {
                 <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
                     <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
+                      <CheckIcon
+                        className="h-6 w-6 text-green-600"
+                        aria-hidden="true"
+                      />
                     </div>
                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                      <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
-                      {message} 
+                      <Dialog.Title
+                        as="h3"
+                        className="text-lg leading-6 font-medium text-gray-900"
+                      >
+                        {message}
                       </Dialog.Title>
                     </div>
                   </div>
@@ -49,7 +54,9 @@ export default function ModalExito({open, setOpen, message}) {
                   <button
                     type="button"
                     className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={() => {setOpen(false)}}
+                    onClick={() => {
+                      setOpen(false);
+                    }}
                   >
                     Aceptar
                   </button>
@@ -60,5 +67,5 @@ export default function ModalExito({open, setOpen, message}) {
         </div>
       </Dialog>
     </Transition.Root>
-  )
+  );
 }

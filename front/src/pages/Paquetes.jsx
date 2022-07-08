@@ -4,13 +4,10 @@ import { Link } from "react-router-dom";
 import { images } from "./Hoteles";
 import Pagination from "../components/Pagination";
 import { useSelector } from "react-redux";
-;
-
 const Paquetes = () => {
   const [paquetes, setPaquetes] = useState([]);
   const [cantElements, setCantElements] = useState(0);
-  const {page, size} = useSelector(state => state.pagination);
-
+  const { page, size } = useSelector((state) => state.pagination);
 
   async function fetchPaquetes() {
     const data = await getPackages(page, size);
@@ -38,7 +35,11 @@ const Paquetes = () => {
                     Paquete {paquete.id}
                   </p>
                   <div className="w-full p-3">
-                    <img src={images[count % 12]} alt="paquete" className="w-full" />
+                    <img
+                      src={images[count % 12]}
+                      alt="paquete"
+                      className="w-full"
+                    />
                   </div>
                   <div className="w-full p-3">
                     <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">
@@ -48,28 +49,40 @@ const Paquetes = () => {
                     <p className="text-center text-gray-600 sm:text-base text-sm">
                       {paquete.show !== null && (
                         <span className="font-bold">
-                          Evento: <span className="font-normal">{paquete.show.name}</span>
+                          Evento:{" "}
+                          <span className="font-normal">
+                            {paquete.show.name}
+                          </span>
                         </span>
                       )}
                     </p>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
                       {paquete.hotel !== null && (
                         <span className=" font-bold">
-                          Hotel: <span className="font-normal">{paquete.hotel.name}</span>
+                          Hotel:{" "}
+                          <span className="font-normal">
+                            {paquete.hotel.name}
+                          </span>
                         </span>
                       )}
                     </p>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
                       {paquete.ticket !== null && (
                         <span className=" font-bold">
-                          Transporte: <span className="font-normal">{paquete.ticket.travelWay.name}</span>
+                          Transporte:{" "}
+                          <span className="font-normal">
+                            {paquete.ticket.travelWay.name}
+                          </span>
                         </span>
                       )}
                     </p>
                     <p className="text-center text-gray-600 sm:text-base text-sm">
                       {paquete.insurance !== null && (
                         <span className=" font-bold">
-                          Seguro: <span className="font-normal">{paquete.insurance.name}</span>
+                          Seguro:{" "}
+                          <span className="font-normal">
+                            {paquete.insurance.name}
+                          </span>
                         </span>
                       )}
                     </p>
@@ -88,7 +101,7 @@ const Paquetes = () => {
           </>
         ))}
       </div>
-      <Pagination cantItems={cantElements}/>
+      <Pagination cantItems={cantElements} />
     </section>
   );
 };

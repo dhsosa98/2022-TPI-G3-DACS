@@ -8,7 +8,6 @@ import Paquete from "../pages/Paquete";
 import Contacto from "../pages/Contacto";
 import Hotel from "../pages/Hotel";
 
-
 import Evento from "../pages/Evento";
 import Transportes from "../pages/Transportes";
 import Transporte from "../pages/Transporte";
@@ -46,7 +45,6 @@ const PagesRouter = () => {
         <Route path="/compra-paquete" component={Payment} />
         <Route path="/mis-reservas" component={Reservas} />
         <Route path="/mis-datos" component={Perfil} />
-
       </Switch>
     </>
   );

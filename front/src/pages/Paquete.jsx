@@ -21,7 +21,7 @@ const Paquete = () => {
     insurance: "",
   });
   const [success, setSuccess] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false); 
+  const [errorMessage, setErrorMessage] = useState(false);
   const { id } = useParams();
   const { auth } = useContext(AuthContext);
 
@@ -35,11 +35,10 @@ const Paquete = () => {
   }, []);
 
   const handleReserve = async () => {
-    try{
-    const response = await createBooking(id);
-    setSuccess(true);
-    }
-    catch(error){
+    try {
+      const response = await createBooking(id);
+      setSuccess(true);
+    } catch (error) {
       if (error.response.status === 409) {
         setErrorMessage(true);
         return;
@@ -56,8 +55,24 @@ const Paquete = () => {
         >
           Volver
         </Link>
-        {success &&<ModalExito open={success} setOpen={setSuccess} message={"El paquete ha sido reservado exitosamente"} />}
-        {errorMessage && <ModalError open={errorMessage} setOpen={setErrorMessage} message={{title: "Ya ha reservado este paquete", description: "Por favor elimínelo de sus reservas para poder continuar"}} />}
+        {success && (
+          <ModalExito
+            open={success}
+            setOpen={setSuccess}
+            message={"El paquete ha sido reservado exitosamente"}
+          />
+        )}
+        {errorMessage && (
+          <ModalError
+            open={errorMessage}
+            setOpen={setErrorMessage}
+            message={{
+              title: "Ya ha reservado este paquete",
+              description:
+                "Por favor elimínelo de sus reservas para poder continuar",
+            }}
+          />
+        )}
         <div key={paquete.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
           <div className="bg-white border-2 border-gray-300 rounded-lg shadow-lg shadow-black p-5">
             <div className="flex flex-wrap justify-center">

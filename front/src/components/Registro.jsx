@@ -81,7 +81,9 @@ export default function Registro() {
 
               <Form className="space-y-6">
                 {error && <p className=" text-center text-red-600">{error}</p>}
-                {confirm && <p className=" text-center text-green-600">{confirm}</p>}
+                {confirm && (
+                  <p className=" text-center text-green-600">{confirm}</p>
+                )}
                 <input type="hidden" name="remember" defaultValue="true" />
                 <div className="rounded-md shadow-sm -space-y-px">
                   <div className="p-1">

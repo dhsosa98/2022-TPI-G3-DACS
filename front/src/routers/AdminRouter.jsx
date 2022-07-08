@@ -9,7 +9,7 @@ const AdminRouter = ({ component: Component, ...resto }) => {
     <Route
       {...resto}
       component={(props) =>
-        (isAdmin) ? <Component {...props} /> : <Redirect to="/" />
+        isAdmin ? <Component {...props} /> : <Redirect to="/" />
       }
     />
   );

@@ -73,7 +73,9 @@ const QuienesSomos = () => {
             </div>
             <div className="flex flex-col justify-center align-middle">
               <p className="text-3xl font-semibold leading-none">12.000</p>
-              <p className="capitalize sm:text-base text-sm">Clientes satifechos</p>
+              <p className="capitalize sm:text-base text-sm">
+                Clientes satifechos
+              </p>
             </div>
           </div>
           <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-gray-900 text-gray-100">
@@ -95,7 +97,9 @@ const QuienesSomos = () => {
 
             <div className="flex flex-col justify-center align-middle">
               <p className="text-3xl font-semibold leading-none">11,3 mill.</p>
-              <p className="capitalize sm:text-base text-sm">De kilómetros recorridos</p>
+              <p className="capitalize sm:text-base text-sm">
+                De kilómetros recorridos
+              </p>
             </div>
           </div>
           <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-gray-900 text-gray-100">

@@ -5,7 +5,7 @@ import Hero from "../../public/images/home/hero.jpg";
 export default function Home() {
   return (
     <section className="min-h-screen bg-[#059090] ">
-      <Parallax pages={2.2} className='scrollbar-hide'>
+      <Parallax pages={2.2} className="scrollbar-hide">
         <ParallaxLayer
           offset={0}
           factor={1.5}
@@ -26,12 +26,16 @@ export default function Home() {
               </h1>
 
               <div class="flex flex-wrap justify-center mt-64">
-                <Link 
-                to='/paquetes' 
-                class="px-12 py-3 m-2 text-lg font-semibold rounded bg-[#b75c0c] text-white hover:bg-[#dd7b24]">
+                <Link
+                  to="/paquetes"
+                  class="px-12 py-3 m-2 text-lg font-semibold rounded bg-[#b75c0c] text-white hover:bg-[#dd7b24]"
+                >
                   Ver paquetes
                 </Link>
-                <Link to='/contacto' class="px-12 py-3 m-2 text-lg border rounded text-white  hover:bg-[#059090]">
+                <Link
+                  to="/contacto"
+                  class="px-12 py-3 m-2 text-lg border rounded text-white  hover:bg-[#059090]"
+                >
                   Contáctate
                 </Link>
               </div>
@@ -113,7 +117,7 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
                   <div className="flex flex-col p-6 space-y-6 w-full rounded shadow sm:p-8 bg-[#d0782b] text-gray-900">
                     <div className="space-y-2 text-white">
@@ -275,18 +279,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-              
             </div>
           </section>
         </ParallaxLayer>
-
-        
       </Parallax>
     </section>
   );

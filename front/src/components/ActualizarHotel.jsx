@@ -12,6 +12,8 @@ export const ActualizarHotel = (props) => {
       }
     const [hotel, setHotel] = useState(initialValues);
     const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(false);
+  const [errorForm, setErrorForm] = useState(false);
     useEffect(()=>{
         const getHotel = async () => {
             try{
@@ -30,14 +32,35 @@ export const ActualizarHotel = (props) => {
         const { name, address, phone } = values;
         console.log(values)
         const response = await updateHotel(name, address, phone, id)
+        setSuccess(true);
         }catch(error){
           console.log(error)
+            setErrorForm(true);
         }
     }
 
     return (
         <>
         {!error ? <FormularioHotel initialValues={hotel} handleSubmit={handleSubmit} isEdit={true} /> : <h1>No existe este hotel</h1>}
+        {success && (
+                    <ModalExito
+                      open={success}
+                      setOpen={setSuccess}
+                      message={"El hotel ha sido actualizado correctamente"}
+                    />
+                    )}
+
+        {errorForm && (
+          <ModalError
+            open={errorForm}
+            setOpen={setErrorForm}
+            message={{
+              title: "Ha ocurrido un error",
+              description:
+                "Faltan campos, o ya existen",
+            }}
+          />
+        )}
         </>
     )
 }

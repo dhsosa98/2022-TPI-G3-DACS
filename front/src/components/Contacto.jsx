@@ -2,15 +2,19 @@ import ModalExito from "./ModalExito";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
-
-
 export default function Formu() {
   const [contactoOk, setContactoOk] = useState(false);
 
   return (
     <>
       <div className="sm:mt-0 p-4">
-        {contactoOk && (<ModalExito open={contactoOk} setOpen={setContactoOk} message='Formulario enviado correctamente'/>)}
+        {contactoOk && (
+          <ModalExito
+            open={contactoOk}
+            setOpen={setContactoOk}
+            message="Formulario enviado correctamente"
+          />
+        )}
         <div className="md:mt-0 md:col-span-2 ">
           <form>
             <div className="shadow overflow-hidden rounded-lg ">
@@ -86,8 +90,10 @@ export default function Formu() {
                 </div>
                 <div className="text-right pt-4">
                   <button
-                    to='#'
-                    onClick={()=>{setContactoOk(true)}}
+                    to="#"
+                    onClick={() => {
+                      setContactoOk(true);
+                    }}
                     type="button"
                     className="inline-flex w-full justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#00adad] hover:bg-[#00adad86] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >

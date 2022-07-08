@@ -16,6 +16,8 @@ export const ActualizarPaquete = (props) => {
   };
   const [pack, setPack] = useState(initialValues);
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+  const [errorForm, setErrorForm] = useState(false);
   useEffect(() => {
     const getPackage = async () => {
       try {
@@ -50,8 +52,10 @@ export const ActualizarPaquete = (props) => {
         total,
         id
       );
+      setSuccess(true);
     } catch (error) {
       console.log(error);
+      setErrorForm(true);
     }
   };
 
@@ -65,6 +69,24 @@ export const ActualizarPaquete = (props) => {
         />
       ) : (
         <h1>No existe ese paquete</h1>
+      )}
+      {success && (
+        <ModalExito
+          open={success}
+          setOpen={setSuccess}
+          message={"El Paquete ha sido actualizado correctamente"}
+        />
+      )}
+
+      {errorForm && (
+        <ModalError
+          open={errorForm}
+          setOpen={setErrorForm}
+          message={{
+            title: "Ha ocurrido un error",
+            description: "Faltan campos, o ya existen",
+          }}
+        />
       )}
     </>
   );

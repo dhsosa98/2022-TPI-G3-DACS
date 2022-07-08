@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const size = 12
+const size = 12;
 
 export const paginationSlice = createSlice({
   name: "pagination",
@@ -9,7 +9,7 @@ export const paginationSlice = createSlice({
   },
   reducers: {
     increasePage: (state, action) => {
-      state.page += 1
+      state.page += 1;
     },
     increaseSize: (state, action) => {
       return (state.size += size);
@@ -18,11 +18,11 @@ export const paginationSlice = createSlice({
       return (state.size -= size);
     },
     decresePage: (state, action) => {
-      state.page -= 1
+      state.page -= 1;
     },
     setPage: (state, action) => {
-        state.page =  parseInt(action.payload)
-      },
+      state.page = parseInt(action.payload);
+    },
     initialPagination: (state, action) => {
       state.page = 0;
       state.size = size;
@@ -30,8 +30,14 @@ export const paginationSlice = createSlice({
   },
 });
 
-export const { increasePage, increaseSize, decresePage, decreseSize, setPage, initialPagination } =
-  paginationSlice.actions;
+export const {
+  increasePage,
+  increaseSize,
+  decresePage,
+  decreseSize,
+  setPage,
+  initialPagination,
+} = paginationSlice.actions;
 
 export const selectPage = (state) => state?.pagination?.page;
 export const selectSize = (state) => state?.pagination?.size;

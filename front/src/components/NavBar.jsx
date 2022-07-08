@@ -216,7 +216,9 @@ export default function NavBar() {
                       >
                         Vista Admininstrador
                       </NavLink>
-                    ) : <DropwdownUser/>}
+                    ) : (
+                      <DropwdownUser />
+                    )}
                     <button
                       onClick={() => {
                         setIsOpen(true);
