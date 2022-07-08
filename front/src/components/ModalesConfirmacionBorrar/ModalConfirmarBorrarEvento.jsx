@@ -1,17 +1,17 @@
 import { Fragment} from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationIcon } from '@heroicons/react/outline'
-import { deleteHotel} from "../services/hotels";
+import { deleteShow } from "../../services/shows";
 
-export default function ModalConfirmar({open, setOpen, message, id}) {
+export default function ModalConfirmarBorrarEvento({open, setOpen, message, id}) {
 
   const handleDelete = async (id) =>{
     try {
-      const response = await deleteHotel(id)
+      const response = await deleteShow(id)
     } catch (error) {
       console.log(error)
     }
-    finally{setOpen(false)}
+    finally{setOpen(false);window.location.reload()}
   }
     
     

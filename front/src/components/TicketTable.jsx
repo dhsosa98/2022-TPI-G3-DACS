@@ -1,26 +1,32 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { deleteTicket, getTickets } from "../services/tickets";
+import { getTickets } from "../services/tickets";
+import Pagination from "./Pagination";
+import {useSelector} from "react-redux";
+import ModalConfirmar from "./ModalesConfirmacionBorrar/ModalConfirmarBorrarSeguro";
+
+        // TERMINAR PAGINACION, YA HICE EL 90% CONCHESUSMADRES
 
 export const TicketTable = (props) => {
     const [tickets, setTickets] = useState([]);
+    const [cantElements, setCantElements] = useState(0);
+    const {page, size} = useSelector(state => state.pagination);
+    const [eliminar, setEliminar] = useState();
+    const [id, setId] = useState();
 
     const fetchTickets = async () => {
-        const response = await getTickets()
-        console.log(response)
+        const response = await getTickets(page, size)
         setTickets(response);
-    }
-
-    const handleDelete = async (id) =>{
-        const response = await deleteTicket(id)
+        setCantElements(response.count);
     }
 
     useEffect(()=>{
         fetchTickets();
-    },[])
+    },[page, size])
     return (
         <section className=" flex-grow bg-[#ffffffcc] text-black pb-10">
+        {eliminar && <ModalConfirmar id={id} open={eliminar} setOpen={setEliminar} message='pasaje'/>}
         <div className="container p-2 mx-auto sm:p-4 text-gray-900">
         <div className="whitespace-nowrap flex mb-2 mt-6 items-center">
         <Link to={"/admin"}>
@@ -57,7 +63,7 @@ export const TicketTable = (props) => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                             </svg></Link></td>
-                        <td className="px-3 py-2"><button onClick={()=>{handleDelete(ticket.id)}}> 
+                        <td className="px-3 py-2"><button onClick={()=>{setEliminar(true);setId(ticket.id)}}> 
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg></button></td>
@@ -71,13 +77,14 @@ export const TicketTable = (props) => {
 
 		</table>
         <Link to={"/admin/crear-pasaje"}>
-        <button className=" w-fit p-2 flex items-center justify-center mt-4 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
+        <button className="p-2 flex w-full items-center justify-center mt-4 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
 </svg> Nuevo pasaje
         </button>
         </Link>
 	</div>
+    <Pagination cantItems={cantElements} />
 </div>
 </section>
 

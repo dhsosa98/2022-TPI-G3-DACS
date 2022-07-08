@@ -4,22 +4,20 @@ import { Link } from "react-router-dom";
 import { deleteShow, getShows } from "../services/shows";
 import {useSelector} from "react-redux";
 import Pagination from "./Pagination";
+import ModalConfirmar from "./ModalesConfirmacionBorrar/ModalConfirmarBorrarEvento";
 
 export const ShowTable = (props) => {
   const [shows, setShows] = useState([]);
   const [cantElements, setCantElements] = useState(0);
   const {page, size} = useSelector(state => state.pagination);
+  const [eliminar, setEliminar] = useState();
+  const [id, setId] = useState();
 
   const fetchShows = async () => {
     const response = await getShows(page, size);
-    console.log(response);
     setShows(response.rows);
     setCantElements(response.count);
 
-  };
-
-  const handleDelete = async (id) => {
-    const response = await deleteShow(id);
   };
 
   useEffect(() => {
@@ -27,6 +25,7 @@ export const ShowTable = (props) => {
   }, [page, size]);
   return (
     <section className=" flex-grow bg-[#ffffffcc] text-black pb-10">
+      {eliminar && <ModalConfirmar id={id} open={eliminar} setOpen={setEliminar} message='evento'/>}
       <div className="container p-2 mx-auto sm:p-4 text-gray-900">
         <div className="whitespace-nowrap flex mb-2 mt-6 items-center">
           <Link to={"/admin"}>
@@ -89,8 +88,7 @@ export const ShowTable = (props) => {
                   </td>
                   <td className="px-3 py-2">
                     <button
-                      onClick={() => {
-                        handleDelete(show.id);
+                      onClick={() => {setEliminar(true);setId(show.id);
                       }}
                     >
                       <svg
@@ -114,7 +112,7 @@ export const ShowTable = (props) => {
             </tbody>
           </table>
           <Link to={"/admin/crear-evento"}>
-            <button className=" w-fit p-2 flex items-center justify-center mt-4 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
+            <button className=" w-full p-2 flex items-center justify-center mt-4 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-[#00adad] hover:bg-[#00adad86]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"

@@ -1,6 +1,6 @@
 import Axios from "../config/axios"
 import { API_BASE_URL } from "../vite-env.d"
-import axios from "axios";
+
 
 export const createTicket = async (seat, departureDate, returnDate, travelWayId, amount) => {
     const response = await Axios.post(API_BASE_URL+"/tickets", {
@@ -29,8 +29,8 @@ export const updateTicket = async (seat, departureDate, returnDate, travelWayId,
     return response.data;
 }
 
-export const getTickets = async () => {
-    const response = await Axios.get(API_BASE_URL+"/tickets");
+export const getTickets = async (page=0, size=12) => {
+    const response = await Axios.get(API_BASE_URL+"/tickets?"+"page="+(page+1)+"&limit="+size);
     return response.data;
 }
 
