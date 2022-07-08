@@ -19,6 +19,7 @@ import NavBar from "../components/NavBar";
 import IniciarSesion from "../pages/IniciarSesion";
 import Registrarse from "../pages/Registrarse";
 import PublicRouter from "./PublicRouter";
+import { Payment } from "../components/Payment";
 
 const PagesRouter = () => {
   return (
@@ -39,6 +40,7 @@ const PagesRouter = () => {
         <Route path="/transportes/:id" component={Transporte} />
         <Route path="/contacto" component={Contacto} />
         <Route path="/seguros" component={Seguros} />
+        <Route path="/compra-paquete" component={Payment} />
       </Switch>
     </>
   );

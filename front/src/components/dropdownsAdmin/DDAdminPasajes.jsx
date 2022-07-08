@@ -7,7 +7,7 @@ const opcionesPasajes = [
     {
       name: "Ver Pasajes",
       description: "Ver lista pasajes.",
-      href: "/admin/lista-eventos",
+      href: "/admin/lista-pasajes",
       icon: TicketIcon
     },
     {

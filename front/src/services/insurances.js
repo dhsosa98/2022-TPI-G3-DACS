@@ -23,7 +23,7 @@ export const updateInsurance = async (name, amount, id) => {
 }
 
 export const getInsurances = async () => {
-    const response = await Axios.get(API_BASE_URL+"/insurances");
+    const response = await Axios.get(API_BASE_URL+"/insurances?limit=100");
     return response.data;
 }
 

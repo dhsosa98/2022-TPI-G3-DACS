@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     
     const login = async (token) => {
         localStorage.setItem('token', token)
-        const response = await Axios.get(API_BASE_URL+'/users/profile')
+        const response = await Axios.get(API_BASE_URL+'/auth/profile')
         localStorage.setItem('user', JSON.stringify(response.data))
         setAuth(true)
         setIsAdmin(response.data?.role?.description === 'Admin' || false)

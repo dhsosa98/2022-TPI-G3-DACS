@@ -5,7 +5,17 @@ import { getPackage } from "../services/packages";
 import { images } from "./Hoteles";
 
 const Paquete = () => {
-  const [paquete, setPaquete] = useState([]);
+  const [paquete, setPaquete] = useState({
+    name: "",
+    description: "",
+    price: "",
+    show: "",
+    hotel: "",
+    ticket: {
+      travelWay: "",
+    },
+    insurance: "",
+  });
   const { id } = useParams();
 
   const fetchPaquete = async () => {
@@ -38,16 +48,75 @@ const Paquete = () => {
                 <h1 className="text-center mb-[10px] text-bold text-2xl">
                   {paquete.name}
                 </h1>
-                {/* <p className=" text-gray-600 sm:text-base text-sm">
+                <p className=" text-gray-600 sm:text-base text-sm">
                   <p className="text-center text-gray-600 sm:text-base text-sm">
                     {paquete.show !== null && (
                       <span className="font-bold">
                         Evento:{" "}
-                        <span className="font-normal">{paquete.show.name}</span>
+                        <span className="font-normal">
+                          {paquete.show.name}
+                          <a
+                            href={`/eventos/${paquete.show.id}`}
+                            className="font-normal  text-blue-800"
+                          >
+                            {" "}
+                            Mas info...
+                          </a>
+                        </span>
                       </span>
                     )}
                   </p>
-                </p> */}
+                </p>
+                <p className=" text-gray-600 sm:text-base text-sm">
+                  <p className="text-center text-gray-600 sm:text-base text-sm">
+                    {paquete.show !== null && (
+                      <span className="font-bold">
+                        Hotel:{" "}
+                        <span className="font-normal">
+                          {paquete.hotel.name}
+                          <a
+                            href={`/hoteles/${paquete.hotel.id}`}
+                            className="font-normal  text-blue-800"
+                          >
+                            {" "}
+                            Mas info...
+                          </a>
+                        </span>
+                      </span>
+                    )}
+                  </p>
+                </p>
+                <p className=" text-gray-600 sm:text-base text-sm">
+                  <p className="text-center text-gray-600 sm:text-base text-sm">
+                    {paquete.show !== null && (
+                      <span className="font-bold">
+                        Transporte:{" "}
+                        <span className="font-normal">
+                          {paquete.ticket.travelWay.name}
+                          <a
+                            href={`/transportes/${paquete.ticket.travelWay.id}`}
+                            className="font-normal  text-blue-800"
+                          >
+                            {" "}
+                            Mas info...
+                          </a>
+                        </span>
+                      </span>
+                    )}
+                  </p>
+                </p>
+                <p className=" text-gray-600 sm:text-base text-sm">
+                  <p className="text-center text-gray-600 sm:text-base text-sm">
+                    {paquete.show !== null && (
+                      <span className="font-bold">
+                        Seguro:{" "}
+                        <span className="font-normal">
+                          {paquete.insurance.name}
+                        </span>
+                      </span>
+                    )}
+                  </p>
+                </p>
               </div>
             </div>
           </div>
