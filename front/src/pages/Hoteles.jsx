@@ -15,6 +15,9 @@ import h9 from "../../public/images/hotels/9.jpg";
 import h10 from "../../public/images/hotels/10.jpg";
 import h11 from "../../public/images/hotels/11.jpg";
 import h12 from "../../public/images/hotels/12.jpg";
+import h13 from "../../public/images/hotels/13.jpg";
+import h14 from "../../public/images/hotels/14.jpg";
+import h15 from "../../public/images/hotels/15.jpg";
 import Pagination from "../components/Pagination";
 
 export const images = [h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12];
@@ -43,7 +46,7 @@ const Hoteles = () => {
               <div className="bg-white  rounded-lg shadow-sm  p-5 group relative">
                 <div className="flex flex-wrap justify-center group-hover:opacity-60 group-hover:transition group-hover:ease-in group-hover:duration-100">
                   <div className="w-full p-3">
-                    <img src={images[count]} alt="hotel" className="w-full" />
+                    <img src={images[count % 12]} alt="hotel" className="w-full" />
                   </div>
                   <div className="w-full p-3">
                     <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">

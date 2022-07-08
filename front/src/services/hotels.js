@@ -1,6 +1,5 @@
 import Axios from "../config/axios"
 import { API_BASE_URL } from "../vite-env.d"
-import axios from "axios";
 
 export const createHotel = async (name, address, phone) => {
     const response = await Axios.post(API_BASE_URL+"/hotels", {
@@ -26,7 +25,7 @@ export const updateHotel = async (name, address, phone, id) => {
 }
 
 export const getHotels = async () => {
-    const response = await Axios.get(API_BASE_URL+"/hotels");
+    const response = await Axios.get(API_BASE_URL+"/hotels?limit=150");
     return response.data;
 }
 

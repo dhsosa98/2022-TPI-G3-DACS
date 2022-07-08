@@ -1,6 +1,5 @@
 import { API_BASE_URL } from '../vite-env.d';
 import Axios from "../config/axios";
-import axios from "axios";
 
 
 export const createShow = async (name, seat, dateShow, amount) => {
@@ -29,7 +28,7 @@ export const updateShow = async (name, seat, dateShow, amount, id) => {
 }
 
 export const getShows = async () => {
-    const response = await Axios.get(API_BASE_URL+"/shows");
+    const response = await Axios.get(API_BASE_URL+"/shows?limit=100");
     return response.data;
 }
 

@@ -33,9 +33,14 @@ export const updatePackage = async (name, quantPeople, ticketId, hotelId, insura
 }
 
 export const getPackages = async () => {
-    const response = await Axios.get(API_BASE_URL+"/packages");
-    return response.data;
-}
+  const response = await axios.get(`${API_BASE_URL}/packages?limit=100`);
+  return response.data;
+};
+
+export const getPackage = async (id) => {
+  const response = await axios.get(`${API_BASE_URL}/packages/${id}`);
+  return response.data;
+};
 
 export const deletePackage = async (id) => {
     const response = await Axios.delete(API_BASE_URL+"/packages/"+id);
