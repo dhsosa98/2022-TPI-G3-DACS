@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { PaymentDto } from 'src/sales/dtos/payment.dto';
 import { CreateSaleDto } from '../../sales/dtos/CreateSale.dto';
+import { ReserveDto } from '../dtos/Reserve.dto';
 import { ReservedPackagesService } from '../services/ReservedPackages.service';
 
 @Controller('/reserves')
@@ -16,7 +17,7 @@ export class ReservedPackagesController {
   constructor(private readonly packageService: ReservedPackagesService) {}
 
   @Post('/')
-  createReserve(@Request() req: any, @Body() packagesByClient: any) {
+  createReserve(@Request() req: any, @Body() packagesByClient: ReserveDto) {
     return this.packageService.createReserve(req.user.uid, packagesByClient);
   }
 

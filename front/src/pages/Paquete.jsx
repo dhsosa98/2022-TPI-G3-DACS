@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { getPackageById } from "../services/packages";
 import { AuthContext } from "../contexts/Auth";
 import { images } from "./Hoteles";
+import { createBooking } from "../services/reserves";
 
 const Paquete = () => {
   const [paquete, setPaquete] = useState({
@@ -18,7 +19,7 @@ const Paquete = () => {
     insurance: "",
   });
   const { id } = useParams();
-  const { auth } = useContext(AuthContext);
+  const { auth, user } = useContext(AuthContext);
 
   const fetchPaquete = async () => {
     const data = await getPackageById(id);
@@ -28,6 +29,11 @@ const Paquete = () => {
   useEffect(() => {
     fetchPaquete();
   }, []);
+
+  const handleReserve = async () => {
+    const response = await createBooking(id);
+    console.log(response);
+  };
 
   return (
     <>
@@ -119,19 +125,26 @@ const Paquete = () => {
                   )}
                 </p>
               </div>
-              <button
-                className=" px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#007faded] hover:bg-[#00adad] self-start
-            "
-              >
-                {auth ? (
-                  <a href={`/compra-paquete?packageId=${id}`}>
-                    {" "}
-                    Quiero reservarlo!
-                  </a>
-                ) : (
+
+              {auth ? (
+                <button
+                  className=" px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#007faded] hover:bg-[#00adad] self-start border-blue-500 "
+                  onClick={handleReserve}
+                >
+                  Quiero reservarlo!
+                </button>
+              ) : (
+                // <a href={`/compra-paquete?packageId=${id}`}>
+                //   {" "}
+                //   Quiero reservarlo!
+                // </a>
+                <button
+                  className=" px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#007faded] hover:bg-[#00adad] self-start
+              border-blue-500 "
+                >
                   <a href="/iniciarsesion"> Quiero reservarlo!</a>
-                )}
-              </button>
+                </button>
+              )}
             </div>
           </div>
         </div>

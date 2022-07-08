@@ -41,7 +41,7 @@ const Reservas = () => {
 					<th className="p-3">Paquete</th>
 					<th className="p-3"></th>
                     <th className="p-3"></th>
-					<th className="p-3">Ver Reserva</th>
+					<th className="p-3">Pagar Reserva</th>
 					<th className="p-3">Cancelar</th>
 		
 				</tr>

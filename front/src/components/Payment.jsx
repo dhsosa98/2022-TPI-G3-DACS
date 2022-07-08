@@ -10,6 +10,7 @@ import ModalExito from "./ModalExito";
 import ModalError from "./ModalError";
 import { getPackageById } from "../services/packages";
 import * as yup from "yup";
+import Container from "./Container";
 
 export const Payment = () => {
   const location = useLocation();
@@ -71,7 +72,13 @@ export const Payment = () => {
   };
 
   if (error) {
-    return <div>Error el paquete no existe</div>;
+    return (<Container>
+             <section className=" bg-[#ffffffcc] text-black sm:m-10 m-2 rounded-lg p-10">
+                <h1 className="">
+                Error, el paquete no existe
+                </h1>
+             </section>
+    </Container>);
   }
 
   const cardSchema = yup.object().shape({
