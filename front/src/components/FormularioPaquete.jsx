@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../vite-env.d";
 import Container from "./Container";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom" 
+import { Formik, Form, Field } from "formik";
 
 export default function FormularioPaquete({initialValues, handleSubmit, isEdit}) {
   const [tickets, setTickets] = useState([])
@@ -22,7 +23,7 @@ export default function FormularioPaquete({initialValues, handleSubmit, isEdit})
 
   const fetchHotels = async () => {
     const response = await axios.get(API_BASE_URL+"/hotels");
-    setHotels(response.data);
+    setHotels(response.data.rows);
   }
 
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function FormularioPaquete({initialValues, handleSubmit, isEdit})
 
   const fetchShows = async () => {
     const response = await axios.get(API_BASE_URL+"/shows");
-    setShows(response.data);
+    setShows(response.data.rows);
   }
 
   useEffect(() => {
