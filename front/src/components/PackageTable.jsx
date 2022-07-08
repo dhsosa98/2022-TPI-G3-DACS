@@ -2,13 +2,18 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { deletePackage, getPackages } from "../services/packages";
+import {useSelector} from "react-redux";
+import Pagination from "./Pagination";
 
 export const PackageTable = (props) => {
     const [packages, setPackages] = useState([]);
+    const [cantElements, setCantElements] = useState(0);
+    const {page, size} = useSelector(state => state.pagination);
 
     const fetchPackages = async () => {
-        const response = await getPackages()
+        const response = await getPackages(page, size)
         setPackages(response.rows);
+        setCantElements(response.count);
     }
 
     const handleDelete = async (id) =>{
@@ -17,7 +22,7 @@ export const PackageTable = (props) => {
 
     useEffect(()=>{
         fetchPackages();
-    },[])
+    },[page, size])
     return (
         <section className=" flex-grow bg-[#ffffffcc] text-black pb-10">
         <div className="container p-2 mx-auto sm:p-4 text-gray-900">
@@ -81,6 +86,7 @@ export const PackageTable = (props) => {
         </button>
         </Link>
 	</div>
+    <Pagination cantItems={cantElements} />
 </div>
 </section>
 

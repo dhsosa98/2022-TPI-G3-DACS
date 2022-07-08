@@ -2,14 +2,20 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { deleteShow, getShows } from "../services/shows";
+import {useSelector} from "react-redux";
+import Pagination from "./Pagination";
 
 export const ShowTable = (props) => {
   const [shows, setShows] = useState([]);
+  const [cantElements, setCantElements] = useState(0);
+  const {page, size} = useSelector(state => state.pagination);
 
   const fetchShows = async () => {
-    const response = await getShows();
+    const response = await getShows(page, size);
     console.log(response);
     setShows(response.rows);
+    setCantElements(response.count);
+
   };
 
   const handleDelete = async (id) => {
@@ -18,7 +24,7 @@ export const ShowTable = (props) => {
 
   useEffect(() => {
     fetchShows();
-  }, []);
+  }, [page, size]);
   return (
     <section className=" flex-grow bg-[#ffffffcc] text-black pb-10">
       <div className="container p-2 mx-auto sm:p-4 text-gray-900">
@@ -127,6 +133,7 @@ export const ShowTable = (props) => {
             </button>
           </Link>
         </div>
+        <Pagination cantItems={cantElements} />
       </div>
     </section>
   );

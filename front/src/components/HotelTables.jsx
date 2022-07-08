@@ -2,14 +2,19 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { deleteHotel, getHotels } from "../services/hotels";
+import Pagination from "./Pagination";
+import {useSelector} from "react-redux";
 
 
 export const HotelTables = (props) => {
     const [hotels, setHotels] = useState([]);
+    const [cantElements, setCantElements] = useState(0);
+    const {page, size} = useSelector(state => state.pagination);
 
     const fetchHotels = async () => {
-        const response = await getHotels()
+        const response = await getHotels(page, size)
         setHotels(response.rows);
+        setCantElements(response.count);
     }
 
     const handleDelete = async (id) =>{
@@ -18,7 +23,7 @@ export const HotelTables = (props) => {
 
     useEffect(()=>{
         fetchHotels();
-    },[])
+    },[page, size])
     return (
         <section className=" flex-grow bg-[#ffffffcc] text-black pb-10">
         <div className="container p-2 mx-auto sm:p-4 text-gray-900">
@@ -74,6 +79,7 @@ export const HotelTables = (props) => {
         </button>
         </Link>
 	</div>
+    <Pagination cantItems={cantElements} />
 </div>
 </section>
 
