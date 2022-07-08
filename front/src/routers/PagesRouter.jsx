@@ -22,6 +22,7 @@ import Registrarse from "../pages/Registrarse";
 import PublicRouter from "./PublicRouter";
 import { Payment } from "../components/Payment";
 import Reservas from "../pages/Reservas";
+import Perfil from "../pages/Perfil";
 
 const PagesRouter = () => {
   return (
@@ -44,6 +45,7 @@ const PagesRouter = () => {
         <Route path="/seguros" component={Seguros} />
         <Route path="/compra-paquete" component={Payment} />
         <Route path="/mis-reservas" component={Reservas} />
+        <Route path="/mis-datos" component={Perfil} />
 
       </Switch>
     </>
