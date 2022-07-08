@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import Logo from "../../public/icons/android/android-launchericon-512-512.png";
-
 import { Link, NavLink } from "react-router-dom";
 import {
   CalendarIcon,
@@ -10,8 +9,6 @@ import {
   TruckIcon,
   ArchiveIcon,
   OfficeBuildingIcon,
-  ThumbUpIcon,
-  TicketIcon,
   HeartIcon,
   UserIcon,
 } from "@heroicons/react/outline";
