@@ -71,6 +71,30 @@ export class UserService {
     return newUser;
   }
 
+  async update(id: number, user: CreateUserDto): Promise<any> {
+    let { roleId } = user;
+    const { firstName, lastName, cuit, email } = user;
+    const roles = await this.roleService.findAll();
+    const userToUpdate = await this.userRepository.findOne({
+      where: { email: user.email },
+    });
+    if (!roleId) {
+      roleId = roles[0].id;
+    }
+    if (roleId) {
+      if (!roles.find((role) => role.id === roleId)) {
+        throw new ConflictException('Invalid role');
+      }
+    }
+    userToUpdate.firstName = firstName;
+    userToUpdate.lastName = lastName;
+    userToUpdate.cuit = cuit;
+    userToUpdate.email = email;
+    userToUpdate.roleId = roleId;
+    await userToUpdate.save();
+    return userToUpdate;
+  }
+
   async delete(id: number): Promise<User> {
     const user = await this.userRepository.findOne({
       where: { id },

@@ -20,3 +20,29 @@ export class CreateUserDto {
   @IsOptional()
   roleId: number;
 }
+
+export class UpdateUserDto {
+  @IsString()
+  @IsOptional()
+  firstName: string;
+
+  @IsString()
+  @IsOptional()
+  lastName: string;
+
+  @IsString()
+  @IsOptional()
+  cuit: string;
+
+  @IsEmail()
+  @IsOptional()
+  email: string;
+
+  @IsString()
+  @IsOptional()
+  password: string;
+
+  @IsNumber()
+  @IsOptional()
+  roleId: number;
+}
