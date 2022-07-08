@@ -29,8 +29,6 @@ const Paquete = () => {
     fetchPaquete();
   }, []);
 
-  console.log(auth);
-
   return (
     <>
       <div className="flex flex-wrap justify-center items-center">
@@ -45,80 +43,80 @@ const Paquete = () => {
           <div className="bg-white border-2 border-gray-300 rounded-lg shadow-lg shadow-black p-5">
             <div className="flex flex-wrap justify-center">
               <div className="w-full">
-                <img src={images[(id-1) % 12]} alt="hotel" className="w-full" />
+                <img
+                  src={images[(id - 1) % 12]}
+                  alt="hotel"
+                  className="w-full"
+                />
               </div>
               <div className="w-full p-3">
                 <h1 className="text-center mb-[10px] text-bold text-2xl">
                   {paquete.name}
                 </h1>
-                <p className=" text-gray-600 sm:text-base text-sm">
-                  <p className="text-center text-gray-600 sm:text-base text-sm">
-                    {paquete.show !== null && (
-                      <span className="font-bold">
-                        Evento:{" "}
-                        <span className="font-normal">
-                          {paquete.show.name}
-                          <a
-                            href={`/eventos/${paquete.show.id}`}
-                            className="font-normal  text-blue-800"
-                          >
-                            {" "}
-                            Mas info...
-                          </a>
-                        </span>
+
+                <p className="text-center text-gray-600 sm:text-base text-sm">
+                  {paquete.show !== null && (
+                    <span className="font-bold">
+                      Evento:{" "}
+                      <span className="font-normal">
+                        {paquete.show.name}
+                        <a
+                          href={`/eventos/${paquete.show.id}`}
+                          className="font-normal  text-blue-800"
+                        >
+                          {" "}
+                          Mas info...
+                        </a>
                       </span>
-                    )}
-                  </p>
+                    </span>
+                  )}
                 </p>
-                <p className=" text-gray-600 sm:text-base text-sm">
-                  <p className="text-center text-gray-600 sm:text-base text-sm">
-                    {paquete.show !== null && (
-                      <span className="font-bold">
-                        Hotel:{" "}
-                        <span className="font-normal">
-                          {paquete.hotel.name}
-                          <a
-                            href={`/hoteles/${paquete.hotel.id}`}
-                            className="font-normal  text-blue-800"
-                          >
-                            {" "}
-                            Mas info...
-                          </a>
-                        </span>
+
+                <p className="text-center text-gray-600 sm:text-base text-sm">
+                  {paquete.show !== null && (
+                    <span className="font-bold">
+                      Hotel:{" "}
+                      <span className="font-normal">
+                        {paquete.hotel.name}
+                        <a
+                          href={`/hoteles/${paquete.hotel.id}`}
+                          className="font-normal  text-blue-800"
+                        >
+                          {" "}
+                          Mas info...
+                        </a>
                       </span>
-                    )}
-                  </p>
+                    </span>
+                  )}
                 </p>
-                <p className=" text-gray-600 sm:text-base text-sm">
-                  <p className="text-center text-gray-600 sm:text-base text-sm">
-                    {paquete.show !== null && (
-                      <span className="font-bold">
-                        Transporte:{" "}
-                        <span className="font-normal">
-                          {paquete.ticket.travelWay.name}
-                          <a
-                            href={`/transportes/${paquete.ticket.travelWay.id}`}
-                            className="font-normal  text-blue-800"
-                          >
-                            {" "}
-                            Mas info...
-                          </a>
-                        </span>
+
+                <p className="text-center text-gray-600 sm:text-base text-sm">
+                  {paquete.show !== null && (
+                    <span className="font-bold">
+                      Transporte:{" "}
+                      <span className="font-normal">
+                        {paquete.ticket.travelWay.name}
+                        <a
+                          href={`/transportes/${paquete.ticket.travelWay.id}`}
+                          className="font-normal  text-blue-800"
+                        >
+                          {" "}
+                          Mas info...
+                        </a>
                       </span>
-                    )}
-                  </p>
+                    </span>
+                  )}
                 </p>
-                <p className=" text-gray-600 sm:text-base text-sm">
-                  <p className="text-center text-gray-600 sm:text-base text-sm">
-                    {paquete.show !== null && (
-                      <span className="font-bold">
-                        Seguro:{" "}
-                        <span className="font-normal">
-                          {paquete.insurance.name}
-                        </span>
+
+                <p className="text-center text-gray-600 sm:text-base text-sm">
+                  {paquete.show !== null && (
+                    <span className="font-bold">
+                      Seguro:{" "}
+                      <span className="font-normal">
+                        {paquete.insurance.name}
                       </span>
-                    )}
-                  </p>
+                    </span>
+                  )}
                 </p>
               </div>
               <button
