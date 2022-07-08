@@ -17,6 +17,8 @@ import { ShowTable } from "../components/ShowTable";
 import { UserTables } from "../components/UserTable";
 import { PackageTable } from "../components/PackageTable";
 import { TicketTable } from "../components/TicketTable";
+import { CrearPasaje } from "../components/CrearPasaje";
+import { ActualizarPasaje } from "../components/ActualizarPasaje";
 
 
 
@@ -31,7 +33,8 @@ const AdminPages = () => {
         <Route exact path="/admin/crear-hotel" component={CrearHotel} />
         <Route path="/admin/editar-hotel/:id" component={ActualizarHotel} />
         <Route path="/admin/crear-transporte" component={FormularioTransporte} />
-        <Route path="/admin/crear-pasaje" component={FormularioPasaje} />
+        <Route exact path="/admin/crear-pasaje" component={CrearPasaje} />
+        <Route path="/admin/editar-pasaje/:id" component={ActualizarPasaje} />
         <Route exact path="/admin/crear-seguro" component={CrearSeguro} />
         <Route path="/admin/editar-seguro/:id" component={ActualizarSeguro} />
         <Route path="/admin/crear-paquete" component={FormularioPaquete} />
