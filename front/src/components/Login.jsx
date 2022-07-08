@@ -77,7 +77,7 @@ export default function Login() {
                     type="email"
                     autoComplete="email"
                     required
-                    className={`appearance-none rounded-t-lg relative block w-full px-3 py-2 border${
+                    className={`appearance-none rounded-t-lg relative block w-full px-3 py-2 ${
                       touched.email && errors.email
                         ? "border-red-600"
                         : "border-gray-300"

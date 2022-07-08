@@ -11,11 +11,15 @@ import s5 from '../../public/images/shows/5.jpg'
 import s6 from '../../public/images/shows/6.jpg'
 import s7 from '../../public/images/shows/7.jpg'
 import s8 from '../../public/images/shows/8.jpg'
+import s9 from '../../public/images/shows/9.jpg'
+import s10 from '../../public/images/shows/10.jpg'
+import s11 from '../../public/images/shows/11.jpg'
+import s12 from '../../public/images/shows/12.jpg'
 import Pagination from "../components/Pagination";
 import { useSelector } from "react-redux";
 
 
-export const images = [s1, s2, s3, s4, s5, s6, s7, s8]
+export const images = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12];
 
 
 const Eventos = () => {
@@ -47,7 +51,7 @@ const Eventos = () => {
               <div className="bg-white rounded-lg p-5 group relative">
                 <div className="flex flex-wrap justify-center group-hover:opacity-60 group-hover:transition group-hover:ease-in group-hover:duration-100">
                   <div className="w-full p-3">
-                    <img src={images[count % 8]} alt="show" className="w-full" />
+                    <img src={images[count % 12]} alt="show" className="w-full" />
                   </div>
                   <div className="w-full p-3">
                     <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">

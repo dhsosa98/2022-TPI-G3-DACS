@@ -4,8 +4,8 @@ import Hero from "../../public/images/home/hero.jpg";
 
 export default function Home() {
   return (
-    <section className="min-h-screen bg-[#059090]">
-      <Parallax pages={2.2}>
+    <section className="min-h-screen bg-[#059090] scrollbar-hide">
+      <Parallax pages={2.2} >
         <ParallaxLayer
           offset={0}
           factor={1.5}
@@ -43,7 +43,7 @@ export default function Home() {
           <section className="bg-[#059090]">
             <div className="container px-4 mx-auto">
               <div className="max-w-2xl mx-auto text-center">
-                <h2 className="text-4xl font-bold mb-10 pt-10">
+                <h2 className="text-4xl font-bold mb-10 lg:pt-60 pt-20">
                   Tu viaje con los mejores beneficios
                 </h2>
               </div>

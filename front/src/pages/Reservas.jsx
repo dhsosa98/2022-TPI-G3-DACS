@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { deleteBooking, getBookings } from "../services/reserves";
-import { getPackage } from "../services/packages";
-
 
 const Reservas = () => {
     const [bookings, setBookings] = useState([]);

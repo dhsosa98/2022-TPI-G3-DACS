@@ -1,3 +1,5 @@
+import ModalExito from "./ModalExito";
+import ModalError from "./ModalError";
 export default function Formu() {
     return (
       <>
