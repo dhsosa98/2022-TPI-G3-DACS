@@ -46,7 +46,7 @@ const Hoteles = () => {
               <div className="bg-white  rounded-lg shadow-sm  p-5 group relative">
                 <div className="flex flex-wrap justify-center group-hover:opacity-60 group-hover:transition group-hover:ease-in group-hover:duration-100">
                   <div className="w-full p-3">
-                    <img src={images[count]} alt="hotel" className="w-full" />
+                    <img src={images[count % 12]} alt="hotel" className="w-full" />
                   </div>
                   <div className="w-full p-3">
                     <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">
