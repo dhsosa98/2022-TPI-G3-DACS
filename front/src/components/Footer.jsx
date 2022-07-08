@@ -3,7 +3,7 @@ import Logo from "../../public/icons/android/android-launchericon-512-512.png";
 function Footer(){
     return(
         <footer className="px-4 divide-y bg-[#ffffff] text-gray-900">
-        <div className="container flex flex-col justify-between py-6 mx-auto  lg:flex-row lg:space-y-0">
+        <div className="hidden lg:flex container flex-col justify-between py-6 mx-auto  lg:flex-row lg:space-y-0">
             <div className="lg:w-1/3 sm:mb-12">
                 <a rel="noopener noreferrer" href="/" className="flex justify-center space-x-3 lg:justify-start">
                     <img className="h-12 w-12 " src={Logo} alt="" />
