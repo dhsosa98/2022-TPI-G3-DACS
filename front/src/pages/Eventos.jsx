@@ -42,7 +42,7 @@ const Eventos = () => {
               <div className="bg-white rounded-lg p-5 group relative">
                 <div className="flex flex-wrap justify-center group-hover:opacity-60 group-hover:transition group-hover:ease-in group-hover:duration-100">
                   <div className="w-full p-3">
-                    <img src={images[count]} alt="show" className="w-full" />
+                    <img src={images[count % 8]} alt="show" className="w-full" />
                   </div>
                   <div className="w-full p-3">
                     <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">
