@@ -121,7 +121,7 @@ const Paquete = () => {
               </div>
               <button
                 className=" px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#007faded] hover:bg-[#00adad] self-start
-            border-blue-500 "
+            "
               >
                 {auth ? (
                   <a href={`/compra-paquete?packageId=${id}`}>
