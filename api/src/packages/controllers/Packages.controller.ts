@@ -17,6 +17,7 @@ import { PackageDto, PackageOnUpdateDto } from '../dtos/Package.dto';
 import { PackagesConstructor } from '../interceptors/PackagesConstructor.interceptor';
 import { PackagesService } from '../services/Packages.service';
 import { ReservedPackagesService } from '../services/ReservedPackages.service';
+import { CreateQueries } from 'src/decorators/queries.decorator';
 
 @Controller('/packages')
 export class PackagesController {
@@ -38,8 +39,8 @@ export class PackagesController {
   // }
   @Get('/')
   @Public()
-  getAllPackages() {
-    return this.packageService.findAll();
+  getAllPackages(@CreateQueries() options: any) {
+    return this.packageService.findAll(options);
   }
 
   @Get('/:id')

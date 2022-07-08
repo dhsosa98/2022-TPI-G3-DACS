@@ -31,7 +31,7 @@ return (
                         className="group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 ">
                         <span>Hoteles</span>
                         <ChevronDownIcon
-                          className="ml-2 h-5 w-5 group-hover:text-[#b60000]"
+                          className="h-5 w-5 group-hover:text-[#b60000]"
                           aria-hidden="true"
                         />
                       </Popover.Button>

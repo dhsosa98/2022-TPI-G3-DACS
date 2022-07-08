@@ -15,14 +15,14 @@ function App() {
   return (
     <Router>
       <div className="App ">
-         <div className="flex flex-col min-h-screen">
-        <Switch>
-          <AdminRouter path="/admin" component={AdminPages} />
-          <Route path="/" component={PagesRouter} />
-          <Route path="/" exact component={Home} />
-          {/* <Redirect to="/" /> */}
-        </Switch>
-       </div>
+        <div className="flex flex-col min-h-screen">
+          <Switch>
+            <AdminRouter path="/admin" component={AdminPages} />
+            <Route path="/" component={PagesRouter} />
+            <Route path="/" exact component={Home} />
+            {/* <Redirect to="/" /> */}
+          </Switch>
+        </div>
         <Footer />
       </div>
     </Router>

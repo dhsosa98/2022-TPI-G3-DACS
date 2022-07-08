@@ -3,17 +3,25 @@ import Logo from "../../public/icons/android/logo.png";
 import { Link } from "react-router-dom";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { fetchUser } from "../services/auth";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/Auth";
 import * as yup from "yup";
 
 export default function Login() {
+  const [error, setError] = useState(null);
   const { login } = useContext(AuthContext);
   const initialValues = { email: "", password: "" };
 
   const handleSubmit = async (values) => {
-    const response = await fetchUser(values.email, values.password);
-    login(response.data.access_token);
+    try {
+      const response = await fetchUser(values.email, values.password);
+      login(response.data.access_token);
+    } catch (error) {
+      if (error.response.status === 401) {
+        setError("Usuario o contraseña incorrecto");
+        return;
+      }
+    }
   };
 
   // validaciones de campos
@@ -54,6 +62,9 @@ export default function Login() {
               </p>
             </div>
             <Form>
+              {error && (
+                <p className=" text-center text-red-800 pb-4">{error}</p>
+              )}
               <input type="hidden" name="remember" defaultValue="true" />
               <div className="rounded-md shadow-sm -space-y-px">
                 <div className="mb-3">
@@ -66,11 +77,11 @@ export default function Login() {
                     type="email"
                     autoComplete="email"
                     required
-                    className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+                    className={`appearance-none rounded-t-lg relative block w-full px-3 py-2 ${
                       touched.email && errors.email
                         ? "border-red-600"
                         : "border-gray-300"
-                    } placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
+                    } placeholder-gray-500 text-gray-900 rounded-b-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
                     placeholder="Email"
                   />
                   <ErrorMessage
@@ -88,11 +99,11 @@ export default function Login() {
                     type="password"
                     autoComplete="current-password"
                     required
-                    className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+                    className={`appearance-none rounded-t-lg relative block w-full px-3 py-2 border ${
                       touched.password && errors.password
                         ? "border-red-600"
                         : "border-gray-300"
-                    } placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
+                    } placeholder-gray-500 text-gray-900 rounded-b-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
                     placeholder="Password"
                   />
                   <ErrorMessage

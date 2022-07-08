@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import Logo from "../../public/icons/android/android-launchericon-512-512.png";
-
 import { Link, NavLink } from "react-router-dom";
 import {
   CalendarIcon,
@@ -10,8 +9,6 @@ import {
   TruckIcon,
   ArchiveIcon,
   OfficeBuildingIcon,
-  ThumbUpIcon,
-  TicketIcon,
   HeartIcon,
   UserIcon,
 } from "@heroicons/react/outline";
@@ -84,26 +81,26 @@ export default function NavBar() {
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen} />}
-            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
+            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-between md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
-                <a
+                <Link
                   rel="noopener noreferrer"
-                  href="/"
+                  to="/"
                   className="flex justify-center space-x-3 lg:justify-start"
                 >
                   <img className="h-12 w-12 " src={Logo} alt="" />
                   <span className="self-center text-2xl font-medium">
                     FANTUR
                   </span>
-                </a>
+                </Link>
               </div>
-              <div className="-mr-2 -my-2 md:hidden">
+              <div className=" xl:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Abrir Menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
               </div>
-              <Popover.Group as="nav" className="hidden md:flex space-x-10">
+              <Popover.Group as="nav" className=" space-x-10 hidden xl:flex">
                 <NavLink
                   to="/"
                   className="text-base font-medium text-gray-500 hover:text-gray-900"
@@ -189,7 +186,7 @@ export default function NavBar() {
                   )}
                 </Popover>
               </Popover.Group>
-              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+              <div className="hidden xl:flex items-center justify-end md:flex-1 lg:w-0">
                 {!auth ? (
                   <>
                     <NavLink
@@ -219,7 +216,9 @@ export default function NavBar() {
                       >
                         Vista Admininstrador
                       </NavLink>
-                    ) : <DropwdownUser/>}
+                    ) : (
+                      <DropwdownUser />
+                    )}
                     <button
                       onClick={() => {
                         setIsOpen(true);
@@ -245,10 +244,10 @@ export default function NavBar() {
           >
             <Popover.Panel
               focus
-              className="absolute z-40 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              className="absolute z-40 top-0 inset-x-0 p-2 transition transform origin-top-right xl:hidden"
             >
               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                <div className="pt-5 pb-6 px-5">
+                <div className="pt-5 pb-6 px-5 ">
                   <div className="flex items-center justify-between">
                     {/* logo y nombre */}
                     <div>
@@ -268,7 +267,7 @@ export default function NavBar() {
                   </div>
                 </div>
                 <div className="py-6 px-5 space-y-6">
-                  <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+                  <div className="grid grid-cols-2 gap-y-4">
                     <NavLink
                       onClick={() => close()}
                       activeStyle={{ color: "#e5463f", textDecoration: "none" }}
@@ -348,7 +347,7 @@ export default function NavBar() {
                       {isAdmin && (
                         <NavLink
                           to="/admin"
-                          className="w-full whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-[#000000] hover:text-white hover:bg-[#00adad86]"
+                          className="w-full whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium  text-white bg-[#00adad86]"
                         >
                           Vista Admininstrador
                         </NavLink>
