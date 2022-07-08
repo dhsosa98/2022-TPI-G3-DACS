@@ -8,7 +8,7 @@ export const PackageTable = (props) => {
 
     const fetchPackages = async () => {
         const response = await getPackages()
-        setPackages(response);
+        setPackages(response.rows);
     }
 
     const handleDelete = async (id) =>{
@@ -36,10 +36,10 @@ export const PackageTable = (props) => {
 				<tr className="bg-[#059090]">
 					<th className="p-3">Nombre</th>
 					<th className="p-3">Cupos</th>
-                    <th className="p-3">Id Transporte</th>
-					<th className="p-3">Id Hotel</th>
-					<th className="p-3">Id Seguro</th>
-                    <th className="p-3">Id Evento</th>
+                    <th className="p-3">Transporte</th>
+					<th className="p-3">Hotel</th>
+					<th className="p-3">Seguro</th>
+                    <th className="p-3">Evento</th>
 					<th className="p-3">Precio</th>
                     <th className="p-3">Editar</th>
 					<th className="p-3">Eliminar</th>
@@ -51,10 +51,10 @@ export const PackageTable = (props) => {
                     <tr key={paquete.id}>
                         <td className="text-ellipsis px-3 py-2">{paquete.name}</td>
                         <td className="px-3 py-2">{paquete.quantPeople}</td>
-                        <td className="px-3 py-2">{paquete.ticketId}</td>
-                        <td className="px-3 py-2">{paquete.hotelId}</td>
-                        <td className="px-3 py-2">{paquete.insuranceId}</td>
-                        <td className="px-3 py-2">{paquete.showId}</td>
+                        <td className="px-3 py-2">{paquete.ticket.travelWay.name}-{paquete.ticket.seat}</td>
+                        <td className="px-3 py-2">{paquete.hotel.name}</td>
+                        <td className="px-3 py-2">{paquete.insurance.name}</td>
+                        <td className="px-3 py-2">{paquete.show.name}</td>
                         <td className="px-3 py-2">${paquete.total}</td>
                         <td className="px-3 py-2"><Link to={'/admin/editar-paquete/'+paquete.id}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

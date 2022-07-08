@@ -24,8 +24,8 @@ export const updateHotel = async (name, address, phone, id) => {
     return response.data;
 }
 
-export const getHotels = async () => {
-    const response = await Axios.get(API_BASE_URL+"/hotels?limit=150");
+export const getHotels = async (page=0, size=12) => {
+    const response = await Axios.get(API_BASE_URL+"/hotels?"+"page="+(page+1)+"&limit="+size);
     return response.data;
 }
 

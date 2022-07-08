@@ -1,12 +1,17 @@
 import Axios from "../config/axios";
 import { API_BASE_URL } from "../vite-env.d";
 
+export const getPackages = async (page=0, size=12) => {
+  const response = await Axios.get(`${API_BASE_URL}/packages`+"?page="+(page+1)+"&limit="+size);
+  return response.data;
+}
+
 export const createPackage = async (
   name,
   quantPeople,
   ticketId,
   hotelId,
-  insurancesId,
+  insuranceId,
   showId,
   total
 ) => {
@@ -15,7 +20,7 @@ export const createPackage = async (
     quantPeople,
     ticketId,
     hotelId,
-    insurancesId,
+    insuranceId,
     showId,
     total,
   });
@@ -32,7 +37,7 @@ export const updatePackage = async (
   quantPeople,
   ticketId,
   hotelId,
-  insurancesId,
+  insuranceId,
   showId,
   total,
   id
@@ -42,15 +47,10 @@ export const updatePackage = async (
     quantPeople,
     ticketId,
     hotelId,
-    insurancesId,
+    insuranceId,
     showId,
     total,
   });
-  return response.data;
-};
-
-export const getPackages = async () => {
-  const response = await Axios.get(`${API_BASE_URL}/packages?limit=100`);
   return response.data;
 };
 

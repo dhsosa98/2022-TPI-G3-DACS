@@ -17,8 +17,8 @@ export class ShowsService {
     return show;
   }
 
-  async findAll(options?: any): Promise<Show[]> {
-    return await this.showRepository.findAll(options);
+  async findAll(options?: any): Promise<any> {
+    return await this.showRepository.findAndCountAll(options);
   }
 
   async create(show: ShowDto): Promise<Show> {

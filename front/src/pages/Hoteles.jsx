@@ -19,20 +19,25 @@ import h13 from "../../public/images/hotels/13.jpg";
 import h14 from "../../public/images/hotels/14.jpg";
 import h15 from "../../public/images/hotels/15.jpg";
 import Pagination from "../components/Pagination";
+import {useSelector} from 'react-redux';
 
 export const images = [h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12];
 
 const Hoteles = () => {
   const [hotels, setHotels] = useState([]);
+  const [cantElements, setCantElements] = useState(0);
+  const {page, size} = useSelector(state => state.pagination);
 
   async function fetchHotels() {
-    const data = await getHotels();
-    setHotels(data);
+    const data = await getHotels(page, size);
+    console.log(data)
+    setHotels(data.rows);
+    setCantElements(data.count);
   }
 
   useEffect(() => {
     fetchHotels();
-  }, []);
+  }, [page, size]);
 
   return (
     <section className=" bg-[#ffffffcc] text-black sm:p-10 py-10 sm:m-10 m-3 rounded-lg ">
@@ -75,7 +80,7 @@ const Hoteles = () => {
           </>
         ))}
       </div>
-      <Pagination />
+      <Pagination cantItems={cantElements} />
     </section>
   );
 };

@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import { createSales } from "../services/sales";
 import ModalExito from "./ModalExito";
 import ModalError from "./ModalError";
+import { getPackageById } from "../services/packages";
 import * as yup from "yup";
 
 export const Payment = () => {
@@ -35,7 +36,7 @@ export const Payment = () => {
   });
 
   useEffect(() => {
-    async function getPackageById() {
+    async function getPackage() {
       try {
         const response = await getPackageById(packageId);
         setPack(response);
@@ -43,7 +44,7 @@ export const Payment = () => {
         setError(true);
       }
     }
-    getPackageById();
+    getPackage();
   }, []);
 
   const handleSubmit = async (values) => {

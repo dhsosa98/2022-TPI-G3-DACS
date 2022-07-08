@@ -33,7 +33,7 @@ const Hotel = () => {
           <div className="bg-white border-2 border-gray-300 rounded-lg shadow-lg shadow-black p-5">
             <div className="flex flex-wrap justify-center">
               <div className="w-full">
-                <img src={images[id % 12]} alt="hotel" className="w-full" />
+                <img src={images[(id-1) % 12]} alt="hotel" className="w-full" />
               </div>
               <div className="w-full p-3">
                 <h1 className="text-center mb-[10px] text-bold text-2xl">

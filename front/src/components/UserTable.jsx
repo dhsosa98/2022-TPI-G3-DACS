@@ -8,6 +8,7 @@ export const UserTables = (props) => {
 
     const fetchUsers = async () => {
         const response = await getUsers()
+        console.log(response)
         setUsers(response);
     }
 
@@ -34,9 +35,11 @@ export const UserTables = (props) => {
 		<table className="w-full p-6 text-xs text-left text-white whitespace-nowrap">
 			<thead>
 				<tr className="bg-[#059090]">
+                    <th className="p-3">Role</th>
 					<th className="p-3">Nombre</th>
-					<th className="p-3">Dirección</th>
-                    <th className="p-3">Teléfono</th>
+					<th className="p-3">Apellido</th>
+                    <th className="p-3">Email</th>
+                    <th className="p-3">Cuit</th>
 					<th className="p-3">Editar</th>
 					<th className="p-3">Eliminar</th>
 		
@@ -45,9 +48,11 @@ export const UserTables = (props) => {
 			<tbody className="border-b bg-[#ffffffcc] border-gray-400 text-black">
             {users.map((user) => (
                     <tr key={user.id}>
+                        <td className="px-3 py-2">{user.role?.description}</td>
                         <td className="px-3 py-2">{user.firstName}</td>
-                        <td className="px-3 py-2">{user.address}</td>
-                        <td className="px-3 py-2">{user.phone}</td>
+                        <td className="px-3 py-2">{user.lastName}</td>
+                        <td className="px-3 py-2">{user.email}</td>
+                        <td className="px-3 py-2">{user.cuit}</td>
                         <td className="px-3 py-2"><Link to={'/admin/editar-usuario/'+user.id}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />

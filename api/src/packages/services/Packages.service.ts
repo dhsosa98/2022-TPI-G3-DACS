@@ -12,14 +12,15 @@ export class PackagesService {
     @Inject('PACKAGE_REPOSITORY') private packagesRepository: typeof Package,
   ) {}
 
-  async findAll(): Promise<Package[]> {
-    return await this.packagesRepository.findAll({
+  async findAll(options: any): Promise<any> {
+    return await this.packagesRepository.findAndCountAll({
       include: [
         Insurance,
         { model: Ticket, include: [TravelWay] },
         Hotel,
         Show,
       ],
+      ...options,
     });
   }
 

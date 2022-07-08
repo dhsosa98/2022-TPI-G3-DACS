@@ -1,20 +1,18 @@
 import React from 'react'
 import { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import {
-//   decresePage,
-//   increasePage,
-//   selectPage,
-//   selectSize,
-//   setPage,
-// } from "../../../features/paginationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  decresePage,
+  increasePage,
+  selectPage,
+  selectSize,
+  setPage,
+} from "../features/paginationSlice";
 
-const Pagination = (props) => {
-  const cantItems = 100;
-  const size = 12
-  const page = 0
-  
-//   const dispatch = useDispatch();
+const Pagination = ({cantItems}) => {
+  const dispatch = useDispatch();
+  const {page, size} = useSelector(state => state.pagination);
+  console.log(page, size)
   let pageLimit = {
     prev: (page + 1) * size - size + 1,
     next: (page + 1) * size,
@@ -29,7 +27,7 @@ const Pagination = (props) => {
       useEffect(() => {
         if ((page)*(size) >= cantItems){
           const cant = Math.floor(cantItems / size)-1
-        //   dispatch(setPage(cant>=0 ? cant : 0));
+          dispatch(setPage(cant>=0 ? cant : 0));
         }
     }, [cantItems, page, size])
 
@@ -41,7 +39,7 @@ const Pagination = (props) => {
             {pageLimit.prev > size && (
               <div>
                 <button
-                //   onClick={(e) => dispatch(decresePage())}
+                  onClick={(e) => dispatch(decresePage())}
                   className="absolute items-center left-0 px-4 py-2 border border-sky-600 text-sm font-medium rounded-md text-sky-600 bg-white hover:bg-gray-50"
                 >
                   Anterior
@@ -50,7 +48,7 @@ const Pagination = (props) => {
             )}
             {pageLimit.next < cantItems && (
               <button
-                // onClick={(e) => dispatch(increasePage())}
+                onClick={(e) => dispatch(increasePage())}
                 className="ml-3 absolute right-0 items-center px-4 py-2 border border-sky-600 text-sm font-medium rounded-md text-sky-600 bg-white hover:bg-gray-50"
               >
                 Siguiente
@@ -80,14 +78,14 @@ const Pagination = (props) => {
                 {pageLimit.prev > size && (
                   <>
                     <button
-                    //   onClick={(e) => dispatch(setPage(0))}
+                      onClick={(e) => dispatch(setPage(0))}
                       className="inline-flex items-center px-2 py-2 rounded-full aspect-square w-full    bg-white text-sm font-medium text-sky-500 "
                     >
                       <span className="sr-only">Anterior</span>
                       {"<<"}
                     </button>
                     <button
-                    //   onClick={(e) => dispatch(decresePage())}
+                      onClick={(e) => dispatch(decresePage())}
                       className="inline-flex items-center px-2 py-2 aspect-square rounded-full w-full   bg-white text-sm font-medium text-sky-500 "
                     >
                       <span className="sr-only">Siguiente</span>
@@ -97,7 +95,7 @@ const Pagination = (props) => {
                 )}
                 {page >= 0 && (
                   <button
-                    // onClick={() => dispatch(setPage(0))}
+                    onClick={() => dispatch(setPage(0))}
                     className={`inline-flex items-center px-4 ${
                       page === 0 ? "bg-sky-200 " : "bg-white hover:bg-sky-100"
                     }  aspect-square w-full rounded-full text-sm font-medium text-sky-600 transform ease-in-out duration-300 hover:scale-110`}
@@ -123,7 +121,7 @@ const Pagination = (props) => {
                     <>
                       {e !== 1 && e !== cantPages && (
                         <button
-                        //   onClick={() => dispatch(setPage(e - 1))}
+                          onClick={() => dispatch(setPage(e - 1))}
                           className={`inline-flex items-center px-3.5 aspect-square w-full rounded-full ${
                             e - 1 === page
                               ? "bg-sky-200 "
@@ -150,7 +148,7 @@ const Pagination = (props) => {
                   )}
                 {cantPages !== page && (
                   <button
-                    // onClick={() => dispatch(setPage(cantPages - 1))}
+                    onClick={() => dispatch(setPage(cantPages - 1))}
                     className={`inline-flex items-center px-3.5 ${
                       page === cantPages - 1
                         ? "bg-sky-200 "
@@ -164,14 +162,14 @@ const Pagination = (props) => {
                 {pageLimit.next < cantItems && (
                   <>
                     <button
-                    //   onClick={(e) => dispatch(increasePage())}
+                      onClick={(e) => dispatch(increasePage())}
                       className="inline-flex items-center px-2 py-2 aspect-square rounded-full w-full   bg-white text-sm font-medium text-sky-600 "
                     >
                       <span className="sr-only rounded-full">Siguiente</span>
                       {">"}
                     </button>
                     <button
-                    //   onClick={(e) => dispatch(setPage(cantPages - 1))}
+                      onClick={(e) => dispatch(setPage(cantPages - 1))}
                       className="inline-flex items-center px-2 py-2 rounded-full aspect-square w-full   bg-white text-sm font-medium text-sky-600 "
                     >
                       <span className="sr-only">Siguiente</span>

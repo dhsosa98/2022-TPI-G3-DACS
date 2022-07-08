@@ -9,7 +9,7 @@ export const HotelTables = (props) => {
 
     const fetchHotels = async () => {
         const response = await getHotels()
-        setHotels(response);
+        setHotels(response.rows);
     }
 
     const handleDelete = async (id) =>{
