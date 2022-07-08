@@ -30,6 +30,6 @@ export const registerUser = async (
 };
 
 export const getProfile = async () => {
-  const response = Axios.get(`${API_BASE_URL}/auth/profile`);
+  const response = await Axios.get(`${API_BASE_URL}/auth/profile`);
   return response.data;
 };
