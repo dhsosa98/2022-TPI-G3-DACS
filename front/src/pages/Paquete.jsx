@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { getPackageById } from "../services/packages";
 import { AuthContext } from "../contexts/Auth";
-import { getPackage } from "../services/packages";
 import { images } from "./Hoteles";
 
 const Paquete = () => {
@@ -21,7 +21,7 @@ const Paquete = () => {
   const { auth } = useContext(AuthContext);
 
   const fetchPaquete = async () => {
-    const data = await getPackage(id);
+    const data = await getPackageById(id);
     setPaquete(data);
   };
 

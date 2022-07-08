@@ -2,9 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../vite-env.d";
 import Container from "./Container";
+import { Link } from "react-router-dom"
 
-export default function FormularioPaquete() {
+export default function FormularioPaquete({initialValues, handleSubmit, isEdit}) {
   const [tickets, setTickets] = useState([])
+  const history = useHistory();
 
   const fetchTickets = async () => {
     const response = await axios.get(API_BASE_URL+"/tickets");
@@ -52,13 +54,24 @@ export default function FormularioPaquete() {
   return (
     <Container>
       <div className="sm:mt-0">
-        <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
+      <div className="whitespace-nowrap flex mb-2 mt-6 items-center">
+        <Link to={"/admin/lista-paquetes"}>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline hover:bg-[#059090] hover:text-white rounded-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+            </svg>
+            </Link>                  
+        <h1 className="font-bold text-center text-3xl mb-1 ml-1 text-[#000000cb]">
           Cargar un Paquete
         </h1>
+        </div>
         <div className="md:mt-0 md:col-span-2 ">
-          <form>
+        <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize={true}>
+        <Form>
             <div className="shadow overflow-hidden sm:rounded-lg ">
               <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
+              <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
+              {!isEdit ? "Cargar un Paquete" : "Editar un Paquete"}
+               </h1>
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6">
                     <label
@@ -68,15 +81,31 @@ export default function FormularioPaquete() {
                       Nombre
                     </label>
 
-                    <input
+                    <Field
                       type="text"
-                      name="first-name"
-                      id="first-name"
-                      autoComplete="given-name"
+                      name="name"
+                      id="name"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
 
                   </div>
+                  <div className="col-span-6">
+                    <label
+                      htmlFor="first-name"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Cantidad de Personas
+                    </label>
+
+                    <Field
+                      type="number"
+                      name="quantPeople"
+                      id="quantPeople"
+                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    />
+
+                  </div>
+
 
                   <div className="col-span-6 sm:col-span-3">
                     <label
@@ -85,11 +114,11 @@ export default function FormularioPaquete() {
                     >
                       Pasaje
                     </label>
-                  <select
-                      type="text"
-                      name="last-name"
+                    <Field
+                    as='select'
+                      type="number"
+                      name="ticketId"
                       id="last-name"
-                      autoComplete="family-name"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     >
                     <option value="">Seleccione un Pasaje</option>
@@ -98,7 +127,7 @@ export default function FormularioPaquete() {
                           {ticket?.travelWay?.name}-{ticket.seat}
                         </option>
                         ))}
-                    </select>
+                    </Field>
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
@@ -108,11 +137,11 @@ export default function FormularioPaquete() {
                     >
                       Hotel
                     </label>
-                  <select
-                      type="text"
-                      name="last-name"
-                      id="last-name"
-                      autoComplete="family-name"
+                    <Field
+                    as='select'
+                      type="number"
+                      name="hotelId"
+                      id="hotelId"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     >
                     <option value="">Seleccione algun hotel</option>
@@ -121,7 +150,7 @@ export default function FormularioPaquete() {
                           {hotel.name}
                         </option>
                         ))}
-                    </select>
+                    </Field>
                   </div>
                   <div className="col-span-6 sm:col-span-3">
                     <label
@@ -130,11 +159,11 @@ export default function FormularioPaquete() {
                     >
                       Seguro
                     </label>
-                  <select
-                      type="text"
-                      name="last-name"
-                      id="last-name"
-                      autoComplete="family-name"
+                    <Field
+                    as='select'select
+                      type="number"
+                      name="insuranceId"
+                      id="insuranceId"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     >
                     <option value="">Seleccione algun seguro</option>
@@ -143,7 +172,7 @@ export default function FormularioPaquete() {
                           {insurance.name}
                         </option>
                         ))}
-                    </select>
+                    </Field>
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
@@ -153,11 +182,11 @@ export default function FormularioPaquete() {
                     >
                       Espectaculo
                     </label>
-                  <select
-                      type="text"
-                      name="last-name"
-                      id="last-name"
-                      autoComplete="family-name"
+                    <Field
+                    as='select'select
+                      type="number"
+                      name="showId"
+                      id="showId"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     >
                     <option value="">Seleccione algun Espectaculo</option>
@@ -166,14 +195,30 @@ export default function FormularioPaquete() {
                           {show.name}
                         </option>
                         ))}
-                    </select>
+                     </Field>
+                  </div>
+                  <div className="col-span-6">
+                    <label
+                      htmlFor="first-name"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Total
+                    </label>
+
+                    <Field
+                      type="number"
+                      name="total"
+                      id="total"
+                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    />
+
                   </div>
                   
                 </div>
               </div>
               <div className="px-4 py-3 bg-[#ffffffd8] text-right sm:px-6 gap-1 sm:justify-start justify-center flex flex-row-reverse">
                 <button
-                  type="submit"
+                  onClick={()=>history.goBack()}
                   className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#afafaf] hover:bg-[#00000086] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Cancelar
@@ -186,7 +231,8 @@ export default function FormularioPaquete() {
                 </button>
               </div>
             </div>
-          </form>
+            </Form>
+          </Formik>
         </div>
       </div>
     </Container>
