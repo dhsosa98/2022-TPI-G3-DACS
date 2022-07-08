@@ -17,7 +17,7 @@ export const TicketTable = (props) => {
 
     const fetchTickets = async () => {
         const response = await getTickets(page, size)
-        setTickets(response);
+        setTickets(response.rows);
         setCantElements(response.count);
     }
 

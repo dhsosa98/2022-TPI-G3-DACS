@@ -12,7 +12,7 @@ export default function FormularioPaquete({initialValues, handleSubmit, isEdit})
   const fetchTickets = async () => {
     const response = await axios.get(API_BASE_URL+"/tickets");
     console.log(response.data);
-    setTickets(response.data);
+    setTickets(response.data.rows);
   }
 
   useEffect(() => {
