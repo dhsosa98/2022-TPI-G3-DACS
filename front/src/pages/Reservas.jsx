@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { deleteBooking, getBookings } from "../services/reserves";
+import ModalExito from "../components/ModalExito";
 
 const Reservas = () => {
   const [bookings, setBookings] = useState([]);
+  const [success, setSuccess] = useState(false);
 
   const fetchBookings = async () => {
     const response = await getBookings();
@@ -13,7 +15,12 @@ const Reservas = () => {
   };
 
   const handleDelete = async (id) => {
-    const response = await deleteBooking(id);
+    try {
+      const response = await deleteBooking(id);
+      setSuccess(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -23,6 +30,13 @@ const Reservas = () => {
     <section className=" flex-grow bg-[#ffffffcc] text-black pb-10">
       <div className="container p-2 mx-auto sm:p-4 text-gray-900">
         <div className="whitespace-nowrap flex mb-2 mt-6 items-center">
+          {success && (
+            <ModalExito
+              open={success}
+              setOpen={setSuccess}
+              message={"La reserva ha sido eliminada"}
+            />
+          )}
           <Link to={"/"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
