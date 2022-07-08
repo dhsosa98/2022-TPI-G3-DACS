@@ -12,6 +12,7 @@ import s6 from '../../public/images/shows/6.jpg'
 import s7 from '../../public/images/shows/7.jpg'
 import s8 from '../../public/images/shows/8.jpg'
 import Pagination from "../components/Pagination";
+import { useSelector } from "react-redux";
 
 
 export const images = [s1, s2, s3, s4, s5, s6, s7, s8]
@@ -19,15 +20,19 @@ export const images = [s1, s2, s3, s4, s5, s6, s7, s8]
 
 const Eventos = () => {
   const [shows, setShows] = useState([]);
+  const [cantElements, setCantElements] = useState(0);
+  const {page, size} = useSelector(state => state.pagination);
+
 
   async function fetchShows() {
-    const data = await getShows();
-    setShows(data);
+    const data = await getShows(page, size);
+    setShows(data.rows);
+    setCantElements(data.count);
   }
 
   useEffect(() => {
     fetchShows();
-  }, []);
+  }, [page, size]);
 
   return (
     <section className=" bg-[#ffffffcc] text-black sm:p-10 py-10 sm:m-10 m-3 rounded-lg ">
@@ -72,7 +77,7 @@ const Eventos = () => {
           </>
         ))}
       </div>
-      <Pagination/>
+      <Pagination cantItems={cantElements}/>
     </section>
   );
 };

@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { getPackages } from "../services/packages";
 import { Link } from "react-router-dom";
-import { images } from "./Hoteles";import Paquete from "./Paquete";
+import { images } from "./Hoteles";
+import Paquete from "./Paquete";
 import Pagination from "../components/Pagination";
+import { useSelector } from "react-redux";
 ;
 
 const Paquetes = () => {
   const [paquetes, setPaquetes] = useState([]);
+  const [cantElements, setCantElements] = useState(0);
+  const {page, size} = useSelector(state => state.pagination);
+
 
   async function fetchPaquetes() {
-    const data = await getPackages();
-    setPaquetes(data.slice(0, 12));
+    const data = await getPackages(page, size);
+    setPaquetes(data.rows);
+    setCantElements(data.count);
   }
 
   useEffect(() => {
     fetchPaquetes();
-  }, []);
+  }, [page, size]);
 
   console.log(paquetes);
 
@@ -35,7 +41,7 @@ const Paquetes = () => {
                     Paquete {paquete.id}
                   </p>
                   <div className="w-full p-3">
-                    <img src={images[count]} alt="paquete" className="w-full" />
+                    <img src={images[count % 12]} alt="paquete" className="w-full" />
                   </div>
                   <div className="w-full p-3">
                     <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">
@@ -85,7 +91,7 @@ const Paquetes = () => {
           </>
         ))}
       </div>
-      <Pagination/>
+      <Pagination cantItems={cantElements}/>
     </section>
   );
 };

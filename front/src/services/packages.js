@@ -1,8 +1,8 @@
 import axios from "axios";
 import { API_BASE_URL } from "../vite-env.d";
 
-export const getPackages = async () => {
-  const response = await axios.get(`${API_BASE_URL}/packages?limit=100`);
+export const getPackages = async (page, size) => {
+  const response = await axios.get(`${API_BASE_URL}/packages`+"?page="+(page+1)+"&limit="+size);
   return response.data;
 };
 
