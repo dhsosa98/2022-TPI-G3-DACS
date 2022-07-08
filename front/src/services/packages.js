@@ -11,7 +11,7 @@ export const createPackage = async (
   quantPeople,
   ticketId,
   hotelId,
-  insurancesId,
+  insuranceId,
   showId,
   total
 ) => {
@@ -20,7 +20,7 @@ export const createPackage = async (
     quantPeople,
     ticketId,
     hotelId,
-    insurancesId,
+    insuranceId,
     showId,
     total,
   });
@@ -37,7 +37,7 @@ export const updatePackage = async (
   quantPeople,
   ticketId,
   hotelId,
-  insurancesId,
+  insuranceId,
   showId,
   total,
   id
@@ -47,7 +47,7 @@ export const updatePackage = async (
     quantPeople,
     ticketId,
     hotelId,
-    insurancesId,
+    insuranceId,
     showId,
     total,
   });
