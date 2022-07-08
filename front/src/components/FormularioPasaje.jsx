@@ -53,8 +53,8 @@ export default function FormularioPasaje({initialValues, handleSubmit, isEdit}) 
                     </label>
                     <Field
                       type="date"
-                      name="depurateDate"
-                      id="depurateDate"
+                      name="departureDate"
+                      id="departureDate"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>

@@ -2,10 +2,10 @@ import Axios from "../config/axios"
 import { API_BASE_URL } from "../vite-env.d"
 import axios from "axios";
 
-export const createTicket = async (seat, depurateDate, returnDate, travelWayId, amount) => {
+export const createTicket = async (seat, departureDate, returnDate, travelWayId, amount) => {
     const response = await Axios.post(API_BASE_URL+"/tickets", {
         seat,
-        depurateDate,
+        departureDate,
         returnDate,
         travelWayId,
         amount,
@@ -18,10 +18,10 @@ export const getTicketById = async (id) => {
     return response.data;
 }
 
-export const updateTicket = async (seat, depurateDate, returnDate, travelWayId, amount, id) => {
+export const updateTicket = async (seat, departureDate, returnDate, travelWayId, amount, id) => {
     const response = await Axios.patch(API_BASE_URL+"/tickets/"+id, {
         seat,
-        depurateDate,
+        departureDate,
         returnDate,
         travelWayId,
         amount,

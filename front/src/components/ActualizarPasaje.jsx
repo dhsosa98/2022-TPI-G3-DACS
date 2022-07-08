@@ -7,7 +7,7 @@ export const ActualizarPasaje = (props) => {
     const {id} = useParams();
     const initialValues = {
         seat: "",
-        depurateDate: "",
+        departureDate: "",
         returnDate: "",
         travelWayId: "",
         amount: "",
@@ -29,9 +29,9 @@ export const ActualizarPasaje = (props) => {
 
     const handleSubmit =  async (values) => {
         try{
-        const { seat, depurateDate, returnDate, travelWayId, amount } = values;
+        const { seat, departureDate, returnDate, travelWayId, amount } = values;
         console.log(values)
-        const response = await updateInsurance(seat, depurateDate, returnDate, travelWayId, amount, id)
+        const response = await updateTicket(seat, departureDate, returnDate, Number(travelWayId), amount, id)
         }catch(error){
           console.log(error)
         }

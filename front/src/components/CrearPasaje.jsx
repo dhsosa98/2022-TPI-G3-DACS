@@ -5,7 +5,7 @@ import { createTicket } from "../services/tickets";
 export const CrearPasaje = () => {
     const initialValues = {
         seat: "",
-        depurateDate: "",
+        departureDate: "",
         returnDate: "",
         travelWayId: "",
         amount: "",
@@ -13,9 +13,9 @@ export const CrearPasaje = () => {
     
       const handleSubmit =  async (values) => {
         try{
-        const { seat, depurateDate, returnDate, travelWayId, amount } = values;
+        const { seat, departureDate, returnDate, travelWayId, amount } = values;
         console.log(values)
-        const response = await createTicket(seat, depurateDate, returnDate, travelWayId, amount)
+        const response = await createTicket(seat, departureDate, returnDate, Number(travelWayId), amount)
         }catch(error){
           console.log(error)
         }
