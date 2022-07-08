@@ -64,11 +64,7 @@ npm install
 _Por ultimo instalamos la base de datos, pero primero necesitamos un archivo llamado '.env' en la raiz del directorio .\api\ donde se declara lo necesario para poder comunicarnos con MySQL_
 
 ```
-EMAIL_HOST=smtp-relay.gmail.com
-EMAIL_USER=auth.op.ds@gmail.com
-EMAIL_PASSWORD=authdsds1998
 PORT=4000
-
 DB_USER=<user>
 DB_PASSWORD=<password>
 DB_PORT=3306
