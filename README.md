@@ -19,7 +19,6 @@ _Que cosas necesitas para poder iniciar la aplicación y como instalarlas_
 - Postman.
 - Docker.
 ```
-
 ### Instalación usando Docker 🐳
 
 _Despues de clonar el repositorio del proyecto_
@@ -41,7 +40,6 @@ _Para acceder al Backend_
 ```
 http://localhost/api/
 ```
-
 ### Instalación usando NPM 🔧
 
 #### Para el Backend 🌎
@@ -132,7 +130,6 @@ _Y aceedemos a la pagina principal_
 ```
 http://localhost:3000/
 ```
-
 ## Construido con 🛠️
 
 _Herramientas utilizadas para crear el proyecto_
