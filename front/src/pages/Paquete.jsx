@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getPackage } from "../services/packages";
+import { getPackageById } from "../services/packages";
 import { images } from "./Hoteles";
 
 const Paquete = () => {
@@ -19,7 +19,7 @@ const Paquete = () => {
   const { id } = useParams();
 
   const fetchPaquete = async () => {
-    const data = await getPackage(id);
+    const data = await getPackageById(id);
     setPaquete(data);
   };
 

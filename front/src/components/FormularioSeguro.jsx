@@ -7,14 +7,14 @@ export default function FormularioSeguro({initialValues, handleSubmit, isEdit}) 
   return (
     <Container>
       <div className="sm:mt-0">
-        <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
-         {!isEdit ? "Cargar un Seguro" : "Editar un Seguro"}
-        </h1>
         <div className="md:mt-0 md:col-span-2 ">
           <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize={true}>
           <Form>
             <div className="shadow overflow-hidden sm:rounded-lg ">
               <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
+              <h1 className="font-bold text-center text-3xl mb-5 text-[#000000cb]">
+               {!isEdit ? "Cargar un Seguro" : "Editar un Seguro"}
+               </h1>
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 sm:col-span-3">
                     <label
