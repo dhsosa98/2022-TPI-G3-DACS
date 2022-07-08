@@ -1,4 +1,5 @@
 import axios from "axios";
+import Axios from "../config/axios";
 import { API_BASE_URL } from "../vite-env.d";
 
 export const fetchUser = async (username, password) => {
@@ -26,4 +27,9 @@ export const registerUser = async (
     email,
     password,
   });
+};
+
+export const getProfile = async () => {
+  const response = await Axios.get(`${API_BASE_URL}/auth/profile`);
+  return response.data;
 };

@@ -6,10 +6,11 @@ import {
   Request,
   Param,
   Delete,
+  Patch,
 } from '@nestjs/common';
 import { Role } from 'src/auth/enums/role.enum';
 import { Roles } from 'src/auth/decorators/roles.decorator';
-import { CreateUserDto } from '../dtos/createuser.dto';
+import { CreateUserDto, UpdateUserDto } from '../dtos/createuser.dto';
 import { UserService } from '../services/users.service';
 import { Public } from 'src/auth/decorators/public.decorator';
 
@@ -39,5 +40,11 @@ export class UserController {
   @Roles(Role.Admin)
   deleteUser(@Param('id') id: number) {
     return this.userService.delete(id);
+  }
+
+  @Patch('/:id')
+  @Roles(Role.Admin)
+  updateUser(@Param('id') id: number, @Body() user: UpdateUserDto) {
+    return this.userService.update(id, user);
   }
 }

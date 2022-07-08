@@ -1,15 +1,16 @@
-import Cards from "react-credit-cards";
+import Cards from "@snowpak/react-credit-cards";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import "react-credit-cards/es/styles-compiled.css";
+import "@snowpak/react-credit-cards/es/styles-compiled.css";
 import { useEffect } from "react";
-import { getPackage } from "../services/packages";
 import { useState } from "react";
 import { images } from "../pages/Hoteles";
 import { useLocation } from "react-router-dom";
 import { createSales } from "../services/sales";
 import ModalExito from "./ModalExito";
 import ModalError from "./ModalError";
+import { getPackageById } from "../services/packages";
 import * as yup from "yup";
+import Container from "./Container";
 
 export const Payment = () => {
   const location = useLocation();
@@ -24,6 +25,10 @@ export const Payment = () => {
   const packageId = search.get("packageId");
   const [error, setError] = useState(null);
   const [afipError, setAfipError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState({
+    title: "",
+    description: "",
+  });
 
   const [pack, setPack] = useState({
     name: "",
@@ -36,15 +41,15 @@ export const Payment = () => {
   });
 
   useEffect(() => {
-    async function getPackageById() {
+    async function getPackage() {
       try {
-        const response = await getPackage(packageId);
+        const response = await getPackageById(packageId);
         setPack(response);
       } catch (err) {
         setError(true);
       }
     }
-    getPackageById();
+    getPackage();
   }, []);
 
   const handleSubmit = async (values) => {
@@ -66,19 +71,48 @@ export const Payment = () => {
       setSuccess(true);
     } catch (error) {
       console.log(error);
-      setAfipError(true);
+      if (error.response.status === 500) {
+        setErrorMessage({
+          title: "Ha ocurrido un error",
+          description: "Error en el servidor, Vuelva a intentarlo",
+        });
+        setAfipError(true);
+        return;
+      }
+      if (error.response.status === 401) {
+        setErrorMessage({
+          title: "Ha ocurrido un error",
+          description: "No está habilitado para comprar este paquete",
+        });
+        setAfipError(true);
+        return;
+      }
+      if (error.response.status === 400) {
+        setErrorMessage({
+          title: "Ha ocurrido un error",
+          description: "Datos inválidos, ingrese nuevamente",
+        });
+        setAfipError(true);
+        return;
+      }
     }
   };
 
   if (error) {
-    return <div>Error el paquete no existe</div>;
+    return (
+      <Container>
+        <section className=" bg-[#ffffffcc] text-black sm:m-10 m-2 rounded-lg p-10">
+          <h1 className="">Error, el paquete no existe</h1>
+        </section>
+      </Container>
+    );
   }
 
   const cardSchema = yup.object().shape({
     number: yup
       .string()
       .required("El numero de tarjeta es requerido")
-      .min(18, "El numero de tarjeta debe tener 15 o 16 digitos")
+      .min(15, "El numero de tarjeta debe tener 15 o 16 digitos")
       .max(19, "El numero de tarjeta debe tener 15 o 16 digitos"),
     cvc: yup.number().required("El cvc es requerido"),
     expiry: yup.string().required("La fecha de expiracion es requerida"),
@@ -201,23 +235,18 @@ export const Payment = () => {
                     <ModalError
                       open={afipError}
                       setOpen={setAfipError}
-                      message={{
-                        title: "Ha ocurrido un error",
-                        description:
-                          "No está habilitado para comprar este paquete",
-                      }}
+                      message={errorMessage}
                     />
                   )}
                   <div className="">
                     <div className="">
-                        <div className="bg-[#ffffff38] p-3 rounded-md">
-                      <img
-                        src={images[pack?.id % 12]}
-                        alt="pack"
-                        className=" object-cover"
-                      />
+                      <div className="bg-[#ffffff38] p-3 rounded-md">
+                        <img
+                          src={images[pack?.id % 12]}
+                          alt="pack"
+                          className=" object-cover"
+                        />
                       </div>
-    
                     </div>
                     <div>
                       <p className=" text-gray-600 text-4xl my-2">
@@ -327,9 +356,7 @@ export const Payment = () => {
 
                         <p className="text-gray-600 sm:text-base text-sm font-bold">
                           Cantidad de personas:{" "}
-                          <span className=" ">
-                            {pack?.quantPeople}
-                          </span>
+                          <span className=" ">{pack?.quantPeople}</span>
                         </p>
                         <p className="text-center text-gray-600 text-4xl">
                           Total:{" "}

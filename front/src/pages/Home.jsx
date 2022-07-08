@@ -4,8 +4,8 @@ import Hero from "../../public/images/home/hero.jpg";
 
 export default function Home() {
   return (
-    <section className="min-h-screen bg-[#059090] overflow-hidden">
-      <Parallax pages={3}>
+    <section className="min-h-screen bg-[#059090] ">
+      <Parallax pages={2.2} className="scrollbar-hide">
         <ParallaxLayer
           offset={0}
           factor={1.5}
@@ -26,12 +26,16 @@ export default function Home() {
               </h1>
 
               <div class="flex flex-wrap justify-center mt-64">
-                <Link 
-                to='/paquetes' 
-                class="px-12 py-3 m-2 text-lg font-semibold rounded bg-[#b75c0c] text-white hover:bg-[#dd7b24]">
+                <Link
+                  to="/paquetes"
+                  class="px-12 py-3 m-2 text-lg font-semibold rounded bg-[#b75c0c] text-white hover:bg-[#dd7b24]"
+                >
                   Ver paquetes
                 </Link>
-                <Link to='/contacto' class="px-12 py-3 m-2 text-lg border rounded text-white  hover:bg-[#059090]">
+                <Link
+                  to="/contacto"
+                  class="px-12 py-3 m-2 text-lg border rounded text-white  hover:bg-[#059090]"
+                >
                   Contáctate
                 </Link>
               </div>
@@ -39,11 +43,11 @@ export default function Home() {
           </ParallaxLayer>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1.5} factor={1} speed={0.5}>
-          <section className="bg-[#059090] py-32">
+        <ParallaxLayer offset={1} factor={1.5} speed={0.5}>
+          <section className="bg-[#059090]">
             <div className="container px-4 mx-auto">
-              <div className="max-w-2xl mx-auto mb-16 text-center">
-                <h2 className="text-4xl font-bold lg:text-5xl">
+              <div className="max-w-2xl mx-auto text-center">
+                <h2 className="text-4xl font-bold mb-10 lg:pt-60 pt-20">
                   Tu viaje con los mejores beneficios
                 </h2>
               </div>
@@ -113,6 +117,7 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
+
                 <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
                   <div className="flex flex-col p-6 space-y-6 w-full rounded shadow sm:p-8 bg-[#d0782b] text-gray-900">
                     <div className="space-y-2 text-white">
@@ -193,7 +198,7 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-                <div className="w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
+                <div className=" w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0 hidden md:flex">
                   <div className="p-6 space-y-6 w-full rounded shadow sm:p-8 text-white bg-gray-900">
                     <div className="space-y-2">
                       <h4 className="text-2xl font-bold">Seguros</h4>
@@ -276,67 +281,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={2} speed={1} factor={1}>
-          <div class="pt-12  min-h-screen bg-white">
-            <div className="container bg-gray-300 rounded-lg p-10 mb-10 grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5">
-              <div className="w-full px-6 py-16 rounded-md sm:px-12 md:px-16 xl:col-span-2 bg-gray-900">
-                <span className="block mb-2 text-[#2badad]">
-                  No te pierdas de ofertas increíbles
-                </span>
-                <h1 className="text-5xl font-extrabold text-gray-50">
-                  Enterate de todas nuestras novedades
-                </h1>
-                <p className="my-8 text-white">
-                  <span className="font-medium dark:text-gray-50">
-                    Suscríbete
-                  </span>{" "}
-                  para recibir nuevos paquetes y ofertas personalizadas para
-                  vos!
-                </p>
-                <form
-                  novalidate=""
-                  action=""
-                  className="self-stretch space-y-3 ng-untouched ng-pristine ng-valid"
-                >
-                  <div>
-                    <label for="name" className="text-sm sr-only">
-                      Tu Nombre
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      placeholder="Ingresa tu nombre"
-                      className="w-full rounded-md focus:ring focus:ring-[#d0782b] border-gray-700"
-                    />
-                  </div>
-                  <div>
-                    <label for="lastname" className="text-sm sr-only">
-                      E-mail
-                    </label>
-                    <input
-                      id="lastname"
-                      type="text"
-                      placeholder="Ingresa tu correo electrónico"
-                      className="w-full rounded-md focus:ring focus:ring-[#d0782b] border-gray-700"
-                    />
-                  </div>
-                  <button
-                    type="button"
-                    className="w-full py-2 font-semibold rounded bg-[#d0782b] text-gray-900"
-                  >
-                    Únete
-                  </button>
-                </form>
-              </div>
-              <img
-                src="../../public/images/home/newsletter2.jpg"
-                alt=""
-                className="object-cover w-full rounded-md xl:col-span-3 bg-gray-500"
-              />
-            </div>
-          </div>
         </ParallaxLayer>
       </Parallax>
     </section>

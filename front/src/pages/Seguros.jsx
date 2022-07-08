@@ -23,7 +23,7 @@ const Insurance = (props) => {
   }, []);
   return (
     <section className=" bg-[#ffffffcc] text-black sm:p-10 py-10 sm:m-10 m-3 rounded-lg ">
-    <h1 className="font-bold text-center sm:text-6xl text-3xl text-[#000000cb] ">
+      <h1 className="font-bold text-center sm:text-6xl text-3xl text-[#000000cb] ">
         SEGUROS
       </h1>
 

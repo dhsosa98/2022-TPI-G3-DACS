@@ -1,5 +1,6 @@
-import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
+import { ConflictException, Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from 'src/users/services/users.service';
+import { ReserveDto } from '../dtos/Reserve.dto';
 import { Package } from '../entitities/packages.entity';
 import { ReservedPackages as ReservedPackages } from '../entitities/reservedPackages.entity';
 import { PackagesService } from './Packages.service';
@@ -38,21 +39,15 @@ export class ReservedPackagesService {
     return await this.reservedPackagesRepository.destroy(reserve);
   }
 
-  async createReserve(userId: number, reserve: any) {
-    const { packageId } = reserve;
-    const user = await this.userService.findOne(userId);
+  async createReserve(userId: number, packagesByClient: ReserveDto) {
+    const { packageId } = packagesByClient;
+    await this.userService.findOne(userId);
     const packageToBuy = await this.packagesService.findOne(packageId);
-    if (!user) {
-      throw new UnauthorizedException('User not found');
-    }
-    if (!packageToBuy) {
-      throw new UnauthorizedException('The package doesnt exist');
-    }
     const exist = await this.reservedPackagesRepository.findOne({
       where: { userId, packId: packageId },
     });
     if (exist) {
-      throw new UnauthorizedException('The package is already reserved');
+      throw new ConflictException('The package is already reserved');
     }
     return this.create({
       packId: packageId,

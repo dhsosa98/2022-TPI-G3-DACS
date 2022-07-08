@@ -25,8 +25,8 @@ export class TicketService {
     return ticket;
   }
 
-  async findAll(options?: any): Promise<Ticket[]> {
-    return await this.ticketRepository.findAll({
+  async findAll(options?: any): Promise<any> {
+    return await this.ticketRepository.findAndCountAll({
       ...options,
       include: TravelWay,
     });

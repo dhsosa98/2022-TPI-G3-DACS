@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getHotels } from "../services/hotels";
 import h1 from "../../public/images/hotels/1.jpg";
 import h2 from "../../public/images/hotels/2.jpg";
@@ -19,20 +19,25 @@ import h13 from "../../public/images/hotels/13.jpg";
 import h14 from "../../public/images/hotels/14.jpg";
 import h15 from "../../public/images/hotels/15.jpg";
 import Pagination from "../components/Pagination";
+import { useSelector } from "react-redux";
 
 export const images = [h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12];
 
 const Hoteles = () => {
   const [hotels, setHotels] = useState([]);
+  const [cantElements, setCantElements] = useState(0);
+  const { page, size } = useSelector((state) => state.pagination);
 
   async function fetchHotels() {
-    const data = await getHotels();
-    setHotels(data);
+    const data = await getHotels(page, size);
+    console.log(data);
+    setHotels(data.rows);
+    setCantElements(data.count);
   }
 
   useEffect(() => {
     fetchHotels();
-  }, []);
+  }, [page, size]);
 
   return (
     <section className=" bg-[#ffffffcc] text-black sm:p-10 py-10 sm:m-10 m-3 rounded-lg ">
@@ -46,7 +51,11 @@ const Hoteles = () => {
               <div className="bg-white  rounded-lg shadow-sm  p-5 group relative">
                 <div className="flex flex-wrap justify-center group-hover:opacity-60 group-hover:transition group-hover:ease-in group-hover:duration-100">
                   <div className="w-full p-3">
-                    <img src={images[count % 12]} alt="hotel" className="w-full" />
+                    <img
+                      src={images[count % 12]}
+                      alt="hotel"
+                      className="w-full"
+                    />
                   </div>
                   <div className="w-full p-3">
                     <h1 className="text-center text-bold sm:text-2xl text-xl mb-[5px]">
@@ -75,7 +84,7 @@ const Hoteles = () => {
           </>
         ))}
       </div>
-      <Pagination />
+      <Pagination cantItems={cantElements} />
     </section>
   );
 };
