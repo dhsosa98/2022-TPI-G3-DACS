@@ -30,7 +30,7 @@ export default function FormularioPasaje({initialValues, handleSubmit, isEdit}) 
             <div className="shadow overflow-hidden sm:rounded-lg ">
               <div className="px-4 py-5 bg-[#ffffffd8] sm:p-6">
               <h1 className="font-bold text-center text-3xl mb-1 ml-1 text-[#000000cb]">
-            <Link to={"/admin/lista-eventos"}>
+            <Link to={"/admin/lista-pasajes"}>
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline hover:bg-[#059090] hover:text-white rounded-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
                   </svg>

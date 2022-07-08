@@ -21,6 +21,8 @@ import { CrearPasaje } from "../components/CrearPasaje";
 import { ActualizarPasaje } from "../components/ActualizarPasaje";
 import { ActualizarPaquete } from "../components/ActualizarPaquete";
 import { CrearPaquete } from "../components/CrearPaquete";
+import { CrearUsuario } from "../components/CrearUsuario";
+import { ActualizarUsuario } from "../components/ActualizarUsuario";
 
 
 
@@ -43,6 +45,8 @@ const AdminPages = () => {
         <Route path="/admin/editar-paquete/:id" component={ActualizarPaquete} />
         <Route exact path="/admin/crear-evento" component={CrearEvento} />
         <Route path="/admin/editar-evento/:id" component={ActualizarEvento} />
+        <Route exact path="/admin/crear-usuario" component={CrearUsuario} />
+        <Route path="/admin/editar-usuario/:id" component={ActualizarUsuario} />
         <Route path='/admin/lista-seguros' component={InsuranceTable} />
         <Route path='/admin/lista-hoteles' component={HotelTables} />
         <Route path='/admin/lista-eventos' component={ShowTable} />
