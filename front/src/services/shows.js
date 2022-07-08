@@ -27,7 +27,7 @@ export const updateShow = async (name, seat, dateShow, amount, id) => {
     return response.data;
 }
 
-export const getShows = async (page, size) => {
+export const getShows = async (page=0, size=12) => {
     const response = await Axios.get(API_BASE_URL+"/shows"+"?page="+(page+1)+"&limit="+size);
     return response.data;
 }

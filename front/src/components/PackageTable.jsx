@@ -8,7 +8,7 @@ export const PackageTable = (props) => {
 
     const fetchPackages = async () => {
         const response = await getPackages()
-        setPackages(response);
+        setPackages(response.rows);
     }
 
     const handleDelete = async (id) =>{

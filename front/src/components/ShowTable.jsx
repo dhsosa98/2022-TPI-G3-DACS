@@ -8,7 +8,7 @@ export const ShowTable = (props) => {
 
   const fetchShows = async () => {
     const response = await getShows();
-    setShows(response);
+    setShows(response.rows);
   };
 
   const handleDelete = async (id) => {
