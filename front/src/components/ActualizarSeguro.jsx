@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getInsuranceById, updateInsurance } from "../services/insurances";
 import FormularioSeguro from "./FormularioSeguro";
+import ModalError from "./ModalError";
+import ModalExito from "./ModalExito";
 
 export const ActualizarSeguro = (props) => {
   const { id } = useParams();

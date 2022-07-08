@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getShowById, updateShow } from "../services/shows";
 import FormularioEvento from "./FormularioEvento";
+import ModalError from "./ModalError";
+import ModalExito from "./ModalExito";
 
 export const ActualizarEvento = (props) => {
   const { id } = useParams();

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getHotelById, updateHotel } from "../services/hotels";
 import FormularioHotel from "./FormularioHotel";
+import ModalError from "./ModalError";
+import ModalExito from "./ModalExito";
 
 export const ActualizarHotel = (props) => {
     const {id} = useParams();
