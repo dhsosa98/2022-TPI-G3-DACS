@@ -8,6 +8,7 @@ export const TicketTable = (props) => {
 
     const fetchTickets = async () => {
         const response = await getTickets()
+        console.log(response)
         setTickets(response);
     }
 
@@ -50,7 +51,7 @@ export const TicketTable = (props) => {
                         <td className="px-3 py-2">{ticket.seat}</td>
                         <td className="px-3 py-2">{ticket.departureDate}</td>
                         <td className="px-3 py-2">{ticket.returnDate}</td>
-                        <td className="px-3 py-2">{ticket.travelWayId}</td>
+                        <td className="px-3 py-2">{ticket.travelWay?.name}</td>
                         <td className="px-3 py-2">${ticket.amount}</td>
                         <td className="px-3 py-2"><Link to={'/admin/editar-pasaje/'+ticket.id}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

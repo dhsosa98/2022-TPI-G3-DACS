@@ -8,6 +8,7 @@ export const ShowTable = (props) => {
 
   const fetchShows = async () => {
     const response = await getShows();
+    console.log(response);
     setShows(response.rows);
   };
 
@@ -48,8 +49,9 @@ export const ShowTable = (props) => {
             <thead>
               <tr className="bg-[#059090]">
                 <th className="p-3">Nombre</th>
-                <th className="p-3">Dirección</th>
-                <th className="p-3">Teléfono</th>
+                <th className="p-3">Fecha del Evento</th>
+                <th className="p-3">Asiento</th>
+                <th className="p-3">Monto</th>
                 <th className="p-3">Editar</th>
                 <th className="p-3">Eliminar</th>
               </tr>
@@ -58,8 +60,9 @@ export const ShowTable = (props) => {
               {shows.map((show) => (
                 <tr key={show.id}>
                   <td className="px-3 py-2">{show.name}</td>
-                  <td className="px-3 py-2">{show.address}</td>
-                  <td className="px-3 py-2">{show.phone}</td>
+                  <td className="px-3 py-2">{show.dateShow}</td>
+                  <td className="px-3 py-2">{show.seat}</td>
+                  <td className="px-3 py-2">{show.amount}</td>
                   <td className="px-3 py-2">
                     <Link to={"/admin/editar-evento/" + show.id}>
                       <svg
