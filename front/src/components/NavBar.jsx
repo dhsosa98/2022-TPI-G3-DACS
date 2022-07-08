@@ -86,16 +86,16 @@ export default function NavBar() {
             {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen} />}
             <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
-                <a
+                <Link
                   rel="noopener noreferrer"
-                  href="/"
+                  to="/"
                   className="flex justify-center space-x-3 lg:justify-start"
                 >
                   <img className="h-12 w-12 " src={Logo} alt="" />
                   <span className="self-center text-2xl font-medium">
                     FANTUR
                   </span>
-                </a>
+                </Link>
               </div>
               <div className=" xl:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
