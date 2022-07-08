@@ -34,37 +34,37 @@ const resources = [
   {
     name: "Hoteles",
     description: "Vea los hoteles disponibles.",
-    href: "/admin/listar-hoteles",
+    href: "/admin/lista-hoteles",
     icon: OfficeBuildingIcon,
   },
   {
     name: "Eventos",
     description: "Vea los eventos disponibles.",
-    href: "/admin/listar-eventos",
+    href: "/admin/lista-eventos",
     icon: CalendarIcon,
   },
   {
     name: "Pasajes",
     description: "Vea las formas de viaje disponibles.",
-    href: "/admin/listar-pasajes",
+    href: "/admin/lista-pasajes",
     icon: TicketIcon,
   },
   {
     name: "Paquetes",
     description: "Vea los paquetes disponibles.",
-    href: "/admin/listar-paquetes",
+    href: "/admin/lista-paquetes",
     icon: ArchiveIcon,
   },
   {
     name: "Seguros de viaje",
     description: "Vea los seguros disponibles.",
-    href: "/admin/listar-seguros",
+    href: "/admin/lista-seguros",
     icon: HeartIcon,
   },
   {
     name: "Usuarios",
     description: "Vea los seguros disponibles.",
-    href: "/admin/listar-usuarios",
+    href: "/admin/lista-usuarios",
     icon: UserGroupIcon,
   },
 ];
