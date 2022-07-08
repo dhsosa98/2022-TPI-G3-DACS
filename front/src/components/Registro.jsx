@@ -94,7 +94,7 @@ export default function Registro() {
                       id="firstName"
                       autoComplete="given-firstname"
                       required
-                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                      className="appearance-none rounded-t-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Nombre"
                     />
                   </div>
@@ -109,7 +109,7 @@ export default function Registro() {
                       type="text"
                       autoComplete="given-lastname"
                       required
-                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                      className="appearance-none rounded-t-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Apellido"
                     />
                   </div>
@@ -124,11 +124,11 @@ export default function Registro() {
                       type="text"
                       autoComplete="given-cuit"
                       required
-                      className={`appearance-none rounded-lg relative block w-full px-3 py-2 border ${
+                      className={`appearance-none rounded-t-lg relative block w-full px-3 py-2 border ${
                         touched.cuit && errors.cuit
                           ? "border-red-600"
                           : "border-gray-300"
-                      } placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
+                      } placeholder-gray-500 text-gray-900 rounded-b-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
                       placeholder="CUIT"
                     />
                     <ErrorMessage
@@ -147,11 +147,11 @@ export default function Registro() {
                       type="email"
                       autoComplete="email"
                       required
-                      className={`appearance-none rounded-lg relative block w-full px-3 py-2 border ${
+                      className={`appearance-none rounded-t-lg relative block w-full px-3 py-2 border ${
                         touched.email && errors.email
                           ? "border-red-600"
                           : "border-gray-300"
-                      } placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
+                      } placeholder-gray-500 text-gray-900 rounded-b-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
                       placeholder="Email"
                     />
                     <ErrorMessage
@@ -170,11 +170,11 @@ export default function Registro() {
                       type="password"
                       autoComplete="current-password"
                       required
-                      className={`appearance-none rounded-lg relative block w-full px-3 py-2 border ${
+                      className={`appearance-none rounded-t-lg relative block w-full px-3 py-2 border ${
                         touched.password && errors.password
                           ? "border-red-600"
                           : "border-gray-300"
-                      } placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
+                      } placeholder-gray-500 text-gray-900 rounded-b-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
                       placeholder="Contraseña"
                     />
                     <ErrorMessage
@@ -193,11 +193,11 @@ export default function Registro() {
                       type="password"
                       autoComplete="current-password"
                       required
-                      className={`appearance-none rounded-lg relative block w-full px-3 py-2 border ${
+                      className={`appearance-none rounded-t-lg relative block w-full px-3 py-2 border ${
                         touched.password && errors.password
                           ? "border-red-600"
                           : "border-gray-300"
-                      } placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
+                      } placeholder-gray-500 text-gray-900 rounded-b-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
                       placeholder="Repita Contraseña"
                     />
                     <ErrorMessage

@@ -19,6 +19,8 @@ import { PackageTable } from "../components/PackageTable";
 import { TicketTable } from "../components/TicketTable";
 import { CrearPasaje } from "../components/CrearPasaje";
 import { ActualizarPasaje } from "../components/ActualizarPasaje";
+import { ActualizarPaquete } from "../components/ActualizarPaquete";
+import { CrearPaquete } from "../components/CrearPaquete";
 
 
 
@@ -37,7 +39,8 @@ const AdminPages = () => {
         <Route path="/admin/editar-pasaje/:id" component={ActualizarPasaje} />
         <Route exact path="/admin/crear-seguro" component={CrearSeguro} />
         <Route path="/admin/editar-seguro/:id" component={ActualizarSeguro} />
-        <Route path="/admin/crear-paquete" component={FormularioPaquete} />
+        <Route exact path="/admin/crear-paquete" component={CrearPaquete} />
+        <Route path="/admin/editar-paquete/:id" component={ActualizarPaquete} />
         <Route exact path="/admin/crear-evento" component={CrearEvento} />
         <Route path="/admin/editar-evento/:id" component={ActualizarEvento} />
         <Route path='/admin/lista-seguros' component={InsuranceTable} />

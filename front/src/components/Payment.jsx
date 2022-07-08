@@ -2,7 +2,6 @@ import Cards from "react-credit-cards";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "react-credit-cards/es/styles-compiled.css";
 import { useEffect } from "react";
-import { getPackage } from "../services/packages";
 import { useState } from "react";
 import { images } from "../pages/Hoteles";
 import { useLocation } from "react-router-dom";
@@ -38,7 +37,7 @@ export const Payment = () => {
   useEffect(() => {
     async function getPackageById() {
       try {
-        const response = await getPackage(packageId);
+        const response = await getPackageById(packageId);
         setPack(response);
       } catch (err) {
         setError(true);

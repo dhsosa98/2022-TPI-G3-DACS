@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getPackage } from "../services/packages";
+import { getPackageById } from "../services/packages";
+import { AuthContext } from "../contexts/Auth";
 import { images } from "./Hoteles";
 
 const Paquete = () => {
@@ -17,9 +18,10 @@ const Paquete = () => {
     insurance: "",
   });
   const { id } = useParams();
+  const { auth } = useContext(AuthContext);
 
   const fetchPaquete = async () => {
-    const data = await getPackage(id);
+    const data = await getPackageById(id);
     setPaquete(data);
   };
 
@@ -27,7 +29,8 @@ const Paquete = () => {
     fetchPaquete();
   }, []);
 
-  console.log(paquete);
+  console.log(auth);
+
   return (
     <>
       <div className="flex flex-wrap justify-center items-center">
@@ -118,6 +121,19 @@ const Paquete = () => {
                   </p>
                 </p>
               </div>
+              <button
+                className=" px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#007faded] hover:bg-[#00adad] self-start
+            border-blue-500 "
+              >
+                {auth ? (
+                  <a href={`/compra-paquete?packageId=${id}`}>
+                    {" "}
+                    Quiero reservarlo!
+                  </a>
+                ) : (
+                  <a href="/iniciarsesion"> Quiero reservarlo!</a>
+                )}
+              </button>
             </div>
           </div>
         </div>
