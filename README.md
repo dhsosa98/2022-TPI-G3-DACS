@@ -2,7 +2,7 @@
 
 Desarrollo y presentacion del TPI de Desarrollo de Aplicaciones Cliente Servidor
 
-## Empecemos 🚀 
+## Empecemos 🚀
 
 Estas instrucciones te permitirán obtener una copia del proyecto para el funcionamiento de manera local.
 
@@ -21,6 +21,7 @@ _Que cosas necesitas para poder iniciar la aplicación y como instalarlas_
 ```
 
 ### Instalación usando Docker 🐳
+
 _Despues de clonar el repositorio del proyecto_
 
 _En la consola ejecutamos el comando_
@@ -30,8 +31,15 @@ docker-compose up -d
 ```
 
 _Una vez completado el proceso de docker ya podemos acceder a la pagina principal_
+
 ```
-http://localhost:3000/
+http://localhost/
+```
+
+_Para acceder al Backend_
+
+```
+http://localhost/api/
 ```
 
 ### Instalación usando NPM 🔧
@@ -70,25 +78,33 @@ DB_NAME=Tourism_eCommerce
 
 _Finalizado este paso continuamos con la instalacion de la base de datos_
 
-*1er paso: Crear base de datos.*
+_1er paso: Crear base de datos._
 
 ```
 npx sequelize-cli db:create
 ```
 
-*2do paso: Crear tablas.*
+_2do paso: Crear tablas._
+
 ```
 npx sequelize-cli db:migrate
 ```
 
-*3er paso: Carga de datos.*
+_3er paso: Carga de datos._
+
 ```
 npx sequelize-cli db:seed:all
 ```
 
 _Poner en marcha el Backend_
+
 ```
 npm run start:dev
+```
+_Y aceedemos al Backend_
+
+```
+http://localhost:4000/api/
 ```
 
 #### Para el Frontend 💻
@@ -106,11 +122,13 @@ npm install
 ```
 
 _Poner en marcha el Backend_
+
 ```
 npm run dev
 ```
 
 _Y aceedemos a la pagina principal_
+
 ```
 http://localhost:3000/
 ```
@@ -131,18 +149,16 @@ _Herramientas utilizadas para crear el proyecto_
 - [Nginx](https://www.nginx.com/) - Reverse proxy.
 - [Azure](https://azure.microsoft.com/) - Servicios en la nube.
 
-
 ## Autores ✒️
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
-* **Acevedo Ariel** - _Gestor de Datos, Desarrollador, Tester, Documentacion_ - [JustaDeathKnight](https://github.com/JustaDeathKnight)
-* **Acosta Gaston** - _Desarrollador, Tester, Documentación_ - [gasteac](https://github.com/gasteac)
-* **Ramirez Joaquin** - _Desarrollador, Tester, Documentación_ - [JoaquinRamirez98](https://github.com/JoaquinRamirez98)
-* **Ruiz Franco** - _Desarrollador, Tester, Documentación_ - [francoruiz27](https://github.com/francoruiz27)
-* **Sosa Diego** - _Trabajo Inicial, Gestor de Datos, Desarrollador, Tester, Documentación_ - [dhsosa98](https://github.com/dhsosa98)
-* **Vilalta Tomas** - _Desarrollador, Tester, Documentación_ - [TomasVilalta](https://github.com/TomasVilalta)
-
+- **Acevedo Ariel** - _Gestor de Datos, Desarrollador, Tester, Documentacion_ - [JustaDeathKnight](https://github.com/JustaDeathKnight)
+- **Acosta Gaston** - _Desarrollador, Tester, Documentación_ - [gasteac](https://github.com/gasteac)
+- **Ramirez Joaquin** - _Desarrollador, Tester, Documentación_ - [JoaquinRamirez98](https://github.com/JoaquinRamirez98)
+- **Ruiz Franco** - _Desarrollador, Tester, Documentación_ - [francoruiz27](https://github.com/francoruiz27)
+- **Sosa Diego** - _Trabajo Inicial, Gestor de Datos, Desarrollador, Tester, Documentación_ - [dhsosa98](https://github.com/dhsosa98)
+- **Vilalta Tomas** - _Desarrollador, Tester, Documentación_ - [TomasVilalta](https://github.com/TomasVilalta)
 
 ## Despedida 🐺
 
