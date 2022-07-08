@@ -15,6 +15,9 @@ import h9 from "../../public/images/hotels/9.jpg";
 import h10 from "../../public/images/hotels/10.jpg";
 import h11 from "../../public/images/hotels/11.jpg";
 import h12 from "../../public/images/hotels/12.jpg";
+import h13 from "../../public/images/hotels/13.jpg";
+import h14 from "../../public/images/hotels/14.jpg";
+import h15 from "../../public/images/hotels/15.jpg";
 import Pagination from "../components/Pagination";
 
 export const images = [h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12];

@@ -2,7 +2,7 @@ import Axios from '../config/Axios';
 import { API_BASE_URL } from '../vite-env.d';
 
 export const getTickets = async () => {
-    const response = await Axios.get(API_BASE_URL +"/tickets");
+    const response = await Axios.get(API_BASE_URL +"/tickets?limit=100");
     return response.data;
 }
 

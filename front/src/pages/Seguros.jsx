@@ -4,9 +4,12 @@ import { getInsurances } from "../services/insurances";
 import t1 from "../../public/images/insurances/1.jpg";
 import t2 from "../../public/images/insurances/2.jpg";
 import t3 from "../../public/images/insurances/3.jpg";
+import t4 from "../../public/images/insurances/6.jpg";
+import t5 from "../../public/images/insurances/7.jpg";
+import t6 from "../../public/images/insurances/8.jpg";
 
 const Insurance = (props) => {
-  const images = [t1, t2, t3];
+  const images = [t1, t2, t3, t4, t5, t6];
 
   const [insurances, setInsurances] = useState([]);
 

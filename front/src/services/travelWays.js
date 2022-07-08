@@ -21,7 +21,7 @@ export const updateTravelWay = async (name, id) => {
 }
 
 export const getTravelWays = async () => {
-    const response = await Axios.get(API_BASE_URL+"/insurances");
+    const response = await Axios.get(API_BASE_URL+"/travelWays");
     return response.data;
 }
 
