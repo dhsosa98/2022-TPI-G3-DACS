@@ -81,18 +81,18 @@ export default function NavBar() {
         <>
           <div className="w-full px-4 sm:px-6 ">
             {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen} />}
-            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10 flex-wrap">
+            <div className="flex justify-between items-center border-gray-100 py-2 2xl:justify-between md:space-x-10 flex-wrap">
               <div className="flex justify-start flex-shrink">
                 <img className="h-12 w-12 " src={Logo} alt="" />
                 <span className="self-center text-2xl font-medium">FANTUR</span>
               </div>
-              <div className="-mr-2 -my-2 md:hidden">
+              <div className="2xl:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Abrir Menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
               </div>
-              <Popover.Group as="nav" className="hidden md:flex space-x-10">
+              <Popover.Group as="nav" className="2xl:flex hidden space-x-10">
                 <NavLink
                   activeStyle=""
                   to="/admin"
@@ -108,11 +108,11 @@ export default function NavBar() {
                 <DDAdminUsuarios />
               </Popover.Group>
 
-              <div className="hidden md:flex items-center justify-end flex-1 ">
+              <div className="hidden 2xl:flex items-center justify-end flex-1 ">
                 {isAdmin && (
                   <NavLink
                     to="/"
-                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium hover:bg-[#1c7c29] hover:text-white"
+                    className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium hover:bg-[#1c7c29] hover:text-white"
                   >
                     Vista Usuario
                   </NavLink>
@@ -140,7 +140,7 @@ export default function NavBar() {
           >
             <Popover.Panel
               focus
-              className="absolute z-40 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              className="absolute z-40 top-0 inset-x-0 p-2 transition transform origin-top-right 2xl:hidden"
             >
               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                 <div className="pt-5 pb-6 px-5">

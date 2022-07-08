@@ -4,8 +4,8 @@ import Hero from "../../public/images/home/hero.jpg";
 
 export default function Home() {
   return (
-    <section className="min-h-screen bg-[#059090] scrollbar-hide">
-      <Parallax pages={2.2} >
+    <section className="min-h-screen bg-[#059090] ">
+      <Parallax pages={2.2} className='scrollbar-hide'>
         <ParallaxLayer
           offset={0}
           factor={1.5}

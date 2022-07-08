@@ -81,7 +81,7 @@ export default function NavBar() {
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             {isOpen && <ModalCerrarSesion open={isOpen} setOpen={setIsOpen} />}
-            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
+            <div className="flex justify-between items-center border-gray-100 py-2 md:justify-between md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <Link
                   rel="noopener noreferrer"
