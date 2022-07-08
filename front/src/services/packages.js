@@ -3,6 +3,7 @@ import { API_BASE_URL } from "../vite-env.d";
 
 export const getPackages = async (page, size) => {
   const response = await Axios.get(`${API_BASE_URL}/packages`+"?page="+(page+1)+"&limit="+size);
+  return response.data;
 }
 
 export const createPackage = async (

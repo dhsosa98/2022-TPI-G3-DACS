@@ -15,8 +15,8 @@ const Paquetes = () => {
 
   async function fetchPaquetes() {
     const data = await getPackages(page, size);
-    setPaquetes(data.rows);
-    setCantElements(data.count);
+    setPaquetes(data?.rows);
+    setCantElements(data?.count);
   }
 
   useEffect(() => {
