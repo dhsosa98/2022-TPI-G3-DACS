@@ -21,9 +21,13 @@ export const InsuranceTable = (props) => {
     return (
         <section className=" flex-grow bg-[#ffffffcc] text-black pb-10">
         <div className="container p-2 mx-auto sm:p-4 text-gray-900">
-            <div className="flex">
-	<h2 className="mb-4 text-2xl font-semibold leading-tight mt-16">Seguros</h2>
-    
+        <div className="whitespace-nowrap flex mb-2 mt-6 items-center">
+        <Link to={"/admin"}>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline hover:bg-[#059090] hover:text-white rounded-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+            </svg>
+            </Link>
+            <h2 className="text-2xl font-semibold leading-tight inline text-center ml-2">Seguros</h2>
         </div>
 	<div className="overflow-x-auto">
 		<table className="w-full p-6 text-xs text-left text-white whitespace-nowrap">
