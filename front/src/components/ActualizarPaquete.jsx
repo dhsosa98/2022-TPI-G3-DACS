@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPackageById, updatePackage } from "../services/packages";
 import FormularioPaquete from "./FormularioPaquete";
+import ModalError from "./ModalError";
+import ModalExito from "./ModalExito";
 
 export const ActualizarPaquete = (props) => {
   const { id } = useParams();

@@ -299,7 +299,7 @@ export default function NavBar() {
                         {item.name}
                       </NavLink>
                     ))}
-                    {userResources?.map((item) => (
+                    {(auth && !isAdmin) && userResources?.map((item) => (
                       <NavLink
                         onClick={() => close()}
                         activeStyle={{

@@ -19,6 +19,7 @@ module.exports = {
 
       ticketId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: {
             tableName: 'Tickets',
@@ -29,6 +30,7 @@ module.exports = {
 
       hotelId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: {
             tableName: 'Hotels',
@@ -39,6 +41,7 @@ module.exports = {
 
       insuranceId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: {
             tableName: 'Insurances',
@@ -49,6 +52,7 @@ module.exports = {
 
       showId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: {
             tableName: 'Shows',

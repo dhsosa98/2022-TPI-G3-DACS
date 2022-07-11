@@ -14,6 +14,7 @@ module.exports = {
 
       userId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         primaryKey: true,
         references: {
           model: 'Users',
@@ -24,6 +25,7 @@ module.exports = {
 
       packId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         primaryKey: true,
         references: {
           model: 'Packages',

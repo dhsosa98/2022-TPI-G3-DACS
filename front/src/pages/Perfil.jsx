@@ -29,7 +29,7 @@ const Perfil = () => {
   return (
     <>
       <section className=" flex-grow bg-[#ffffffcc] pb-10">
-        <div className="bg-gradient-to-r from-[#059090] to-[#0d7a7a] shadow overflow-hidden sm:rounded-lg m-32">
+        <div className="bg-gradient-to-r from-[#059090] to-[#0d7a7a] shadow overflow-hidden sm:rounded-lg sm:m-32 m-5">
           <div className="px-4 py-5 sm:px-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"

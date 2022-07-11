@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getTicketById, updateTicket } from "../services/tickets";
 import FormularioPasaje from "./FormularioPasaje";
+import ModalError from "./ModalError";
+import ModalExito from "./ModalExito";
 
 export const ActualizarPasaje = (props) => {
   const { id } = useParams();
