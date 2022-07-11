@@ -12,11 +12,11 @@ services:
     environment:
       - WAIT_HOSTS=mysqldb:3306
       - DB_HOST=mysqldb
-      - DB_USER=$DB_USER
-      - DB_PASSWORD=$DB_PASSWORD
-      - DB_NAME=$DB_NAME
-      - DB_PORT=$DB_PORT
-      - DB_DIALECT=$DB_DIALECT
+      - DB_USER=root
+      - DB_PASSWORD=1234
+      - DB_NAME=fantur-ecommerce
+      - DB_PORT=3306
+      - DB_DIALECT=mysql
       - PORT=8000
       - EMAIL_HOST=$EMAIL_HOST
       - EMAIL_USER=$EMAIL_USER
@@ -54,10 +54,10 @@ services:
     restart: unless-stopped
     env_file: ./api/.env
     environment:
-      - MYSQL_ROOT_PASSWORD=$DB_PASSWORD
-      - MYSQL_DATABASE=$DB_NAME
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=fantur-ecommerce
     ports:
-      - 3007:$DB_PORT
+      - 3007:3306
     volumes:
       - db:/var/lib/mysql
     networks:
