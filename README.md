@@ -20,7 +20,7 @@ _Que cosas necesitas para poder iniciar la aplicación y como instalarlas_
 - Docker.
 ```
 ### Deploy app ⚙️
-- [FANTUR S.A](https://tpi-dacs.azurewebsites.net/) - Pagina del proyecto.
+- [FANTUR S.A](https://fantur-ecommerce.azurewebsites.net/) - Pagina del proyecto.
 
 ### Instalación usando Docker 🐳
 
